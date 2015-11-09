@@ -20,7 +20,7 @@ public class IntroTextForAllActivity extends Activity {
     Button btnNext ;
     ImageButton btnSound;
     ImageView pic;
-    Class textToload = FindCorrectPic.class;
+
     MediaPlayer mp;
 
     @Override
