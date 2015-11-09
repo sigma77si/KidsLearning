@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">KidsLearning</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_count">CountActivity</string>
+    <string name="title_activity_test2">Test2</string>
+    <string name="title_activity_test2_intro">Test2IntroActivity</string>
+    <string name="Intro1Text1">Пребройте на следващата страница пръстите които не са сгънати и натиснете съответната цифра.</string>
+
+    <string name="Intro1Text2">Открийте на следващата страница фигурата на модела в ляво в едно от силуетните изображения от неговата дясна страна и натиснете на него.</string>
+    <string name="Intro1Text3">Една от четерите рисунки на всеки ред не съотвтства на останалите три. На следващата страница открийте коя е тя и я натиснете.</string>
+    <string name="Intro1Text4">Открийте трите напълно еднакви копчета на следващата страница, натиснепе на тях, а след това и на бутона за проверка.</string>
+    <string name="Intro1Text5">В картината на следвашата страница е нарисувана една круша. По късно картината е разрязана на парчета, които след това са разбъркани.
+        Подредете мислено парчетата от картината, така че да възстановите формата на нарисуваната в нея круша.
+     Подреждането извършвайте от долу на горе, като имате предвид, че само първото(най долно) пърче е на мястото си.
+    Отговорите регистрирайте като избирате цифрата която отговаря на поредноста на парчето.
+    Накрая натиснете бутона "провери" за да визуализирате отговорите си.</string>
+
+    <string name="title_activity_test3">Test3Activity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_cuted_pic">CutedPicActivity</string>
+    <string-array name="num">
+        <item>Избери</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+
+    </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_fragment_test">FragmentTest</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="introtext">IntroText</string>
+    <string name="title_activity_find_uncorrect_pic">FindUncorrectPic</string>
+</resources>

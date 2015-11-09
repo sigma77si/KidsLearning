@@ -1,0 +1,203 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="5dp"
+    tools:context="com.dev.sigma77.kidslearning.CutedPicActivity"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.4">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="6"
+            android:visibility="invisible"
+            android:id="@+id/layout1">
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View6"
+                android:layout_weight="1"
+
+                android:background="@drawable/pear6"
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View5"
+                android:layout_weight="1"
+                android:background="@drawable/pear5"
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View4"
+                android:layout_weight="1"
+                android:background="@drawable/pear4"/>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View3"
+                android:layout_weight="1"
+                android:background="@drawable/pear3"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View2"
+                android:layout_weight="1"
+                android:background="@drawable/pear2"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/image2View1"
+                android:layout_weight="1"
+                android:background="@drawable/pear1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="13"
+            android:id="@+id/layout2">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView6"
+                android:layout_weight="2"
+                android:background="@drawable/pear2"
+                android:adjustViewBounds="true"
+
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView5"
+                android:layout_weight="2"
+                android:background="@drawable/pear5"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView4"
+                android:layout_weight="2"
+                android:background="@drawable/pear3"
+                android:adjustViewBounds="true"/>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView3"
+                android:layout_weight="2"
+                android:background="@drawable/pear6"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView2"
+                android:layout_weight="2"
+                android:background="@drawable/pear4"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView1"
+                android:layout_weight="2"
+                android:background="@drawable/pear1"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imageView7"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6"
+        android:weightSum="13"
+        android:id="@+id/layoutSpinners">
+
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner6"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner5"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner4"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner3"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner2"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.8"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="1"
+                android:id="@+id/textView2"
+
+                android:gravity="center_vertical"/>
+
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="провери"
+            android:id="@+id/button1"
+            android:layout_weight="1.2"
+            android:background="@drawable/shapes2"/>
+
+    </LinearLayout>
+</LinearLayout>
