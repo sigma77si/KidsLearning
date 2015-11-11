@@ -218,7 +218,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
                     finish();
                 }
             }, 1700);
-            sp.play(endSound, 1, 1, 0, 0, 1);
+           // sp.play(endSound, 1, 1, 0, 0, 1);
 
             //TODO
         } else {

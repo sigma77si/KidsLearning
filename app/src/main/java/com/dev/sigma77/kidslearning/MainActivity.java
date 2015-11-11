@@ -16,7 +16,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button game1, game2, game3, game4, game5, game6, game7, game8;
     SoundPool sp;
     MediaPlayer mp;
-    int intro;
+    int introSound,bipSound,clickAnswerSound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +38,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         game7.setOnClickListener(this);
         game8.setOnClickListener(this);
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
-        intro = sp.load(this, R.raw.intro_one, 1);
+        introSound = sp.load(this, R.raw.intro_one, 1);
+        bipSound = sp.load(this, R.raw.blub, 1);
+        clickAnswerSound = sp.load(this, R.raw.sound, 1);
         mp = MediaPlayer.create(MainActivity.this, R.raw.intro_one);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
+
+
 
 
     @Override
@@ -74,7 +78,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.btnGame1: {
 
-
+               sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", R.string.Intro1Text1);
                 in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
@@ -87,7 +91,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
             case R.id.btnGame2: {
 
-
+                sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", R.string.Intro1Text2);
                 in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
@@ -99,7 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnGame3: {
-
+                sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text3));
                 in.putExtra("ImageToLoad", R.drawable.a_example);
@@ -110,7 +114,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             break;
             case R.id.btnGame4: {
-
+                sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text4));
                 in.putExtra("TestNum", 4);
@@ -122,7 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnGame5: {
-
+                sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text5));
                 in.putExtra("TestNum", 5);
@@ -134,7 +138,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnGame6: {
-
+                sp.play(bipSound,1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text3));
                 in.putExtra("TestNum", 3);

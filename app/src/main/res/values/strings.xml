@@ -45,4 +45,5 @@
     <string name="action_example">Example action</string>
     <string name="introtext">IntroText</string>
     <string name="title_activity_find_uncorrect_pic">FindUncorrectPic</string>
+    <string name="title_activity_result">ResultActivity</string>
 </resources>

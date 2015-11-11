@@ -21,7 +21,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     SoundPool sp;
     Button check;
-    int numofAnswers, correct = 0,correctSound, wrongSound, endSound;
+    int numofAnswers, correct = 0,correctSound, wrongSound, endSound,clickAnswerSound;
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11,
             btn12, btn13, btn14, btn15, btn16;
     Set<ImageButton> answer = new HashSet<>();
@@ -93,6 +93,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
+        clickAnswerSound= sp.load(this, R.raw.sound, 1);
     }
 
 
@@ -235,6 +236,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
             }
 
             default:{
+                sp.play(clickAnswerSound, 1, 1, 0, 0, 1);
                 ImageButton selectedButton = buttonMap.get(selectedButtonId);
                 setBgrGrey(selectedButton);
                 if(correctAnswers.contains(selectedButtonId)){

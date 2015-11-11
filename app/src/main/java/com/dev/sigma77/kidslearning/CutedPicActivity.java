@@ -45,17 +45,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         spinner5.setOnItemSelectedListener(this);
         spinner6.setOnItemSelectedListener(this);
 
-        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
-        spinner2.setAdapter(adapter2);
-        ArrayAdapter adapter3 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
-
-        spinner3.setAdapter(adapter3);
-        ArrayAdapter adapter4 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
-        spinner4.setAdapter(adapter4);
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
-        spinner5.setAdapter(adapter5);
-        ArrayAdapter adapter6 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
-        spinner6.setAdapter(adapter6);
+        setArrayAdapters();
 
         btnCheck = (Button) findViewById(R.id.button1);
 
@@ -81,6 +71,20 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
 
+    }
+
+    private void setArrayAdapters() {
+        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
+        spinner2.setAdapter(adapter2);
+        ArrayAdapter adapter3 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
+
+        spinner3.setAdapter(adapter3);
+        ArrayAdapter adapter4 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
+        spinner4.setAdapter(adapter4);
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
+        spinner5.setAdapter(adapter5);
+        ArrayAdapter adapter6 = ArrayAdapter.createFromResource(this, R.array.num, android.R.layout.simple_spinner_item);
+        spinner6.setAdapter(adapter6);
     }
 
 
@@ -165,37 +169,38 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         img6.setBackgroundResource(R.drawable.boy_2);
         layout2.setVisibility(View.VISIBLE);
         layout1.setVisibility(View.INVISIBLE);
+        setArrayAdapters();
         layoutSpinners.setVisibility(View.VISIBLE);
         btnCheck.setVisibility(View.VISIBLE);
         countAnswers = 1;
         scene++;
     }
 
-    public void setPicElementImg(ImageView v, int img) {
-
-        switch (img) {
-            case 2: {
-                v.setBackgroundResource(R.drawable.pear2);
-                break;
-            }
-            case 3: {
-                v.setBackgroundResource(R.drawable.pear3);
-                break;
-            }
-            case 4: {
-                v.setBackgroundResource(R.drawable.pear4);
-                break;
-            }
-            case 5: {
-                v.setBackgroundResource(R.drawable.pear5);
-                break;
-            }
-            case 6: {
-                v.setBackgroundResource(R.drawable.pear6);
-                break;
-            }
-        }
-    }
+//    public void setPicElementImg(ImageView v, int img) {
+//
+//        switch (img) {
+//            case 2: {
+//                v.setBackgroundResource(R.drawable.pear2);
+//                break;
+//            }
+//            case 3: {
+//                v.setBackgroundResource(R.drawable.pear3);
+//                break;
+//            }
+//            case 4: {
+//                v.setBackgroundResource(R.drawable.pear4);
+//                break;
+//            }
+//            case 5: {
+//                v.setBackgroundResource(R.drawable.pear5);
+//                break;
+//            }
+//            case 6: {
+//                v.setBackgroundResource(R.drawable.pear6);
+//                break;
+//            }
+//        }
+//    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
