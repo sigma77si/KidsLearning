@@ -282,6 +282,8 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     private void startNextScene() {
         if (sceneNum == 5 || sceneNum == 8 ) {
             finish();
+            Intent in = new Intent(this, ResultActivity.class);
+            startActivity(in);
         }
 
         sceneNum++;

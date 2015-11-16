@@ -1,9 +1,11 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -256,6 +258,15 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
             btn4.setBackgroundResource(R.drawable.shapes4);
             btn9.setBackgroundResource(R.drawable.shapes4);
             btn15.setBackgroundResource(R.drawable.shapes4);
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                   finish();
+                }
+            }, 4700);
+            Intent in = new Intent(this, ResultActivity.class);
+            startActivity(in);
 
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
         }

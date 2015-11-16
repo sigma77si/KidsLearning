@@ -1,6 +1,7 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -190,6 +191,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
             }
             case 10: {
                 pic.setImageResource(R.drawable.count_on_fingers_10);
+
                 break;
             }
         }
@@ -219,6 +221,8 @@ public class CountActivity extends Activity implements View.OnClickListener {
                 }
             }, 1700);
            // sp.play(endSound, 1, 1, 0, 0, 1);
+            Intent in = new Intent(this, ResultActivity.class);
+            startActivity(in);
 
             //TODO
         } else {

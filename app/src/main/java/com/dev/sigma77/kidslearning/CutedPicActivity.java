@@ -1,6 +1,7 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -142,6 +143,8 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                                 }
                             }
                         }, 4700);
+                        Intent in = new Intent(this, ResultActivity.class);
+                        startActivity(in);
                     }
                 }
 
