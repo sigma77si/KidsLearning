@@ -72,6 +72,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        ResultActivity.result=-1;
+//        getPreferences(MODE_PRIVATE).edit().putInt("Result",0).commit();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
 

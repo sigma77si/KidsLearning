@@ -96,6 +96,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
         clickAnswerSound= sp.load(this, R.raw.sound, 1);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 
 

@@ -1,6 +1,8 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,8 +14,9 @@ import android.widget.TextView;
 
 
 public class ResultActivity extends Activity implements View.OnClickListener {
-    TextView text1,text2,text3;
+    TextView text1,text2,text3,currentResultView,resultView;
     Button ok;
+   public static int result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,19 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         text1= (TextView) findViewById(R.id.textView1);
         text2= (TextView) findViewById(R.id.textView2);
         text3= (TextView) findViewById(R.id.textView3);
+        currentResultView= (TextView) findViewById(R.id.currentResult);
+       resultView= (TextView) findViewById(R.id.result);
         ok= (Button) findViewById(R.id.button1);
         ok.setOnClickListener(this);
-
+        Intent mIntent = getIntent();
+       int currentResult = mIntent.getIntExtra("CurrentGameCorrectAnswers", 0);
+        if(result!=-1) {
+            result = getPreferences(MODE_PRIVATE).getInt("Result", 0);
+        }
+        else{
+            result=0;
+        }
+        setResults(currentResult);
 
         new Handler().postDelayed(new Runnable() {
 
@@ -36,6 +49,22 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         }, 4700);
     }
 
+    @Override
+    protected void onPause() {
+
+
+        super.onPause();
+//
+        getPreferences(MODE_PRIVATE).edit().putInt("Result",result).commit();
+    }
+
+    private void setResults(int currentResult) {
+        result+=currentResult;
+        resultView.setText(Integer.toString(result));
+        currentResultView.setText(Integer.toString(currentResult));
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,6 +72,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         getMenuInflater().inflate(R.menu.menu_result, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -58,6 +88,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onClick(View v) {

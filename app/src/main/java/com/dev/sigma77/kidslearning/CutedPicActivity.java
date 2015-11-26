@@ -71,6 +71,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
     }
 

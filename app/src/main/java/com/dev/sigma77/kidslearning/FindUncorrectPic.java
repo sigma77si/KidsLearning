@@ -1,5 +1,6 @@
 package com.dev.sigma77.kidslearning;
 
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ public class FindUncorrectPic extends FindCorrectPic {
 
         FindCorrectPic object = new FindCorrectPic();
         object.setCorrectAnswerBtns(6);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 
 

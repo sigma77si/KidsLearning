@@ -73,7 +73,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
-
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
     }
 
@@ -222,6 +222,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
             }, 1700);
            // sp.play(endSound, 1, 1, 0, 0, 1);
             Intent in = new Intent(this, ResultActivity.class);
+            in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
             startActivity(in);
 
             //TODO
