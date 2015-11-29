@@ -17,6 +17,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     SoundPool sp;
     MediaPlayer mp;
     int introSound,bipSound,clickAnswerSound;
+    public static boolean ifTest=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,9 +159,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
             case R.id.btnGame7: {
 
+            ifTest=true;
 
-
-
+                Intent in = new Intent(this, IntroTextForAllActivity.class);
+                in.putExtra("IntroText", (R.string.Intro1Text3));
+                in.putExtra("ImageToLoad", R.drawable.a_example);
+                in.putExtra("TestNum", 3);
+                in.putExtra("IntroReading", R.raw.zvukpravilno);
+                startActivity(in);
 
                 break;
             }

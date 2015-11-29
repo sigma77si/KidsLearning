@@ -201,7 +201,6 @@ public class CountActivity extends Activity implements View.OnClickListener {
     public void checkAnswer(int answerNum) {
 
         if (currentPic == answerNum) {
-
             corectAnswers++;
             sp.play(correctSound, 1, 1, 0, 0, 1);
         } else {
@@ -209,28 +208,35 @@ public class CountActivity extends Activity implements View.OnClickListener {
         }
         intPicList.remove(currentPic);
         if (intPicList.size() <= 0) {
-            // Intent i =new Intent(this,MainActivity.class);
+            DelayAndFinish();
+            // sp.play(endSound, 1, 1, 0, 0, 1);
+            if(MainActivity.ifTest=true) {
 
-            // startActivity(i);
-            new Handler().postDelayed(new Runnable() {
+                Intent intent = new Intent(this, IntroTextForAllActivity.class);
+                intent.putExtra("IntroText", R.string.Intro1Text2);
+                intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
+                intent.putExtra("TestNum", 2);
+                intent.putExtra("IntroReading", R.raw.zvukpravilno);
+                startActivity(intent);
+                Intent in = new Intent(this, ResultActivity.class);
+                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
+                startActivity(in);
+            }
 
-                @Override
-                public void run() {
-
-                    finish();
-                }
-            }, 1700);
-           // sp.play(endSound, 1, 1, 0, 0, 1);
-            Intent in = new Intent(this, ResultActivity.class);
-            in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
-            startActivity(in);
-
-            //TODO
         } else {
             getRandomPic();
         }
 
 
+    }
+
+    private void DelayAndFinish() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 1700);
     }
 
     public void getRandomPic() {

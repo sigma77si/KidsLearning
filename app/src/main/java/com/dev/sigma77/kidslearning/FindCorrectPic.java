@@ -16,6 +16,7 @@ import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
+    public static int corectAnswers=0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -281,10 +282,36 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     }
 
     private void startNextScene() {
+
+        if(MainActivity.ifTest=true){
+            if(sceneNum!=6){
+                Intent in = new Intent(this, IntroTextForAllActivity.class);
+                in.putExtra("IntroText", (R.string.Intro1Text5));
+                in.putExtra("TestNum", 5);
+                in.putExtra("ImageToLoad", R.drawable.pear_main);
+                in.putExtra("IntroReading", R.raw.zvukpravilno);
+                startActivity(in);
+                Intent result = new Intent(this, ResultActivity.class);
+                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
+                startActivity(result);
+
+            }
+            else {
+                Intent in = new Intent(this, IntroTextForAllActivity.class);
+                in.putExtra("IntroText", R.string.Intro1Text1);
+                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
+                in.putExtra("TestNum", 1);
+                in.putExtra("IntroReading", R.raw.intro_one);
+                startActivity(in);
+                finish();
+                Intent result = new Intent(this, ResultActivity.class);
+                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
+                startActivity(result);
+            }
+        }
         if (sceneNum == 5 || sceneNum == 8 ) {
             finish();
-            Intent in = new Intent(this, ResultActivity.class);
-            startActivity(in);
+
         }
 
         sceneNum++;
