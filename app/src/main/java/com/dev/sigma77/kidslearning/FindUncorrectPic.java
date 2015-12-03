@@ -15,7 +15,7 @@ public class FindUncorrectPic extends FindCorrectPic {
 
         FindCorrectPic object = new FindCorrectPic();
         object.setCorrectAnswerBtns(6);
-        FindCorrectPic.corectAnswers=0;
+        FindCorrectPic.correctAnswers =0;
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 

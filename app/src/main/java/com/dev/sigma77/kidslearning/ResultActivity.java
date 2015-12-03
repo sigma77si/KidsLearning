@@ -14,7 +14,8 @@ import android.widget.TextView;
 
 
 public class ResultActivity extends Activity implements View.OnClickListener {
-    TextView text1,text2,text3,currentResultView,resultView;
+    TextView text1,text2,text3,currentResultView;
+    public static TextView resultView;
     Button ok;
    public static int result;
 
@@ -30,6 +31,9 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         ok= (Button) findViewById(R.id.button1);
         ok.setOnClickListener(this);
         Intent mIntent = getIntent();
+        if(MainActivity.isTest==false){
+            ResultActivity.resultView.setVisibility(View.INVISIBLE);
+        };
        int currentResult = mIntent.getIntExtra("CurrentGameCorrectAnswers", 0);
         if(result!=-1) {
             result = getPreferences(MODE_PRIVATE).getInt("Result", 0);

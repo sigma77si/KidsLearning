@@ -8,16 +8,22 @@ import android.content.Intent;
  */
 public class RunnableShowAnswers implements Runnable {
     Activity activityObj;
-
-    public RunnableShowAnswers(Activity pActivity){
+    Class nextScene;
+    public RunnableShowAnswers(Activity pActivity, Class scene){
         activityObj = pActivity;
+        nextScene=scene;
     }
 
 
     @Override
-    public void run() {
+        public void run() {
         Intent in = new Intent(activityObj, ResultActivity.class);
+        Intent int2=new Intent(activityObj, nextScene);
         activityObj.startActivity(in);
+        if( nextScene != MainActivity.class){
+            activityObj.startActivity(int2);
+        }
+
         activityObj.finish();
     }
 }

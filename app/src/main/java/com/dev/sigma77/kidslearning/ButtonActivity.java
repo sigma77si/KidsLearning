@@ -267,7 +267,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
             if(MainActivity.isTest == true){
 
             }else {
-                new Handler().postDelayed(new RunnableShowAnswers(this), 4700);
+                new Handler().postDelayed(new RunnableShowAnswers(this,MainActivity.class), 4700);
             }
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
         }
