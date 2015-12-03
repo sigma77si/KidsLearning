@@ -61,6 +61,8 @@ public class IntroTextForAllActivity extends Activity {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
                             in.putExtra("SceneNum", 6);
                             startActivity(in);
+                            FindCorrectPic.correctAnswers = 0;
+                            FindCorrectPic.countCorrectAnswers = 0;
                         } else if (testNum == 4) {
                             Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
                             startActivity(in);

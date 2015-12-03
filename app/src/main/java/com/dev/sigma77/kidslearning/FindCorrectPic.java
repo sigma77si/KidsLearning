@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
-    public static int correctAnswers ,countcorrectAnswers= 0;
+    public static int correctAnswers , countCorrectAnswers = 0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -290,7 +290,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     }
 
     private void startNextScene() {
-        if(countcorrectAnswers==5){
+        if(countCorrectAnswers ==5){
             correctAnswers=1;
 
         };
@@ -325,7 +325,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     }
 
     private void startNextTestScene() {
-        if(countcorrectAnswers==5){
+        if(countCorrectAnswers ==5){
             correctAnswers=1;
 
         };
@@ -505,7 +505,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
             pressedBtn.setTextColor(getResources().getColor(R.color.green));
             sp.play(correctSound, 1, 1, 0, 0, 1);
             isCorrect = true;
-            countcorrectAnswers++;
+            countCorrectAnswers++;
 
         }
         changeLayoutCollor(isCorrect, btnNum);
