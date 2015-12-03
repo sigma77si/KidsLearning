@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
-    public static int corectAnswers=0;
+    public static int corectAnswers = 0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -266,8 +266,6 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
         }
         numOfAnswers++;
         if (numOfAnswers == 5) {
-
-
             new Handler().postDelayed(new Runnable() {
 
                 @Override
@@ -283,8 +281,8 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 
     private void startNextScene() {
 
-        if(MainActivity.ifTest=true){
-            if(sceneNum!=6){
+        if (MainActivity.isTest == true) {
+            if (sceneNum != 6) {
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text5));
                 in.putExtra("TestNum", 5);
@@ -295,8 +293,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                 in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
                 startActivity(result);
 
-            }
-            else {
+            } else {
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", R.string.Intro1Text1);
                 in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
@@ -309,7 +306,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                 startActivity(result);
             }
         }
-        if (sceneNum == 5 || sceneNum == 8 ) {
+        if (sceneNum == 5 || sceneNum == 8) {
             finish();
 
         }
@@ -363,14 +360,14 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 
     public void setCorrectAnswerBtns(int sceneNum) {
         if (sceneNum == 1) {
-            setButtons(btn2,btn7,btn12,btn15,btn17);
+            setButtons(btn2, btn7, btn12, btn15, btn17);
 //            correctAnswerBtns[0] = btn2;
 //            correctAnswerBtns[1] = btn7;
 //            correctAnswerBtns[2] = btn12;
 //            correctAnswerBtns[3] = btn15;
 //            correctAnswerBtns[4] = btn18;
         } else if (sceneNum == 2) {
-            setButtons(btn2,btn8,btn11,btn14,btn19);
+            setButtons(btn2, btn8, btn11, btn14, btn19);
 //            correctAnswerBtns[0] = btn2;
 //            correctAnswerBtns[1] = btn8;
 //            correctAnswerBtns[2] = btn11;
@@ -378,7 +375,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 //            correctAnswerBtns[4] = btn19;
 
         } else if (sceneNum == 3) {
-            setButtons(btn4,btn7,btn10,btn16,btn20);
+            setButtons(btn4, btn7, btn10, btn16, btn20);
 //            correctAnswerBtns[0] = btn4;
 //            correctAnswerBtns[1] = btn7;
 //            correctAnswerBtns[2] = btn10;
@@ -386,7 +383,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 //            correctAnswerBtns[4] = btn20;
 
         } else if (sceneNum == 4) {
-            setButtons(btn4,btn8,btn10,btn15,btn19);
+            setButtons(btn4, btn8, btn10, btn15, btn19);
 //            correctAnswerBtns[0] = btn4;
 //            correctAnswerBtns[1] = btn8;
 //            correctAnswerBtns[2] = btn10;
@@ -394,7 +391,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 //            correctAnswerBtns[4] = btn19;
 
         } else if (sceneNum == 5) {
-            setButtons(btn4,btn6,btn11,btn13,btn19);
+            setButtons(btn4, btn6, btn11, btn13, btn19);
 //            correctAnswerBtns[0] = btn4;
 //            correctAnswerBtns[1] = btn6;
 //            correctAnswerBtns[2] = btn11;
@@ -402,24 +399,23 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 //            correctAnswerBtns[4] = btn19;
 
         } else if (sceneNum == 6) {
-            setButtons(btn3,btn5,btn11,btn14,btn17);
+            setButtons(btn3, btn5, btn11, btn14, btn17);
 //            correctAnswerBtns[0] = btn3;
 //            correctAnswerBtns[1] = btn5;
 //            correctAnswerBtns[2] = btn11;
 //            correctAnswerBtns[3] = btn14;
 //            correctAnswerBtns[4] = btn17;
 
-        }
-        else if (sceneNum == 7) {
+        } else if (sceneNum == 7) {
             setButtons(btn2, btn8, btn10, btn13, btn17);
 
-        }
-        else if (sceneNum == 8) {
+        } else if (sceneNum == 8) {
             setButtons(btn4, btn6, btn11, btn14, btn17);
         }
         setBgrResource(sceneNum);
     }
-    public  void setButtons(Button btn1,Button btn2 ,Button btn3 ,Button btn4,Button btn5){
+
+    public void setButtons(Button btn1, Button btn2, Button btn3, Button btn4, Button btn5) {
         correctAnswerBtns[0] = btn1;
         correctAnswerBtns[1] = btn2;
         correctAnswerBtns[2] = btn3;
@@ -467,15 +463,13 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                     R.drawable.a8, R.drawable.a9, R.drawable.a10, R.drawable.a11, R.drawable.a12, R.drawable.a13, R.drawable.a14, R.drawable.a15,
                     R.drawable.a16, R.drawable.a17, R.drawable.a18, R.drawable.a19, R.drawable.a20};
             changeBtnBgr(bgrResource6);
-        }
-        else if (sceneNum == 7) {
-            int[] bgrResource7= {R.drawable.b1, R.drawable.b2, R.drawable.b3, R.drawable.b4, R.drawable.b5, R.drawable.b6, R.drawable.b7,
+        } else if (sceneNum == 7) {
+            int[] bgrResource7 = {R.drawable.b1, R.drawable.b2, R.drawable.b3, R.drawable.b4, R.drawable.b5, R.drawable.b6, R.drawable.b7,
                     R.drawable.b8, R.drawable.b9, R.drawable.b10, R.drawable.b11, R.drawable.b12, R.drawable.b13, R.drawable.b14, R.drawable.b15,
                     R.drawable.b16, R.drawable.b17, R.drawable.b18, R.drawable.b19, R.drawable.b20};
             changeBtnBgr(bgrResource7);
-        }
-        else if (sceneNum == 8) {
-            int[] bgrResource8= {R.drawable.c1, R.drawable.c2, R.drawable.c3, R.drawable.c4, R.drawable.c5, R.drawable.c6, R.drawable.c7,
+        } else if (sceneNum == 8) {
+            int[] bgrResource8 = {R.drawable.c1, R.drawable.c2, R.drawable.c3, R.drawable.c4, R.drawable.c5, R.drawable.c6, R.drawable.c7,
                     R.drawable.c8, R.drawable.c9, R.drawable.c10, R.drawable.c11, R.drawable.c12, R.drawable.c13, R.drawable.c14, R.drawable.c15,
                     R.drawable.c16, R.drawable.c17, R.drawable.c18, R.drawable.c19, R.drawable.c20};
             changeBtnBgr(bgrResource8);

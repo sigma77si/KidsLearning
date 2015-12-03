@@ -254,21 +254,21 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     private void setAnswerBgrColor() {
         if (numofAnswers >= 3) {
-
-
             btn4.setBackgroundResource(R.drawable.shapes4);
             btn9.setBackgroundResource(R.drawable.shapes4);
             btn15.setBackgroundResource(R.drawable.shapes4);
             new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, 4700);
 
-                @Override
-                public void run() {
-                   finish();
-                }
-            }, 4700);
-            Intent in = new Intent(this, ResultActivity.class);
-            startActivity(in);
+            if(MainActivity.isTest == true){
 
+            }else {
+                new Handler().postDelayed(new RunnableShowAnswers(this), 4700);
+            }
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
         }
     }

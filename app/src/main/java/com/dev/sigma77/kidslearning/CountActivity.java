@@ -13,10 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 
 public class CountActivity extends Activity implements View.OnClickListener {
@@ -210,14 +208,17 @@ public class CountActivity extends Activity implements View.OnClickListener {
         if (intPicList.size() <= 0) {
             DelayAndFinish();
             // sp.play(endSound, 1, 1, 0, 0, 1);
-            if(MainActivity.ifTest=true) {
-
+            if(MainActivity.isTest == true) {
                 Intent intent = new Intent(this, IntroTextForAllActivity.class);
                 intent.putExtra("IntroText", R.string.Intro1Text2);
                 intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
                 intent.putExtra("TestNum", 2);
                 intent.putExtra("IntroReading", R.raw.zvukpravilno);
                 startActivity(intent);
+                Intent in = new Intent(this, ResultActivity.class);
+                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
+                startActivity(in);
+            }else {
                 Intent in = new Intent(this, ResultActivity.class);
                 in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
                 startActivity(in);
