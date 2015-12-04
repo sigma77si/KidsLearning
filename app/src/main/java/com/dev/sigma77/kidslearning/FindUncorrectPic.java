@@ -13,10 +13,10 @@ public class FindUncorrectPic extends FindCorrectPic {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_uncorrect_pic);
 
-        FindCorrectPic object = new FindCorrectPic();
-        object.setCorrectAnswerBtns(6);
-        FindCorrectPic.correctAnswers = 0;
-        FindCorrectPic.countCorrectAnswers = 0;
+       // FindCorrectPic object = new FindCorrectPic();
+       // object.setCorrectAnswerBtns(6);
+       // FindCorrectPic.currentGamePoints = 0;
+       // FindCorrectPic.correctAnswers = 0;
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 

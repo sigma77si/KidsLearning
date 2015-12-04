@@ -24,7 +24,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
     Map<Integer, Integer> intPicList = new HashMap<>();
     private ImageView pic;
     private int currentPic, correctSound, wrongSound, endSound;
-    private int corectAnswers = 0;
+    private int correctAnswers, currentGamePoints = 0;
 
 
     @Override
@@ -199,30 +199,46 @@ public class CountActivity extends Activity implements View.OnClickListener {
     public void checkAnswer(int answerNum) {
 
         if (currentPic == answerNum) {
-            corectAnswers++;
+            correctAnswers++;
             sp.play(correctSound, 1, 1, 0, 0, 1);
         } else {
             sp.play(wrongSound, 1, 1, 0, 0, 1);
         }
         intPicList.remove(currentPic);
         if (intPicList.size() <= 0) {
-            DelayAndFinish();
+            boolean isEnd=true;
+            if(correctAnswers ==10){
+                currentGamePoints =1;
+            };
+
+           // new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 4700);
+           // DelayAndFinish();
             // sp.play(endSound, 1, 1, 0, 0, 1);
             if(MainActivity.isTest == true) {
-                Intent intent = new Intent(this, IntroTextForAllActivity.class);
-                intent.putExtra("IntroText", R.string.Intro1Text2);
-                intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-                intent.putExtra("TestNum", 2);
-                intent.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(intent);
-                Intent in = new Intent(this, ResultActivity.class);
-                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
-                startActivity(in);
+                NextTestScene putExtra=new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
+                ,R.raw.zvukpravilno);
+                putExtra.putExtra();
+
+//                Intent intent = new Intent(this, IntroTextForAllActivity.class);
+//                intent.putExtra("IntroText", R.string.Intro1Text2);
+//                intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
+//                intent.putExtra("TestNum", 2);
+//                intent.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(intent);
+
+//                Intent in = new Intent(this, ResultActivity.class);
+//                in.putExtra("GamePoints", currentGamePoints);
+//                in.putExtra("CorrectAnswers", correctAnswers);
+//                startActivity(in);
             }else {
-                Intent in = new Intent(this, ResultActivity.class);
-                in.putExtra("CurrentGameCorrectAnswers", corectAnswers);
-                startActivity(in);
+
+//                Intent in = new Intent(this, ResultActivity.class);
+//                in.putExtra("GamePoints", currentGamePoints);
+//                in.putExtra("CorrectAnswers", correctAnswers);
+//                startActivity(in);
+
             }
+            new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
 
         } else {
             getRandomPic();

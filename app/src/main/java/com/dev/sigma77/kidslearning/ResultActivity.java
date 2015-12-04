@@ -2,46 +2,49 @@ package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 public class ResultActivity extends Activity implements View.OnClickListener {
-    TextView text1,text2,text3,currentResultView;
-    public static TextView resultView;
+    TextView textResults, textCorrect, textTestResult, currentCorrectResult,points;
+    public static TextView testResultView;
     Button ok;
+    LinearLayout testResultLayout;
    public static int result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        text1= (TextView) findViewById(R.id.textView1);
-        text2= (TextView) findViewById(R.id.textView2);
-        text3= (TextView) findViewById(R.id.textView3);
-        currentResultView= (TextView) findViewById(R.id.currentResult);
-       resultView= (TextView) findViewById(R.id.result);
+        textResults = (TextView) findViewById(R.id.textResults);
+        textCorrect = (TextView) findViewById(R.id.textCorrect);
+        textTestResult = (TextView) findViewById(R.id.textTestResult);
+        currentCorrectResult = (TextView) findViewById(R.id.currentCorrectResult);
+        testResultView = (TextView) findViewById(R.id.testPoints);
+        testResultLayout= (LinearLayout) findViewById(R.id.testResultLayout);
+        points = (TextView) findViewById(R.id.points);
         ok= (Button) findViewById(R.id.button1);
         ok.setOnClickListener(this);
         Intent mIntent = getIntent();
         if(MainActivity.isTest==false){
-            ResultActivity.resultView.setVisibility(View.INVISIBLE);
+            ResultActivity.testResultView.setVisibility(View.INVISIBLE);
         };
-       int currentResult = mIntent.getIntExtra("CurrentGameCorrectAnswers", 0);
+       int gamePoints = mIntent.getIntExtra("GamePoints", 0);
+        int gameCorrectAnswers = mIntent.getIntExtra("CorrectAnswers", 0);
         if(result!=-1) {
             result = getPreferences(MODE_PRIVATE).getInt("Result", 0);
         }
         else{
             result=0;
         }
-        setResults(currentResult);
+        setResults(gamePoints,gameCorrectAnswers);
 
         new Handler().postDelayed(new Runnable() {
 
@@ -62,10 +65,11 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         getPreferences(MODE_PRIVATE).edit().putInt("Result",result).commit();
     }
 
-    private void setResults(int currentResult) {
-        result+=currentResult;
-        resultView.setText(Integer.toString(result));
-        currentResultView.setText(Integer.toString(currentResult));
+    private void setResults(int currentPoints,int gameCorrectAnswers) {
+        result+= currentPoints;
+        testResultView.setText(Integer.toString(result));
+        currentCorrectResult.setText(Integer.toString(gameCorrectAnswers));
+        points.setText(Integer.toString(currentPoints));
 
     }
 

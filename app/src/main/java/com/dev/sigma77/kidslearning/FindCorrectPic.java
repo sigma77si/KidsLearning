@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
-    public static int correctAnswers , countCorrectAnswers = 0;
+   public static int currentGamePoints, correctAnswers = 0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -290,14 +290,12 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     }
 
     private void startNextScene() {
-        if(countCorrectAnswers ==5){
-            correctAnswers=1;
+        if(correctAnswers ==5){
+            currentGamePoints = 1;
 
         };
 
-        Intent result = new Intent(this, ResultActivity.class);
-        result.putExtra("CurrentGameCorrectAnswers", correctAnswers);
-        startActivity(result);
+        putExtraStartResultActivity();
 
 
         if (sceneNum == 5 || sceneNum == 8) {
@@ -305,28 +303,38 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
             finish();
 
         }
-
-        sceneNum++;
-        numOfAnswers = 0;
-        setCorrectAnswerBtns(sceneNum);
-        View[] layouts = {layout1, layout2, layout3, layout4, layout5};
-        for (int i = 0; i < layouts.length; i++) {
-            layouts[i].setBackgroundColor(Color.GRAY);
-        }
-        Button allButtons[] = {btn1, btn2, btn3, btn4,
-                btn5, btn6, btn7, btn8,
-                btn9, btn10, btn11, btn12,
-                btn13, btn14, btn15, btn16,
-                btn17, btn18, btn19, btn20};
-        for (int i = 0; i < allButtons.length; i++) {
-            allButtons[i].setText("");
-            allButtons[i].setClickable(true);
+else {
+            sceneNum++;
+            numOfAnswers = 0;
+            correctAnswers = 0;
+            currentGamePoints = 0;
+            setCorrectAnswerBtns(sceneNum);
+            View[] layouts = {layout1, layout2, layout3, layout4, layout5};
+            for (int i = 0; i < layouts.length; i++) {
+                layouts[i].setBackgroundColor(Color.GRAY);
+            }
+            Button allButtons[] = {btn1, btn2, btn3, btn4,
+                    btn5, btn6, btn7, btn8,
+                    btn9, btn10, btn11, btn12,
+                    btn13, btn14, btn15, btn16,
+                    btn17, btn18, btn19, btn20};
+            for (int i = 0; i < allButtons.length; i++) {
+                allButtons[i].setText("");
+                allButtons[i].setClickable(true);
+            }
         }
     }
 
+    private void putExtraStartResultActivity() {
+        Intent result = new Intent(this, ResultActivity.class);
+        result.putExtra("GamePoints", currentGamePoints);
+        result.putExtra("CorrectAnswers", correctAnswers);
+        startActivity(result);
+    }
+
     private void startNextTestScene() {
-        if(countCorrectAnswers ==5){
-            correctAnswers=1;
+        if(correctAnswers ==5){
+            currentGamePoints =1;
 
         };
 
@@ -337,9 +345,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                 in.putExtra("ImageToLoad", R.drawable.pear_main);
                 in.putExtra("IntroReading", R.raw.zvukpravilno);
                 startActivity(in);
-                Intent result = new Intent(this, ResultActivity.class);
-                result.putExtra("CurrentGameCorrectAnswers", correctAnswers);
-                startActivity(result);
+                putExtraStartResultActivity();
 
             } else {
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
@@ -349,9 +355,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                 in.putExtra("IntroReading", R.raw.intro_one);
                 startActivity(in);
                 finish();
-                Intent result = new Intent(this, ResultActivity.class);
-                result.putExtra("CurrentGameCorrectAnswers", correctAnswers);
-                startActivity(result);
+                putExtraStartResultActivity();
             }
 
     }
@@ -387,7 +391,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 
     public void setCorrectAnswerBtns(int sceneNum) {
         if (sceneNum == 1) {
-            setButtons(btn2, btn7, btn12, btn15, btn17);
+            setButtons(btn2, btn7, btn12, btn15, btn18);
 //
         } else if (sceneNum == 2) {
             setButtons(btn2, btn8, btn11, btn14, btn19);
@@ -505,7 +509,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
             pressedBtn.setTextColor(getResources().getColor(R.color.green));
             sp.play(correctSound, 1, 1, 0, 0, 1);
             isCorrect = true;
-            countCorrectAnswers++;
+            correctAnswers++;
 
         }
         changeLayoutCollor(isCorrect, btnNum);
