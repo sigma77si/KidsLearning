@@ -16,7 +16,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     TextView textResults, textCorrect, textTestResult, currentCorrectResult,points;
     public static TextView testResultView;
     Button ok;
-    LinearLayout testResultLayout;
+   static LinearLayout testResultLayout;
    public static int result;
 
     @Override
@@ -34,7 +34,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         ok.setOnClickListener(this);
         Intent mIntent = getIntent();
         if(MainActivity.isTest==false){
-            ResultActivity.testResultView.setVisibility(View.INVISIBLE);
+            ResultActivity.testResultLayout.setVisibility(View.INVISIBLE);
         };
        int gamePoints = mIntent.getIntExtra("GamePoints", 0);
         int gameCorrectAnswers = mIntent.getIntExtra("CorrectAnswers", 0);

@@ -342,9 +342,11 @@ else {
 
             if (sceneNum != 6) {
                  isEnd=true;
-                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
-                        ,R.raw.zvukpravilno);
-               putExtras.putExtra();
+                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
+                        ,R.raw.zvukpravilno), 1900);
+//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
+//                        ,R.raw.zvukpravilno);
+//               putExtras.putExtra();
 //                Intent in = new Intent(this, IntroTextForAllActivity.class);
 //                in.putExtra("IntroText", (R.string.Intro1Text5));
 //                in.putExtra("TestNum", 5);
@@ -355,9 +357,11 @@ else {
 
             } else {
                 isEnd=true;
-                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
-                        ,R.raw.intro_one);
-                putExtras.putExtra();
+                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
+                        ,R.raw.intro_one), 1900);
+//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
+//                        ,R.raw.intro_one);
+//                putExtras.putExtra();
 //                Intent in = new Intent(this, IntroTextForAllActivity.class);
 //                in.putExtra("IntroText", R.string.Intro1Text1);
 //                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);

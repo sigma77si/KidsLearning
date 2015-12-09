@@ -215,9 +215,11 @@ public class CountActivity extends Activity implements View.OnClickListener {
            // DelayAndFinish();
             // sp.play(endSound, 1, 1, 0, 0, 1);
             if(MainActivity.isTest == true) {
-                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
-                ,R.raw.zvukpravilno);
-                putExtras.putExtra();
+                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
+                        ,R.raw.zvukpravilno), 1900);
+//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
+//                ,R.raw.zvukpravilno);
+//                putExtras.putExtra();
 
 //                Intent intent = new Intent(this, IntroTextForAllActivity.class);
 //                intent.putExtra("IntroText", R.string.Intro1Text2);

@@ -133,9 +133,11 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             sp.play(wrongSound, 1, 1, 0, 0, 1);
                         }
                         if(MainActivity.isTest == true){
-                            NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
-                                    ,R.raw.zvukpravilno);
-                            putExtras.putExtra();
+                            new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
+                                    ,R.raw.zvukpravilno), 1900);
+//                            NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
+//                                    ,R.raw.zvukpravilno);
+//                            putExtras.putExtra();
 
                         }else {
 

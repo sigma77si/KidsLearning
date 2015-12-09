@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     MediaPlayer mp;
     int introSound, bipSound, clickAnswerSound;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,10 +149,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnGame6: {
-                isTest = false;
+                isTest = true;
                 sp.play(bipSound, 1, 1, 0, 0, 1);
                 Intent in = new Intent(this, IntroTextForAllActivity.class);
                 in.putExtra("IntroText", (R.string.Intro1Text3));
+                in.putExtra("ImageToLoad", R.drawable.a_example);
                 in.putExtra("TestNum", 3);
                 in.putExtra("IntroReading", R.raw.zvukpravilno);
                 startActivity(in);

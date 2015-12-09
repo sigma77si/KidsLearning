@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dev.sigma77.kidslearning" >
+   <uses-permission android:name="android.permision.BILLING"/>
 
     <application
         android:allowBackup="true"
@@ -44,11 +45,7 @@
             android:label="@string/title_activity_cuted_pic"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name=".FragmentTest"
-            android:label="@string/title_activity_fragment_test"
-            android:screenOrientation="portrait" >
-        </activity>
+
         <activity
             android:name=".FindUncorrectPic"
             android:label="@string/title_activity_find_uncorrect_pic"

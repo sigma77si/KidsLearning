@@ -6,14 +6,15 @@ import android.content.Intent;
 /**
  * Created by user on 4.12.2015 г..
  */
-public class NextTestScene {
+public class NextTestScene implements Runnable
+{
     Activity activityObj;
     int introText;
     int testNumber;
     int imageToLoad;
     int introReading;
 
-    public NextTestScene(Activity paractivityObj,int parIntroText,int parTestNumber, int parImageToLoad, int parIntroReading){
+    public NextTestScene(Activity paractivityObj,int parIntroText, int parImageToLoad,int parTestNumber, int parIntroReading){
 
         introText = parIntroText;
         testNumber = parTestNumber;
@@ -24,11 +25,17 @@ public class NextTestScene {
 
     public void putExtra(){
         Intent intent = new Intent(activityObj, IntroTextForAllActivity.class);
-        intent.putExtra("IntroText", R.string.Intro1Text2);
-        intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-        intent.putExtra("TestNum", 2);
-        intent.putExtra("IntroReading", R.raw.zvukpravilno);
+        intent.putExtra("IntroText", introText);
+        intent.putExtra("ImageToLoad", imageToLoad);
+        intent.putExtra("TestNum", testNumber);
+        intent.putExtra("IntroReading",introReading);
         activityObj.startActivity(intent);
+
+    }
+
+    @Override
+    public void run() {
+        putExtra();
 
     }
 }

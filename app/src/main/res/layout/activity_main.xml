@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:id="@+id/mainLayout"
     android:orientation="vertical"
-    android:background="#ff2cb1ff"
+    android:background="#ffffff"
     android:gravity="center_vertical"
     android:weightSum="4">
 
@@ -19,15 +19,23 @@
         android:background="@drawable/kid_with_tablet"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Упражнения"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:weightSum="4"
-        android:background="#ffffff"
+        android:weightSum="5"
+        android:background="@drawable/shapes2"
         android:layout_weight="1"
-        android:padding="10dp">
+        android:padding="10dp"
+        >
 
         <Button
             android:layout_width="0dp"
@@ -72,16 +80,6 @@
             android:layout_weight="1"
             android:background="@drawable/button4"
             android:layout_margin="2dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:weightSum="4"
-        android:background="#ffffff"
-        android:layout_weight="1">
-
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -92,11 +90,28 @@
             android:background="@drawable/pear_main"
 
             android:layout_margin="2dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тестове"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:weightSum="4"
+        android:background="@drawable/shapes2"
+        android:layout_weight="1">
+
+
 
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Тест 6"
+            android:text="Тест 1"
             android:id="@+id/btnGame6"
             android:layout_below="@+id/btnGame1"
             android:layout_centerHorizontal="true"
@@ -107,18 +122,29 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Тест 7"
+            android:text="Тест 2"
             android:id="@+id/btnGame7"
             android:layout_below="@+id/btnGame3"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="#ffff"
             android:layout_margin="2dp" />
+
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Тест 8"
+            android:text="Тест 3"
             android:id="@+id/btnGame8"
+            android:layout_below="@+id/btnGame3"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:layout_margin="2dp" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="Тест 4"
+            android:id="@+id/btnGame9"
             android:layout_below="@+id/btnGame3"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
