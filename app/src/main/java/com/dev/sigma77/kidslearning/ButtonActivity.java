@@ -23,7 +23,8 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     SoundPool sp;
     Button check;
-    int numofAnswers, correct = 0,correctSound, wrongSound, endSound,clickAnswerSound;
+    boolean isEnd;
+    int numofAnswers, correct ,currentGamePoints= 0,correctSound, wrongSound, endSound,clickAnswerSound;
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11,
             btn12, btn13, btn14, btn15, btn16;
     Set<ImageButton> answer = new HashSet<>();
@@ -230,7 +231,9 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 //            }
             case R.id.btnCheck: {
                 setAnswerBgrColor();
+                isEnd=true;
                 if (correct==3) {
+                    currentGamePoints=1;
                     sp.play(correctSound, 1, 1, 0, 0, 1);
                 } else {
                     sp.play(wrongSound, 1, 1, 0, 0, 1);
@@ -265,11 +268,15 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
                 }, 4700);
 
             if(MainActivity.isTest == true){
+                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text3, R.drawable.a_example,3
+                        ,R.raw.zvukpravilno);
+                putExtras.putExtra();
 
             }else {
-                new Handler().postDelayed(new RunnableShowAnswers(this,MainActivity.class), 4700);
+             //   new Handler().postDelayed(new RunnableShowAnswers(this,MainActivity.class), 4700);
             }
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
+            new Handler().postDelayed(new ShowResults(this,correct,currentGamePoints,isEnd), 2000);
         }
     }
 

@@ -23,10 +23,11 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     SoundPool sp;
     ImageView img1, img2, img3, img4, img5, img6,
             v2img1, v2img2, v2img3, v2img4, v2img5, v2img6;
+    boolean isEnd;
 
     ImageView imageViwePosition;
     int scene=1;
-    int countAnswers = 1,correctAnswers=0, correctSound, wrongSound, endSound;
+    int countAnswers = 1,correctAnswers=0, correctSound, wrongSound, endSound,currentGamePoints=0;
 
     LinearLayout layout1, layout2, layoutSpinners;
 
@@ -126,10 +127,19 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                         layoutSpinners.setVisibility(View.INVISIBLE);
                         btnCheck.setVisibility(View.INVISIBLE);
                         if (correctAnswers==5) {
+                            currentGamePoints=1;
                             sp.play(correctSound, 1, 1, 0, 0, 1);
                         } else {
                             sp.play(wrongSound, 1, 1, 0, 0, 1);
                         }
+                        if(MainActivity.isTest == true){
+                            NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
+                                    ,R.raw.zvukpravilno);
+                            putExtras.putExtra();
+
+                        }else {
+
+
                         new Handler().postDelayed(new Runnable() {
 
                             @Override
@@ -143,9 +153,10 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                                     finish();
                                 }
                             }
-                        }, 4700);
-                        Intent in = new Intent(this, ResultActivity.class);
-                        startActivity(in);
+                        }, 4700);}
+                        new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
+//                        Intent in = new Intent(this, ResultActivity.class);
+//                        startActivity(in);
                     }
                 }
 

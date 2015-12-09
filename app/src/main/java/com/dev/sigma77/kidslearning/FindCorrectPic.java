@@ -34,6 +34,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     private SoundPool sp;
     private int correctSound, wrongSound, endSound;
     private int sceneNum = 1;
+    boolean isEnd=false;
 
     //  private int btnIndex=0;
     @Override
@@ -336,27 +337,37 @@ else {
         if(correctAnswers ==5){
             currentGamePoints =1;
 
+
         };
 
             if (sceneNum != 6) {
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text5));
-                in.putExtra("TestNum", 5);
-                in.putExtra("ImageToLoad", R.drawable.pear_main);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-                putExtraStartResultActivity();
+                 isEnd=true;
+                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
+                        ,R.raw.zvukpravilno);
+               putExtras.putExtra();
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", (R.string.Intro1Text5));
+//                in.putExtra("TestNum", 5);
+//                in.putExtra("ImageToLoad", R.drawable.pear_main);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+               // putExtraStartResultActivity();
 
             } else {
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", R.string.Intro1Text1);
-                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-                in.putExtra("TestNum", 1);
-                in.putExtra("IntroReading", R.raw.intro_one);
-                startActivity(in);
-                finish();
-                putExtraStartResultActivity();
+                isEnd=true;
+                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
+                        ,R.raw.intro_one);
+                putExtras.putExtra();
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", R.string.Intro1Text1);
+//                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
+//                in.putExtra("TestNum", 1);
+//                in.putExtra("IntroReading", R.raw.intro_one);
+//                startActivity(in);
+//                finish();
+//                putExtraStartResultActivity();
             }
+        new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
 
     }
 
