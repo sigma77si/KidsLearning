@@ -6,10 +6,14 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.kidslearning.inappbilling.util.IabHelper;
+import com.kidslearning.inappbilling.util.IabResult;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -18,6 +22,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     SoundPool sp;
     MediaPlayer mp;
     int introSound, bipSound, clickAnswerSound;
+    private static final String TAG =
+            "com.dev.sigma77.kidslearning";
+    IabHelper mHelper;
 
 
     @Override
@@ -52,6 +59,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
         game8.setText("ест 3 Про");
         game7.setEnabled(false);
         game8.setEnabled(false);
+        String base64EncodedPublicKey =
+                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoWcEpy7TKjzd2DK8R6FTGKIekGYubBtWfOtc4D8nlghiYYQX53tZpK/HEa7GiiTNhLLR8TN0zuZru5kDdXyZbqqajomZ/KWQS+IR3WAILtkCDS5yvoRbTZJztVklB8csPIQhA7xloyI6EhpRT/4OKVWrcbsyUtkWH5U+0Wv3xlN0wblsTlUH+1X6djKeaZdZxjgULcA/KvA/A6Ah/2VVlcMe5oj6TOb5myhbOLUQRO2FccDau+woxPNhtLWZr2hqbFXQD6nXP6gPOKGujLZoLI/MCN6GS4nm3OzrmF4RSiBQgoFcdxvIW8BqKZlyTg/09VVqQ3Dms71zKe9ilGTkXwIDAQAB";
+
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+
+        mHelper.startSetup(new
+                                   IabHelper.OnIabSetupFinishedListener() {
+                                       public void onIabSetupFinished(IabResult result)
+                                       {
+                                           if (!result.isSuccess()) {
+                                               Log.d(TAG, "In-app Billing setup failed: " +
+                                                       result);
+                                           } else {
+                                               Log.d(TAG, "In-app Billing is set up OK");
+                                           }
+                                       }
+                                   });
     }
 
 
@@ -83,6 +107,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onPause();
         ResultActivity.result = -1;
 //        getPreferences(MODE_PRIVATE).edit().putInt("Result",0).commit();
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) mHelper.dispose();
+        mHelper = null;
     }
 
     @Override
