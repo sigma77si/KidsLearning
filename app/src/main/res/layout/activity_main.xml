@@ -54,7 +54,7 @@
             android:layout_height="fill_parent"
 
             android:id="@+id/btnGame2"
-            android:layout_below="@+id/btnGame1"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/mushroom1"
@@ -65,7 +65,7 @@
             android:layout_height="fill_parent"
 
             android:id="@+id/btnGame3"
-            android:layout_below="@+id/btnGame3"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/a2"
@@ -75,7 +75,7 @@
             android:layout_height="fill_parent"
 
             android:id="@+id/btnGame4"
-            android:layout_below="@+id/btnGame3"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/button4"
@@ -113,7 +113,7 @@
             android:layout_height="fill_parent"
             android:text="Тест 1"
             android:id="@+id/btnGame6"
-            android:layout_below="@+id/btnGame1"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="#ffffff"
@@ -124,7 +124,7 @@
             android:layout_height="fill_parent"
             android:text="Тест 2"
             android:id="@+id/btnGame7"
-            android:layout_below="@+id/btnGame3"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="#ffff"
@@ -135,7 +135,6 @@
             android:layout_height="fill_parent"
             android:text="Тест 3"
             android:id="@+id/btnGame8"
-            android:layout_below="@+id/btnGame3"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="#ffffff"
@@ -143,9 +142,9 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Тест 4"
-            android:id="@+id/btnGame9"
-            android:layout_below="@+id/btnGame3"
+            android:text="Про версия"
+            android:id="@+id/btnPro"
+
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="#ffffff"

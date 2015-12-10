@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     public static boolean isTest = false;
-    Button game1, game2, game3, game4, game5, game6, game7, game8;
+    Button game1, game2, game3, game4, game5, game6, game7, game8,btnPro;
     SoundPool sp;
     MediaPlayer mp;
     int introSound, bipSound, clickAnswerSound;
@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         game6 = (Button) findViewById(R.id.btnGame6);
         game7 = (Button) findViewById(R.id.btnGame7);
         game8 = (Button) findViewById(R.id.btnGame8);
+        btnPro = (Button) findViewById(R.id.btnPro);
         game1.setOnClickListener(this);
         game2.setOnClickListener(this);
         game3.setOnClickListener(this);
@@ -40,12 +41,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
         game6.setOnClickListener(this);
         game7.setOnClickListener(this);
         game8.setOnClickListener(this);
+        btnPro.setOnClickListener(this);
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         introSound = sp.load(this, R.raw.intro_one, 1);
         bipSound = sp.load(this, R.raw.blub, 1);
         clickAnswerSound = sp.load(this, R.raw.sound, 1);
         mp = MediaPlayer.create(MainActivity.this, R.raw.intro_one);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        game7.setText("Тест 2 Про");
+        game8.setText("ест 3 Про");
+        game7.setEnabled(false);
+        game8.setEnabled(false);
     }
 
 
@@ -169,6 +175,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 in.putExtra("TestNum", 3);
                 in.putExtra("IntroReading", R.raw.zvukpravilno);
                 startActivity(in);
+
+                break;
+            }
+            case R.id.btnGame8: {
+                isTest = true;
+                Intent in = new Intent(this, IntroTextForAllActivity.class);
+                in.putExtra("IntroText", (R.string.Intro1Text3));
+                in.putExtra("ImageToLoad", R.drawable.a_example);
+                in.putExtra("TestNum", 3);
+                in.putExtra("IntroReading", R.raw.zvukpravilno);
+                startActivity(in);
+
+                break;
+            }
+            case R.id.btnPro: {
+
 
                 break;
             }
