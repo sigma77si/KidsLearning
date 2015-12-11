@@ -138,8 +138,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 return;
             }
             else if (purchase.getSku().equals(ITEM_SKU)) {
-                consumeItem();
+               // consumeItem();
                btnPro.setEnabled(false);
+               game7.setEnabled(true);
+                game8.setEnabled(true);
+
             }
 
         }
