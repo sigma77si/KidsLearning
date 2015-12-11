@@ -211,7 +211,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
                 currentGamePoints =1;
             };
 
-           // new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 4700);
+           // new Handler().postDelayed(new ShowResults(this,correctAnswersSet,currentGamePoints,isEnd), 4700);
            // DelayAndFinish();
             // sp.play(endSound, 1, 1, 0, 0, 1);
             if(MainActivity.isTest == true) {
@@ -230,13 +230,13 @@ public class CountActivity extends Activity implements View.OnClickListener {
 
 //                Intent in = new Intent(this, ResultActivity.class);
 //                in.putExtra("GamePoints", currentGamePoints);
-//                in.putExtra("CorrectAnswers", correctAnswers);
+//                in.putExtra("CorrectAnswers", correctAnswersSet);
 //                startActivity(in);
             }else {
 
 //                Intent in = new Intent(this, ResultActivity.class);
 //                in.putExtra("GamePoints", currentGamePoints);
-//                in.putExtra("CorrectAnswers", correctAnswers);
+//                in.putExtra("CorrectAnswers", correctAnswersSet);
 //                startActivity(in);
 
             }

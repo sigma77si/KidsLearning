@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.kidslearning.inappbilling.util.Inventory;
+import com.kidslearning.inappbilling.util.Purchase;
+
 import com.kidslearning.inappbilling.util.IabHelper;
 import com.kidslearning.inappbilling.util.IabResult;
 
@@ -24,6 +27,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     int introSound, bipSound, clickAnswerSound;
     private static final String TAG =
             "com.dev.sigma77.kidslearning";
+    static final String ITEM_SKU = "android.test.purchased";
     IabHelper mHelper;
 
 
@@ -79,6 +83,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -114,6 +119,60 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (mHelper != null) mHelper.dispose();
         mHelper = null;
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data)
+    {
+        if (!mHelper.handleActivityResult(requestCode,
+                resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
+            = new IabHelper.OnIabPurchaseFinishedListener() {
+        public void onIabPurchaseFinished(IabResult result,
+                                          Purchase purchase)
+        {
+            if (result.isFailure()) {
+                // Handle error
+                return;
+            }
+            else if (purchase.getSku().equals(ITEM_SKU)) {
+                consumeItem();
+               btnPro.setEnabled(false);
+            }
+
+        }
+    };
+    public void consumeItem() {
+        mHelper.queryInventoryAsync(mReceivedInventoryListener);
+    }
+
+    IabHelper.QueryInventoryFinishedListener mReceivedInventoryListener
+            = new IabHelper.QueryInventoryFinishedListener() {
+        public void onQueryInventoryFinished(IabResult result,
+                                             Inventory inventory) {
+
+            if (result.isFailure()) {
+                // Handle failure
+            } else {
+                mHelper.consumeAsync(inventory.getPurchase(ITEM_SKU),
+                        mConsumeFinishedListener);
+            }
+        }
+    };
+    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener =
+            new IabHelper.OnConsumeFinishedListener() {
+                public void onConsumeFinished(Purchase purchase,
+                                              IabResult result) {
+
+                    if (result.isSuccess()) {
+                        btnPro.setEnabled(true);
+                    } else {
+                        // handle error
+                    }
+                }
+            };
 
     @Override
     public void onClick(View v) {
@@ -220,6 +279,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnPro: {
+                mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
+                        mPurchaseFinishedListener, "mypurchasetoken");
 
 
                 break;

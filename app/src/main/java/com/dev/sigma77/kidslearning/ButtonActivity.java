@@ -1,7 +1,6 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -24,12 +23,12 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
     SoundPool sp;
     Button check;
     boolean isEnd;
-    int numofAnswers, correct ,currentGamePoints= 0,correctSound, wrongSound, endSound,clickAnswerSound;
+    int numofAnswers, correctAnswers,currentGamePoints= 0,correctSound, wrongSound, endSound,clickAnswerSound;
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11,
             btn12, btn13, btn14, btn15, btn16;
     Set<ImageButton> answer = new HashSet<>();
     Map<Integer, ImageButton> buttonMap = new HashMap<>();
-    Set<Integer> correctAnswers = new HashSet<>();
+    Set<Integer> correctAnswersSet = new HashSet<>();
 
 
     @Override
@@ -89,9 +88,9 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         buttonMap.put(R.id.imageButton15, btn15);
         buttonMap.put(R.id.imageButton16, btn16);
 
-        correctAnswers.add(R.id.imageButton15);
-        correctAnswers.add(R.id.imageButton9);
-        correctAnswers.add(R.id.imageButton4);
+        correctAnswersSet.add(R.id.imageButton15);
+        correctAnswersSet.add(R.id.imageButton9);
+        correctAnswersSet.add(R.id.imageButton4);
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
@@ -150,7 +149,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 //            }
 //            case R.id.imageButton4: {
 //
-//                correct++;
+//                correctAnswers++;
 //                setBgrGrey(btn4);
 //
 //                break;
@@ -180,7 +179,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 //                break;
 //            }
 //            case R.id.imageButton9: {
-//                correct++;
+//                correctAnswers++;
 //
 //                setBgrGrey(btn9);
 //
@@ -217,7 +216,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 //                break;
 //            }
 //            case R.id.imageButton15: {
-//                correct++;
+//                correctAnswers++;
 //
 //                setBgrGrey(btn15);
 //
@@ -232,7 +231,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
             case R.id.btnCheck: {
                 setAnswerBgrColor();
                 isEnd=true;
-                if (correct==3) {
+                if (correctAnswers ==3) {
                     currentGamePoints=1;
                     sp.play(correctSound, 1, 1, 0, 0, 1);
                 } else {
@@ -245,8 +244,8 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
                 sp.play(clickAnswerSound, 1, 1, 0, 0, 1);
                 ImageButton selectedButton = buttonMap.get(selectedButtonId);
                 setBgrGrey(selectedButton);
-                if(correctAnswers.contains(selectedButtonId)){
-                    correct++;
+                if(correctAnswersSet.contains(selectedButtonId)){
+                    correctAnswers++;
                 }
             }
 
@@ -278,7 +277,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
              //   new Handler().postDelayed(new RunnableShowAnswers(this,MainActivity.class), 4700);
             }
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
-            new Handler().postDelayed(new ShowResults(this,correct,currentGamePoints,isEnd), 2000);
+            new Handler().postDelayed(new ShowResults(this, correctAnswers,currentGamePoints,isEnd), 2000);
         }
     }
 
