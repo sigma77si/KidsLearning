@@ -2,8 +2,8 @@
 <resources>
 
     <style  name="AppTheme" parent="AppTheme.Base">
-        <item name="colorPrimary">@color/primary_dark_material_light</item>
-        <item name="android:colorPrimaryDark">@color/primary_material_dark</item>
-        <item name="android:colorAccent">@color/accent_material_dark</item>
+        <item name="android:colorPrimary">@color/primaryColor</item>
+        <item name="android:colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="android:colorAccent">@color/accentColor</item>
     </style>
 </resources>

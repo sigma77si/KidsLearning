@@ -116,6 +116,10 @@ FloatingActionButton asa;
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.navigate) {
+
+           startActivity(new Intent(this,ResultActivity.class));
+        }
 
         return super.onOptionsItemSelected(item);
     }

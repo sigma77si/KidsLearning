@@ -1,9 +1,13 @@
 package com.dev.sigma77.kidslearning;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,10 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class ResultActivity extends Activity implements View.OnClickListener {
+public class ResultActivity extends ActionBarActivity implements View.OnClickListener {
     TextView textResults, textCorrect, textTestResult, currentCorrectResult,points;
     public static TextView testResultView;
     Button ok;
+    private Toolbar toolbar;
    static LinearLayout testResultLayout;
    public static int result;
 
@@ -32,6 +37,11 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         points = (TextView) findViewById(R.id.points);
         ok= (Button) findViewById(R.id.button1);
         ok.setOnClickListener(this);
+        toolbar= (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent mIntent = getIntent();
         if(MainActivity.isTest==false){
             ResultActivity.testResultLayout.setVisibility(View.INVISIBLE);
@@ -92,6 +102,9 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);

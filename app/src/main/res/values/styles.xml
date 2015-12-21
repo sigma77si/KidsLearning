@@ -6,9 +6,9 @@
     </style>
 
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary_dark_material_light</item>
-        <!--<item name="android:colorPrimaryDark">@color/primary_material_dark</item>-->
-        <!--<item name="android:colorAccent">@color/accent_material_dark</item>-->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/accentColor</item>
     </style>
 
 
@@ -30,5 +30,11 @@
 
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
     <style name="ButtonBarButton" />
+
+    <style name="MyCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/accentColor</item>
+        <item name="android:textColorSecondary">#00F</item>
+
+    </style>
 
 </resources>
