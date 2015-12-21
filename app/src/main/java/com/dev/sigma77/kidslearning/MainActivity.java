@@ -6,11 +6,15 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.support.design.widget.FloatingActionButton;
+import android.widget.ActionMenuView;
+
 
 import com.kidslearning.inappbilling.util.Inventory;
 import com.kidslearning.inappbilling.util.Purchase;
@@ -29,7 +33,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             "com.dev.sigma77.kidslearning";
     static final String ITEM_SKU = "android.test.purchased";
     IabHelper mHelper;
-
+FloatingActionButton asa;
+    private Toolbar toolbar;
+    private Toolbar t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         game7 = (Button) findViewById(R.id.btnGame7);
         game8 = (Button) findViewById(R.id.btnGame8);
         btnPro = (Button) findViewById(R.id.btnPro);
+
+        toolbar= (Toolbar) findViewById(R.id.app_bar);
+
+
+
         game1.setOnClickListener(this);
         game2.setOnClickListener(this);
         game3.setOnClickListener(this);
@@ -138,7 +149,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 return;
             }
             else if (purchase.getSku().equals(ITEM_SKU)) {
-               // consumeItem();
+                consumeItem();
                btnPro.setEnabled(false);
                game7.setEnabled(true);
                 game8.setEnabled(true);
