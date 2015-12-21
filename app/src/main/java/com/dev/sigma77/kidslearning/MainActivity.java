@@ -6,6 +6,8 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -23,7 +25,7 @@ import com.kidslearning.inappbilling.util.IabHelper;
 import com.kidslearning.inappbilling.util.IabResult;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean isTest = false;
     Button game1, game2, game3, game4, game5, game6, game7, game8,btnPro;
     SoundPool sp;
@@ -35,7 +37,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     IabHelper mHelper;
 FloatingActionButton asa;
     private Toolbar toolbar;
-    private Toolbar t;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ FloatingActionButton asa;
         btnPro = (Button) findViewById(R.id.btnPro);
 
         toolbar= (Toolbar) findViewById(R.id.app_bar);
-
+        setSupportActionBar(toolbar);
 
 
         game1.setOnClickListener(this);
