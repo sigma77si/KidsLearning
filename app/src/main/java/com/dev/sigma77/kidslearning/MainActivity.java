@@ -76,7 +76,7 @@ FloatingActionButton asa;
         game7.setText("Тест 2 Про");
         game8.setText("ест 3 Про");
         game7.setEnabled(false);
-        game8.setEnabled(false);
+       // game8.setEnabled(false);
         String base64EncodedPublicKey =
                 "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoWcEpy7TKjzd2DK8R6FTGKIekGYubBtWfOtc4D8nlghiYYQX53tZpK/HEa7GiiTNhLLR8TN0zuZru5kDdXyZbqqajomZ/KWQS+IR3WAILtkCDS5yvoRbTZJztVklB8csPIQhA7xloyI6EhpRT/4OKVWrcbsyUtkWH5U+0Wv3xlN0wblsTlUH+1X6djKeaZdZxjgULcA/KvA/A6Ah/2VVlcMe5oj6TOb5myhbOLUQRO2FccDau+woxPNhtLWZr2hqbFXQD6nXP6gPOKGujLZoLI/MCN6GS4nm3OzrmF4RSiBQgoFcdxvIW8BqKZlyTg/09VVqQ3Dms71zKe9ilGTkXwIDAQAB";
 
@@ -290,11 +290,8 @@ FloatingActionButton asa;
             }
             case R.id.btnGame8: {
                 isTest = true;
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text3));
-                in.putExtra("ImageToLoad", R.drawable.a_example);
-                in.putExtra("TestNum", 3);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
+                Intent in = new Intent(this, PracticeActivity.class);
+
                 startActivity(in);
 
                 break;

@@ -47,4 +47,5 @@
     <string name="title_activity_find_uncorrect_pic">FindUncorrectPic</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="next">next</string>
+    <string name="title_activity_practice">PracticeActivity</string>
 </resources>

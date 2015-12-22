@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dev.sigma77.kidslearning" >
-   <uses-permission android:name="com.android.vending.BILLING"/>
+
+    <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -46,7 +47,6 @@
             android:label="@string/title_activity_cuted_pic"
             android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".FindUncorrectPic"
             android:label="@string/title_activity_find_uncorrect_pic"
@@ -55,7 +55,16 @@
         <activity
             android:name=".ResultActivity"
             android:label="@string/title_activity_result" >
-           <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".PracticeActivity"
+            android:label="@string/title_activity_practice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 
