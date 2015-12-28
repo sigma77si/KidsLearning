@@ -2,18 +2,20 @@ package com.dev.sigma77.kidslearning;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class PracticeActivity extends ActionBarActivity {
+public class PracticeActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     RecyclerView reciclerView;
@@ -33,6 +35,8 @@ public class PracticeActivity extends ActionBarActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         reciclerView= (RecyclerView) findViewById(R.id.drowerList);
         adapter=new VizAdapter(this,getData());
         reciclerView.setAdapter(adapter);

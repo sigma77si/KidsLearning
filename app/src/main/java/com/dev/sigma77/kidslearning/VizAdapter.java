@@ -20,7 +20,6 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
 
     public VizAdapter(Context context,List<DataInformation>data){
       inflater= LayoutInflater.from(context);
-
        this.data=data;
    }
     @Override
@@ -32,9 +31,9 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder  holder, int position) {
-        DataInformation curent=data.get(position);
-        holder.title.setText(curent.title);
-        holder.icon.setImageResource(curent.iconId);
+        DataInformation current=data.get(position);
+        holder.title.setText(current.title);
+        holder.icon.setImageResource(current.iconId);
 
     }
 
