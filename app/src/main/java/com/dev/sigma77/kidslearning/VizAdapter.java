@@ -32,23 +32,24 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder  holder, int position) {
         DataInformation current=data.get(position);
-        holder.title.setText(current.title);
+        //holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
+
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         ImageView icon;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            title= (TextView) itemView.findViewById(R.id.list_item);
-            icon= (ImageView) itemView .findViewById(R.id.imageView);
+            title = (TextView) itemView.findViewById(R.id.listText);
+            icon = (ImageView) itemView .findViewById(R.id.itemImage);
         }
     }
 }

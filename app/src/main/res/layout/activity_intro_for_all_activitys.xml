@@ -44,12 +44,12 @@
         android:layout_marginTop="5dp"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Продължи"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/shapes2"
+        android:background="@drawable/btn_play"
         android:padding="5dp"
         android:layout_marginTop="10dp"
         android:longClickable="false" />

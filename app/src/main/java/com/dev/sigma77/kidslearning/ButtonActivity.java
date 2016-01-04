@@ -229,14 +229,15 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 //                break;
 //            }
             case R.id.btnCheck: {
-                setAnswerBgrColor();
+
                 isEnd=true;
-                if (correctAnswers ==3) {
-                    currentGamePoints=1;
+                if (correctAnswers == 3) {
+                    currentGamePoints = 1;
                     sp.play(correctSound, 1, 1, 0, 0, 1);
                 } else {
                     sp.play(wrongSound, 1, 1, 0, 0, 1);
                 }
+                setAnswerBgrColor();
                 break;
             }
 
