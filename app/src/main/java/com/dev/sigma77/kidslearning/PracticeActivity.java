@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class PracticeActivity extends AppCompatActivity {
+    ImageView v;
 
     private Toolbar toolbar;
     RecyclerView reciclerView;
@@ -33,7 +35,7 @@ public class PracticeActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        v=(ImageView)findViewById(R.id.imageView9);
         reciclerView = (RecyclerView) findViewById(R.id.drowerList);
         adapter = new VizAdapter(this, getData());
         reciclerView.setAdapter(adapter);
@@ -43,8 +45,8 @@ public class PracticeActivity extends AppCompatActivity {
 
     public static List<DataInformation> getData() {
         List<DataInformation> data = new ArrayList<>();
-        int[] icons = {R.drawable.a1, R.drawable.a2, R.drawable.a3, R.drawable.a4, R.drawable.a5};
-        String[] titles = {"asda1", "asda2", "asda3", "asda4", "asda5",};
+        int[] icons = {R.drawable.count_on_fingers_04, R.drawable.mushroom1, R.drawable.a2, R.drawable.button4, R.drawable.pear_main};
+        String[] titles = {"Преброй пръстите", "Открий силуета", "Намери излишната картинка", "Открий еднаквите", "Сглоби картината"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             DataInformation current = new DataInformation();
 
