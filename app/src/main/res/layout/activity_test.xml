@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dev.sigma77.kidslearning.PracticeActivity"
+    tools:context="com.dev.sigma77.kidslearning.TestActivity"
     android:orientation="vertical"
     android:weightSum="2">
     <include
@@ -14,22 +14,17 @@
         android:layout_weight="1"
         android:id="@+id/imageView9"
         android:background="@drawable/kid_with_tablet"
-        android:layout_gravity="center"
         />
 
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center">
+        android:layout_weight="1">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:id="@+id/drowerList"
-            android:layout_gravity="center"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp">
+            android:layout_height="wrap_content"
+            android:id="@+id/drowerList">
 
         </android.support.v7.widget.RecyclerView>
 

@@ -13,21 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PracticeActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity {
     ImageView v;
 
     private Toolbar toolbar;
     RecyclerView reciclerView;
     private VizAdapter adapter;
 
-    public PracticeActivity() {
+    public TestActivity() {
         super();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice);
+        setContentView(R.layout.activity_test);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -45,8 +45,8 @@ public class PracticeActivity extends AppCompatActivity {
 
     public static List<DataInformation> getData() {
         List<DataInformation> data = new ArrayList<>();
-        int[] icons = {R.drawable.count_on_fingers_04_small, R.drawable.mushroom1_small, R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small};
-        String[] titles = {"Преброй пръстите", "Открий силуета", "Намери излишната картинка", "Открий еднаквите", "Сглоби картината"};
+        int[] icons = {R.drawable.test_ikon, R.drawable.mushroom1_small, R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small};
+        String[] titles = {"Тест 1", "Тест 2", "Тест 3", "Тест 4", "Про - отключване на тестове"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             DataInformation current = new DataInformation();
 
@@ -58,25 +58,5 @@ public class PracticeActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_practice, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

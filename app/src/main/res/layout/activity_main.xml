@@ -2,18 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="0dp"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
     android:id="@+id/mainLayout"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/start_pic"
     android:gravity="center_vertical"
     android:weightSum="4">
 
     <include
         layout="@layout/app_bar"
         android:id="@+id/app_bar"
+
+
 
 
        />
@@ -24,8 +26,8 @@
         android:layout_height="0dp"
         android:id="@+id/imageView8"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="2"
-        android:background="@drawable/kid_with_tablet"
+        android:layout_weight="2"/>
+        <!--android:background="@drawable/start_pic"-->
        />
 
 
@@ -55,7 +57,7 @@
             android:layout_height="fill_parent"
 
             android:id="@+id/btnGame1"
-           android:layout_weight="1"
+            android:layout_weight="1"
             android:layout_centerHorizontal="true"
             android:background="@drawable/count_on_fingers_04"
             android:layout_margin="2dp"
