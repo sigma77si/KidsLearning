@@ -62,11 +62,15 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".util.TestActivity"
-            android:label="@string/title_activity_test" />
+            android:name="TestActivity"
+            android:label="@string/title_activity_test"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TestsActivity"
-            android:label="@string/title_activity_tests"></activity>
+            android:label="@string/title_activity_tests"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

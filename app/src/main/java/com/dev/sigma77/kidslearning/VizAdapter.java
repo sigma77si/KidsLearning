@@ -20,12 +20,14 @@ import java.util.List;
 public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
     private LayoutInflater inflater;
     List<DataInformation>data= Collections.emptyList();
+    String activityname;
     private Context context;
 
-    public VizAdapter(Context context,List<DataInformation> data){
+    public VizAdapter(Context context,List<DataInformation> data,String activityName){
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.data=data;
+        this.activityname=activityName;
    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -64,25 +66,38 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
         @Override
         public void onClick(View v) {
             MainActivity.isTest=false;
-            startSelectedActivity(getPosition());
+            startSelectedActivity(getPosition(),activityname);
 
 
-            Toast.makeText(context,"The position is: " +getPosition(),Toast.LENGTH_SHORT).show();
+
         }
-        public void startSelectedActivity(int itemPosition){
+        public void startSelectedActivity(int itemPosition,String actName){
             switch (itemPosition) {
 
 
                 case 0: {
-                    //isTest = false;
-                    //sp.play(bipSound, 1, 1, 0, 0, 1);
-                    Intent in = new Intent(context, IntroTextForAllActivity.class);
-                    in.putExtra("IntroText", R.string.Intro1Text1);
-                    in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-                    in.putExtra("TestNum", 1);
-                    in.putExtra("IntroReading", R.raw.intro_one);
-                    context.startActivity(in);
+                    if(actName=="Practice") {
+                        //isTest = false;
+                        //sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", R.string.Intro1Text1);
+                        in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
+                        in.putExtra("TestNum", 1);
+                        in.putExtra("IntroReading", R.raw.intro_one);
+                        context.startActivity(in);
+                    }
+                 else if(actName=="Test"){
+                        MainActivity.isTest = true;
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
 
+
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 3);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+
+                        context.startActivity(in);
+                       }
 
                     break;
                 }

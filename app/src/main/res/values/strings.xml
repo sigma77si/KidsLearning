@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">KidsLearning</string>
+    <string name="app_name">Тестове за прием в училище</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_count">CountActivity</string>
+    <string name="title_activity_count">Преброй</string>
     <string name="title_activity_test2">Test2</string>
     <string name="title_activity_test2_intro">Test2IntroActivity</string>
     <string name="Intro1Text1">Пребройте на следващата страница пръстите които не са сгънати и натиснете съответната цифра.</string>
@@ -43,11 +43,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
-    <string name="introtext">IntroText</string>
-    <string name="title_activity_find_uncorrect_pic">FindUncorrectPic</string>
-    <string name="title_activity_result">ResultActivity</string>
+    <string name="introtext">Условие</string>
+    <string name="title_activity_find_uncorrect_pic">Открий отговора</string>
+    <string name="title_activity_result">Резултати</string>
     <string name="next">next</string>
-    <string name="title_activity_practice">PracticeActivity</string>
-    <string name="title_activity_test">TestActivity</string>
-    <string name="title_activity_tests">TestsActivity</string>
+    <string name="title_activity_practice">Подготовка</string>
+    <string name="title_activity_test">Тестове</string>
+    <string name="title_activity_tests">Тестове</string>
 </resources>

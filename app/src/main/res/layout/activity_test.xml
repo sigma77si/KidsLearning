@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/imageView9"
-        android:background="@drawable/kid_with_tablet"
+        android:background="@drawable/test_pic"
         />
 
     <FrameLayout

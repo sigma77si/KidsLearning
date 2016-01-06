@@ -10,6 +10,15 @@
    >
 
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:id="@+id/lineTop"
+        android:background="#982196F3"
+
+        android:layout_alignTop="@+id/listText"
+        android:layout_alignLeft="@+id/liteBottom"
+        android:layout_alignStart="@+id/liteBottom" />
 
     <ImageView
         android:padding="8dp"
@@ -36,11 +45,10 @@
 
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="8dp"
-        android:id="@+id/imageView8"
-        android:layout_below="@+id/itemImage"
-        android:layout_centerHorizontal="true"
-        android:background="#982196F3"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"/>
+        android:layout_height="4dp"
+        android:id="@+id/liteBottom"
+        android:background="#0D47A1"
+        android:layout_alignBottom="@+id/listText"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

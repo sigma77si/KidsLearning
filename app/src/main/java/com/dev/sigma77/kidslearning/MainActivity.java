@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int introSound, bipSound, clickAnswerSound;
     private static final String TAG =
             "com.dev.sigma77.kidslearning";
-    static final String ITEM_SKU = "android.test.purchased";
+    static final String ITEM_SKU = "android.test_pic.purchased";
     IabHelper mHelper;
 
     private Toolbar toolbar;

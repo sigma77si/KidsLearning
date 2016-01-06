@@ -37,7 +37,7 @@ public class TestActivity extends AppCompatActivity {
 
         v=(ImageView)findViewById(R.id.imageView9);
         reciclerView = (RecyclerView) findViewById(R.id.drowerList);
-        adapter = new VizAdapter(this, getData());
+        adapter = new VizAdapter(this, getData(),"Test");
         reciclerView.setAdapter(adapter);
         reciclerView.setLayoutManager(new LinearLayoutManager(this));
 
