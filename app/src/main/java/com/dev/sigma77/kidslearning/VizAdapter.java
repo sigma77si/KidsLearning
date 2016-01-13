@@ -102,52 +102,112 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     break;
                 }
                 case 1: {
-                   // isTest = false;
-                   // sp.play(bipSound, 1, 1, 0, 0, 1);
-                    Intent in = new Intent(context, IntroTextForAllActivity.class);
-                    in.putExtra("IntroText", R.string.Intro1Text2);
-                    in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-                    in.putExtra("TestNum", 2);
-                    in.putExtra("IntroReading", R.raw.zvukpravilno);
-                    context.startActivity(in);
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        // sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", R.string.Intro1Text2);
+                        in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
+                        in.putExtra("TestNum", 2);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                        else if(actName=="Test"){
+                        MainActivity.isTest = true;
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+
+
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 3);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+
+                        context.startActivity(in);
+
+
+                        }
 
 
                     break;
                 }
                 case 2: {
-                   // isTest = false;
-                   // sp.play(bipSound, 1, 1, 0, 0, 1);
-                    Intent in = new Intent(context, IntroTextForAllActivity.class);
-                    in.putExtra("IntroText", (R.string.Intro1Text3));
-                    in.putExtra("ImageToLoad", R.drawable.a_example);
-                    in.putExtra("TestNum", 3);
-                    in.putExtra("IntroReading", R.raw.zvukpravilno);
-                    context.startActivity(in);
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        // sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 3);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+                    else if(actName=="Test"){
+                        MainActivity.isTest = true;
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+
+
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 3);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+
+                        context.startActivity(in);
+
+
+                    }
                 }
 
                 break;
                 case 3: {
-                   // isTest = false;
-                  //  sp.play(bipSound, 1, 1, 0, 0, 1);
-                    Intent in = new Intent(context, IntroTextForAllActivity.class);
-                    in.putExtra("IntroText", (R.string.Intro1Text4));
-                    in.putExtra("TestNum", 4);
-                    in.putExtra("ImageToLoad", R.drawable.buttons_example);
-                    in.putExtra("IntroReading", R.raw.zvukpravilno);
-                    context.startActivity(in);
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text4));
+                        in.putExtra("TestNum", 4);
+                        in.putExtra("ImageToLoad", R.drawable.buttons_example);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+                        MainActivity.isTest = true;
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+
+
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 3);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+
+                        context.startActivity(in);
+
+
+                    }
 
 
                     break;
                 }
                 case 4: {
-                   // isTest = false;
-                   // sp.play(bipSound, 1, 1, 0, 0, 1);
-                    Intent in = new Intent(context, IntroTextForAllActivity.class);
-                    in.putExtra("IntroText", (R.string.Intro1Text5));
-                    in.putExtra("TestNum", 5);
-                    in.putExtra("ImageToLoad", R.drawable.pear_main);
-                    in.putExtra("IntroReading", R.raw.zvukpravilno);
-                    context.startActivity(in);
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        // sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text5));
+                        in.putExtra("TestNum", 5);
+                        in.putExtra("ImageToLoad", R.drawable.pear_main);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+                        MainActivity main=new MainActivity();
+
+                     main.inap();
+
+
+                    }
 
 
                     break;

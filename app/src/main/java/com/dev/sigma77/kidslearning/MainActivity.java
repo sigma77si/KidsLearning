@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG =
             "com.dev.sigma77.kidslearning";
     static final String ITEM_SKU = "android.test_pic.purchased";
-    IabHelper mHelper;
+     IabHelper mHelper;
 
     private Toolbar toolbar;
 
@@ -123,8 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
-
-
+  
     @Override
     protected void onPause() {
         super.onPause();
@@ -136,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         if (mHelper != null) mHelper.dispose();
         mHelper = null;
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
+     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
             = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result,
                                           Purchase purchase)
@@ -294,12 +294,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.btnPro: {
+
                 mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
-                        mPurchaseFinishedListener, "mypurchasetoken");
+                        mPurchaseFinishedListener, "mypurchasetoken2");
 
 
                 break;
             }
         }
+    }
+    public void inap(){
+        mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
+                mPurchaseFinishedListener, "mypurchasetoken2");
     }
 }
