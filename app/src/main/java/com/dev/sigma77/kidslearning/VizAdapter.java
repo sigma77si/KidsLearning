@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kidslearning.inappbilling.util.IabHelper;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -23,16 +25,19 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
     String activityname;
     private Context context;
 
+
     public VizAdapter(Context context,List<DataInformation> data,String activityName){
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.data=data;
         this.activityname=activityName;
+
    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        View view= inflater.inflate(R.layout.custom_row,parent,false);
         MyViewHolder holder=new MyViewHolder(view);
+
         return holder;
     }
 
@@ -204,7 +209,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     else if(actName=="Test"){
                         MainActivity main=new MainActivity();
 
-                     main.inap();
+                     main.onDestroy();
 
 
                     }

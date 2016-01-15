@@ -50,4 +50,6 @@
     <string name="title_activity_practice">Подготовка</string>
     <string name="title_activity_test">Тестове</string>
     <string name="title_activity_tests">Тестове</string>
+    <string name="test">Тестове</string>
+    <string name="preparation">Подготовка</string>
 </resources>

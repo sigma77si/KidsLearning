@@ -64,11 +64,20 @@
         <activity
             android:name="TestActivity"
             android:label="@string/title_activity_test"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
+
+
         <activity
             android:name=".TestsActivity"
             android:label="@string/title_activity_tests"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
 
         </activity>
     </application>

@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        game1 = (Button) findViewById(R.id.btnGame1);
-        game2 = (Button) findViewById(R.id.btnGame2);
-        game3 = (Button) findViewById(R.id.btnGame3);
-        game4 = (Button) findViewById(R.id.btnGame4);
-        game5 = (Button) findViewById(R.id.btnGame5);
-        game6 = (Button) findViewById(R.id.btnGame6);
+//        game1 = (Button) findViewById(R.id.btnGame1);
+//        game2 = (Button) findViewById(R.id.btnGame2);
+//        game3 = (Button) findViewById(R.id.btnGame3);
+//        game4 = (Button) findViewById(R.id.btnGame4);
+//        game5 = (Button) findViewById(R.id.btnGame5);
+       // game6 = (Button) findViewById(R.id.btnGame6);
         game7 = (Button) findViewById(R.id.btnGame7);
         game8 = (Button) findViewById(R.id.btnGame8);
         btnPro = (Button) findViewById(R.id.btnPro);
@@ -58,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
 
 
-        game1.setOnClickListener(this);
-        game2.setOnClickListener(this);
-        game3.setOnClickListener(this);
-        game4.setOnClickListener(this);
-        game5.setOnClickListener(this);
-        game6.setOnClickListener(this);
+//        game1.setOnClickListener(this);
+//        game2.setOnClickListener(this);
+//        game3.setOnClickListener(this);
+//        game4.setOnClickListener(this);
+//        game5.setOnClickListener(this);
+       // game6.setOnClickListener(this);
         game7.setOnClickListener(this);
         game8.setOnClickListener(this);
         btnPro.setOnClickListener(this);
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clickAnswerSound = sp.load(this, R.raw.sound, 1);
         mp = MediaPlayer.create(MainActivity.this, R.raw.intro_one);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        game7.setText("Тест 2 Про");
-        game8.setText("Tест 3 Про");
+       // game7.setText("Тест 2 Про");
+       // game8.setText("Tест 3 Про");
        // game7.setEnabled(false);
        // game8.setEnabled(false);
         String base64EncodedPublicKey =
@@ -200,83 +200,83 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
 
-            case R.id.btnGame1: {
-                isTest = false;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", R.string.Intro1Text1);
-                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-                in.putExtra("TestNum", 1);
-                in.putExtra("IntroReading", R.raw.intro_one);
-                startActivity(in);
-
-
-                break;
-            }
-            case R.id.btnGame2: {
-                isTest = false;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", R.string.Intro1Text2);
-                in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-                in.putExtra("TestNum", 2);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-
-
-                break;
-            }
-            case R.id.btnGame3: {
-                isTest = false;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text3));
-                in.putExtra("ImageToLoad", R.drawable.a_example);
-                in.putExtra("TestNum", 3);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-            }
-
-            break;
-            case R.id.btnGame4: {
-                isTest = false;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text4));
-                in.putExtra("TestNum", 4);
-                in.putExtra("ImageToLoad", R.drawable.buttons_example);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-
-
-                break;
-            }
-            case R.id.btnGame5: {
-                isTest = false;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text5));
-                in.putExtra("TestNum", 5);
-                in.putExtra("ImageToLoad", R.drawable.pear_main);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-
-
-                break;
-            }
-            case R.id.btnGame6: {
-                isTest = true;
-                sp.play(bipSound, 1, 1, 0, 0, 1);
-                Intent in = new Intent(this, IntroTextForAllActivity.class);
-                in.putExtra("IntroText", (R.string.Intro1Text3));
-                in.putExtra("ImageToLoad", R.drawable.a_example);
-                in.putExtra("TestNum", 3);
-                in.putExtra("IntroReading", R.raw.zvukpravilno);
-                startActivity(in);
-
-
-                break;
-            }
+//            case R.id.btnGame1: {
+//                isTest = false;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", R.string.Intro1Text1);
+//                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
+//                in.putExtra("TestNum", 1);
+//                in.putExtra("IntroReading", R.raw.intro_one);
+//                startActivity(in);
+//
+//
+//                break;
+//            }
+//            case R.id.btnGame2: {
+//                isTest = false;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", R.string.Intro1Text2);
+//                in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
+//                in.putExtra("TestNum", 2);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+//
+//
+//                break;
+//            }
+//            case R.id.btnGame3: {
+//                isTest = false;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", (R.string.Intro1Text3));
+//                in.putExtra("ImageToLoad", R.drawable.a_example);
+//                in.putExtra("TestNum", 3);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+//            }
+//
+//            break;
+//            case R.id.btnGame4: {
+//                isTest = false;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", (R.string.Intro1Text4));
+//                in.putExtra("TestNum", 4);
+//                in.putExtra("ImageToLoad", R.drawable.buttons_example);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+//
+//
+//                break;
+//            }
+//            case R.id.btnGame5: {
+//                isTest = false;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", (R.string.Intro1Text5));
+//                in.putExtra("TestNum", 5);
+//                in.putExtra("ImageToLoad", R.drawable.pear_main);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+//
+//
+//                break;
+//            }
+//            case R.id.btnGame6: {
+//                isTest = true;
+//                sp.play(bipSound, 1, 1, 0, 0, 1);
+//                Intent in = new Intent(this, IntroTextForAllActivity.class);
+//                in.putExtra("IntroText", (R.string.Intro1Text3));
+//                in.putExtra("ImageToLoad", R.drawable.a_example);
+//                in.putExtra("TestNum", 3);
+//                in.putExtra("IntroReading", R.raw.zvukpravilno);
+//                startActivity(in);
+//
+//
+//                break;
+//            }
             case R.id.btnGame7: {
                 isTest = true;
                 Intent in = new Intent(this, TestActivity.class);

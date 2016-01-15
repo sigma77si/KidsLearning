@@ -26,11 +26,11 @@
         android:layout_height="0dp"
         android:id="@+id/imageView8"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="2"/>
+        android:layout_weight="3"/>
         <!--android:background="@drawable/start_pic"-->
        />
 
-
+<!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,13 +105,8 @@
             android:background="@drawable/pear_main"
 
             android:layout_margin="2dp"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Тестове"
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal" />
+    </LinearLayout>-->
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -121,51 +116,58 @@
         android:background="@drawable/shapes2"
         android:layout_weight="1"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        >
 
 
 
+        <!--<Button-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:text="Тест 1"-->
+            <!--android:id="@+id/btnGame6"-->
+
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#ffffff"-->
+            <!--android:layout_margin="2dp"-->
+            <!--android:visibility="invisible"/>-->
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Тест 1"
-            android:id="@+id/btnGame6"
-
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:layout_margin="2dp"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:text="Тест 2"
-            android:id="@+id/btnGame7"
-
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:background="#ffff"
-            android:layout_margin="2dp" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:text="Тест 3"
+            android:text="@string/preparation"
+            android:textColor="#ffffff"
             android:id="@+id/btnGame8"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#ffffff"
+            android:background="#0D47A1"
             android:layout_margin="2dp" />
+
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:text="Про версия"
-            android:id="@+id/btnPro"
-
+            android:text="@string/test"
+            android:id="@+id/btnGame7"
+            android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#ffffff"
+            android:background="#0D47A1"
             android:layout_margin="2dp" />
+
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Про версия"
+        android:id="@+id/btnPro"
+        android:layout_gravity="center"
+
+
+        android:background="#ffffff"
+        android:layout_margin="2dp"
+        android:visibility="invisible"/>
 
 </LinearLayout>
