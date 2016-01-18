@@ -105,7 +105,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_test2, menu);
+        getMenuInflater().inflate(R.menu.menu_find_correct_pic, menu);
         return true;
     }
 

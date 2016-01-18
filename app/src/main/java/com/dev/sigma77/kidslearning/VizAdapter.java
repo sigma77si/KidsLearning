@@ -119,18 +119,8 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     }
 
                         else if(actName=="Test"){
-                        MainActivity.isTest = true;
-                        Intent in = new Intent(context, IntroTextForAllActivity.class);
 
-
-                        in.putExtra("IntroText", (R.string.Intro1Text3));
-                        in.putExtra("ImageToLoad", R.drawable.a_example);
-                        in.putExtra("TestNum", 3);
-                        in.putExtra("IntroReading", R.raw.zvukpravilno);
-
-                        context.startActivity(in);
-
-
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -148,17 +138,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         context.startActivity(in);
                     }
                     else if(actName=="Test"){
-                        MainActivity.isTest = true;
-                        Intent in = new Intent(context, IntroTextForAllActivity.class);
-
-
-                        in.putExtra("IntroText", (R.string.Intro1Text3));
-                        in.putExtra("ImageToLoad", R.drawable.a_example);
-                        in.putExtra("TestNum", 3);
-                        in.putExtra("IntroReading", R.raw.zvukpravilno);
-
-                        context.startActivity(in);
-
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -177,17 +157,9 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     }
 
                     else if(actName=="Test"){
-                        MainActivity.isTest = true;
-                        Intent in = new Intent(context, IntroTextForAllActivity.class);
 
 
-                        in.putExtra("IntroText", (R.string.Intro1Text3));
-                        in.putExtra("ImageToLoad", R.drawable.a_example);
-                        in.putExtra("TestNum", 3);
-                        in.putExtra("IntroReading", R.raw.zvukpravilno);
-
-                        context.startActivity(in);
-
+                   Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -207,9 +179,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     }
 
                     else if(actName=="Test"){
-                        MainActivity main=new MainActivity();
-
-                     main.onDestroy();
+                        MainActivity.btnPro.setVisibility(View.VISIBLE);
 
 
                     }

@@ -33,15 +33,15 @@
 
         </android.support.v7.widget.RecyclerView>
 
-        <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+        <!--<Button-->
+            <!--android:layout_width="48dp"-->
+            <!--android:layout_height="48dp"-->
 
-            android:id="@+id/button11"
-            android:layout_gravity="right|bottom"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/btn_play"/>
+            <!--android:id="@+id/button11"-->
+            <!--android:layout_gravity="right|bottom"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:layout_marginBottom="16dp"-->
+            <!--android:background="@drawable/btn_play"/>-->
     </FrameLayout>
 
 </LinearLayout>

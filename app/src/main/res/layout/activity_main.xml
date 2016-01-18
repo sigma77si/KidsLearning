@@ -15,9 +15,6 @@
         layout="@layout/app_bar"
         android:id="@+id/app_bar"
 
-
-
-
        />
 
 
@@ -106,15 +103,27 @@
 
             android:layout_margin="2dp"/>
     </LinearLayout>-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Про версия"
+        android:id="@+id/btnPro"
+        android:layout_gravity="center"
+        android:background="@drawable/shapes5"
+        android:layout_weight="0.5"
+        android:textSize="17dp"
+        android:layout_margin="2dp"
+        android:visibility="invisible"
+        android:padding="10dp"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:weightSum="4"
-        android:background="@drawable/shapes2"
-        android:layout_weight="1"
+        android:weightSum="2"
+
+        android:layout_weight="0.5"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center"
@@ -141,8 +150,10 @@
             android:id="@+id/btnGame8"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#0D47A1"
-            android:layout_margin="2dp" />
+            android:background="@drawable/shapes5"
+            android:layout_margin="2dp"
+            android:textSize="17dp"
+           />
 
         <Button
             android:layout_width="0dp"
@@ -152,22 +163,13 @@
             android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#0D47A1"
-            android:layout_margin="2dp" />
+            android:background="@drawable/shapes5"
+            android:layout_margin="2dp"
+            android:textSize="17dp"/>
 
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Про версия"
-        android:id="@+id/btnPro"
-        android:layout_gravity="center"
 
-
-        android:background="#ffffff"
-        android:layout_margin="2dp"
-        android:visibility="invisible"/>
 
 </LinearLayout>

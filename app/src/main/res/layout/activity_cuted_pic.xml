@@ -137,7 +137,8 @@
         android:layout_height="match_parent"
         android:layout_weight="0.6"
         android:weightSum="13"
-        android:id="@+id/layoutSpinners">
+        android:id="@+id/layoutSpinners"
+        android:padding="10dp">
 
 
 

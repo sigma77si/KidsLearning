@@ -27,7 +27,15 @@ import com.kidslearning.inappbilling.util.IabResult;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean isTest = false;
-    Button game1, game2, game3, game4, game5, game6, game7, game8,btnPro;
+    Button game1;
+    Button game2;
+    Button game3;
+    Button game4;
+    Button game5;
+    Button game6;
+    Button game7;
+    Button game8;
+    static Button btnPro;
     SoundPool sp;
     MediaPlayer mp;
     int introSound, bipSound, clickAnswerSound;
@@ -116,10 +124,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_settings) {
             return true;
         }
-        if (id == R.id.navigate) {
-
-           startActivity(new Intent(this,ResultActivity.class));
-        }
+//        if (id == R.id.navigate) {
+//
+//           startActivity(new Intent(this,ResultActivity.class));
+//        }
 
         return super.onOptionsItemSelected(item);
     }

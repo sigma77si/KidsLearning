@@ -24,18 +24,21 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/drowerList">
+            android:id="@+id/drowerList"
+            android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
 
         </android.support.v7.widget.RecyclerView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button11"
-            android:layout_gravity="right|bottom"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"/>
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="New Button"-->
+            <!--android:id="@+id/button11"-->
+            <!--android:layout_gravity="right|bottom"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:layout_marginBottom="16dp"/>-->
     </FrameLayout>
 
 </LinearLayout>

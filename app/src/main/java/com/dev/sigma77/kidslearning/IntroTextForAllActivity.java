@@ -102,7 +102,7 @@ public class IntroTextForAllActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_test2_intro, menu);
+        getMenuInflater().inflate(R.menu.menu_intro_text_for_all_activity, menu);
         return true;
     }
 
