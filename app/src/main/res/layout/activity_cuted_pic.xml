@@ -26,7 +26,7 @@
                 android:id="@+id/image2View6"
                 android:layout_weight="1"
 
-                android:background="@drawable/pear6"
+                android:background="@drawable/pear2"
                 />
 
             <ImageView
@@ -42,20 +42,20 @@
                 android:layout_height="0dp"
                 android:id="@+id/image2View4"
                 android:layout_weight="1"
-                android:background="@drawable/pear4"/>
+                android:background="@drawable/pear3"/>
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:id="@+id/image2View3"
                 android:layout_weight="1"
-                android:background="@drawable/pear3"/>
+                android:background="@drawable/pear6"/>
 
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:id="@+id/image2View2"
                 android:layout_weight="1"
-                android:background="@drawable/pear2"/>
+                android:background="@drawable/pear4"/>
 
             <ImageView
                 android:layout_width="fill_parent"

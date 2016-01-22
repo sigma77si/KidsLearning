@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static Button btnPro;
     SoundPool sp;
     MediaPlayer mp;
+    boolean callMain;
     int introSound, bipSound, clickAnswerSound;
     private static final String TAG =
             "com.dev.sigma77.kidslearning";
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Intent mIntent = getIntent();
+        callMain= mIntent.getBooleanExtra("CallMain",false);
         setContentView(R.layout.activity_main);
 //        game1 = (Button) findViewById(R.id.btnGame1);
 //        game2 = (Button) findViewById(R.id.btnGame2);
@@ -85,6 +90,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        // game8.setText("Tест 3 Про");
        // game7.setEnabled(false);
        // game8.setEnabled(false);
+        if(callMain==true){
+            btnPro.setVisibility(View.VISIBLE);
+            game7.setVisibility(View.INVISIBLE);
+            game8.setVisibility(View.INVISIBLE);
+        }
+        else {
+        btnPro.setVisibility(View.INVISIBLE);
+        }
         String base64EncodedPublicKey =
                 "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoWcEpy7TKjzd2DK8R6FTGKIekGYubBtWfOtc4D8nlghiYYQX53tZpK/HEa7GiiTNhLLR8TN0zuZru5kDdXyZbqqajomZ/KWQS+IR3WAILtkCDS5yvoRbTZJztVklB8csPIQhA7xloyI6EhpRT/4OKVWrcbsyUtkWH5U+0Wv3xlN0wblsTlUH+1X6djKeaZdZxjgULcA/KvA/A6Ah/2VVlcMe5oj6TOb5myhbOLUQRO2FccDau+woxPNhtLWZr2hqbFXQD6nXP6gPOKGujLZoLI/MCN6GS4nm3OzrmF4RSiBQgoFcdxvIW8BqKZlyTg/09VVqQ3Dms71zKe9ilGTkXwIDAQAB";
 
@@ -305,14 +318,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
                         mPurchaseFinishedListener, "mypurchasetoken2");
+                 this.finish();
 
 
                 break;
             }
         }
     }
-    public void inap(){
-        mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
-                mPurchaseFinishedListener, "mypurchasetoken2");
-    }
+
+
 }

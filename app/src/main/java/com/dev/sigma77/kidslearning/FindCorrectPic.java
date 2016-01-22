@@ -294,7 +294,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
         if(correctAnswers ==5){
             currentGamePoints = 1;
 
-        };
+        }
 
         putExtraStartResultActivity();
 

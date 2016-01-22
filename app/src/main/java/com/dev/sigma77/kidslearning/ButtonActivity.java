@@ -267,9 +267,9 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
                     }
                 }, 4700);
 
-            if(MainActivity.isTest == true){
-                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text3, R.drawable.a_example,3
-                        ,R.raw.zvukpravilno), 1900);
+            if(MainActivity.isTest == true){isEnd=true;
+//                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text3, R.drawable.a_example,3
+//                        ,R.raw.zvukpravilno), 1900);
 //                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text3, R.drawable.a_example,3
 //                        ,R.raw.zvukpravilno);
 //                putExtras.putExtra();

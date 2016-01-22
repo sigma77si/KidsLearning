@@ -113,7 +113,7 @@
         android:layout_weight="0.5"
         android:textSize="17dp"
         android:layout_margin="2dp"
-        android:visibility="invisible"
+
         android:padding="10dp"/>
 
     <LinearLayout

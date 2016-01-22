@@ -56,14 +56,14 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         }
         setResults(gamePoints,gameCorrectAnswers);
 
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-
-                finish();
-            }
-        }, 4700);
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//
+//                finish();
+//            }
+//        }, 4700);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button1:{
-                finish();
+                this.finish();
                 break;
 
             }

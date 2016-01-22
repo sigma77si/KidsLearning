@@ -207,6 +207,16 @@ public class CountActivity extends Activity implements View.OnClickListener {
         intPicList.remove(currentPic);
         if (intPicList.size() <= 0) {
             boolean isEnd=true;
+            btn1.setClickable(false);
+            btn2.setClickable(false);
+            btn3.setClickable(false);
+            btn4.setClickable(false);
+            btn5.setClickable(false);
+            btn6.setClickable(false);
+            btn7.setClickable(false);
+            btn8.setClickable(false);
+            btn9.setClickable(false);
+            btn10.setClickable(false);
             if(correctAnswers ==10){
                 currentGamePoints =1;
             };

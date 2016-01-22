@@ -133,6 +133,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             sp.play(wrongSound, 1, 1, 0, 0, 1);
                         }
                         if(MainActivity.isTest == true){
+                            isEnd=true;
                             new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
                                     ,R.raw.zvukpravilno), 1900);
 //                            NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
@@ -155,8 +156,8 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                                     finish();
                                 }
                             }
-                        }, 4700);}
-                        new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
+                        }, 1900);}
+                      new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
 //                        Intent in = new Intent(this, ResultActivity.class);
 //                        startActivity(in);
                     }
@@ -173,11 +174,11 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
 
     private void startNewScene() {
         v2img1.setBackgroundResource(R.drawable.boy_1);
-        v2img2.setBackgroundResource(R.drawable.boy_1);
-        v2img3.setBackgroundResource(R.drawable.boy_1);
-        v2img4.setBackgroundResource(R.drawable.boy_1);
-        v2img5.setBackgroundResource(R.drawable.boy_1);
-        v2img6.setBackgroundResource(R.drawable.boy_1);
+        v2img2.setBackgroundResource(R.drawable.boy_4);
+        v2img3.setBackgroundResource(R.drawable.boy_6);
+        v2img4.setBackgroundResource(R.drawable.boy_3);
+        v2img5.setBackgroundResource(R.drawable.boy_5);
+        v2img6.setBackgroundResource(R.drawable.boy_2);
         img1.setBackgroundResource(R.drawable.boy_1);
         img2.setBackgroundResource(R.drawable.boy_4);
         img3.setBackgroundResource(R.drawable.boy_6);
@@ -264,6 +265,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                 countAnswers++;
                 break;
             }
+
 
         }
 

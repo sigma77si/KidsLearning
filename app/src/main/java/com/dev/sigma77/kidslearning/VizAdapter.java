@@ -179,8 +179,11 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                     }
 
                     else if(actName=="Test"){
-                        MainActivity.btnPro.setVisibility(View.VISIBLE);
 
+                        Intent in = new Intent(context, MainActivity.class);
+                        in.putExtra("CallMain", true);
+                        context.startActivity(in);
+                       // MainActivity.btnPro.setVisibility(View.VISIBLE);
 
                     }
 

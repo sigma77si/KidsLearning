@@ -34,9 +34,9 @@ public class ShowResults implements Runnable{
         result.putExtra("GamePoints", points);
         result.putExtra("CorrectAnswers", correctAnswers);
         activityObj.startActivity(result);
-        if(isActivityEnds=true){
+        if(isActivityEnds==true){
             activityObj.finish();
-        };
+        }
 
     }
 }
