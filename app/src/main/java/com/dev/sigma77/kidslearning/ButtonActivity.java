@@ -26,7 +26,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
     int numofAnswers, correctAnswers,currentGamePoints= 0,correctSound, wrongSound, endSound,clickAnswerSound;
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11,
             btn12, btn13, btn14, btn15, btn16;
-    Set<ImageButton> answer = new HashSet<>();
+
     Map<Integer, ImageButton> buttonMap = new HashMap<>();
     Set<Integer> correctAnswersSet = new HashSet<>();
 
@@ -129,105 +129,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         switch (selectedButtonId) {
 
 
-//            case R.id.imageButton1: {
 //
-//                setBgrGrey(btn1);
-//
-//                break;
-//            }
-//            case R.id.imageButton2: {
-//
-//                setBgrGrey(btn2);
-//
-//                break;
-//            }
-//            case R.id.imageButton3: {
-//
-//                setBgrGrey(btn3);
-//
-//                break;
-//            }
-//            case R.id.imageButton4: {
-//
-//                correctAnswers++;
-//                setBgrGrey(btn4);
-//
-//                break;
-//            }
-//            case R.id.imageButton5: {
-//
-//                setBgrGrey(btn5);
-//
-//                break;
-//            }
-//            case R.id.imageButton6: {
-//
-//                setBgrGrey(btn6);
-//
-//                break;
-//            }
-//            case R.id.imageButton7: {
-//
-//                setBgrGrey(btn7);
-//
-//                break;
-//            }
-//            case R.id.imageButton8: {
-//
-//                setBgrGrey(btn8);
-//
-//                break;
-//            }
-//            case R.id.imageButton9: {
-//                correctAnswers++;
-//
-//                setBgrGrey(btn9);
-//
-//                break;
-//            }
-//            case R.id.imageButton10: {
-//
-//                setBgrGrey(btn10);
-//
-//                break;
-//            }
-//            case R.id.imageButton11: {
-//
-//                setBgrGrey(btn11);
-//
-//                break;
-//            }
-//            case R.id.imageButton12: {
-//
-//                setBgrGrey(btn12);
-//
-//                break;
-//            }
-//            case R.id.imageButton13: {
-//
-//                setBgrGrey(btn13);
-//
-//                break;
-//            }
-//            case R.id.imageButton14: {
-//
-//                setBgrGrey(btn14);
-//
-//                break;
-//            }
-//            case R.id.imageButton15: {
-//                correctAnswers++;
-//
-//                setBgrGrey(btn15);
-//
-//                break;
-//            }
-//            case R.id.imageButton16: {
-//
-//                setBgrGrey(btn16);
-//
-//                break;
-//            }
             case R.id.btnCheck: {
 
                 isEnd=true;
