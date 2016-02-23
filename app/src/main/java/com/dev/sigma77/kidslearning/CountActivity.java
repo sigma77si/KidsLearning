@@ -1,7 +1,6 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -20,10 +19,11 @@ import java.util.Random;
 public class CountActivity extends Activity implements View.OnClickListener {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10;
     SoundPool sp;
-    //  private int listSize=10;
+
     Map<Integer, Integer> intPicList = new HashMap<>();
+    Map<Integer, Integer> buttonMap = new HashMap<>();
     private ImageView pic;
-    private int currentPic, correctSound, wrongSound, endSound;
+    private int currentPic, correctSound, wrongSound;
     private int correctAnswers, currentGamePoints = 0;
 
 
@@ -55,22 +55,34 @@ public class CountActivity extends Activity implements View.OnClickListener {
         btn10.setOnClickListener(this);
 
 
-        intPicList.put(1, 1);
-        intPicList.put(2, 2);
-        intPicList.put(3, 3);
-        intPicList.put(4, 4);
-        intPicList.put(5, 5);
-        intPicList.put(6, 6);
-        intPicList.put(7, 7);
-        intPicList.put(8, 8);
-        intPicList.put(9, 9);
-        intPicList.put(10, 10);
+        intPicList.put(1, R.drawable.count_on_fingers_01);
+        intPicList.put(2, R.drawable.count_on_fingers_02);
+        intPicList.put(3, R.drawable.count_on_fingers_03);
+        intPicList.put(4, R.drawable.count_on_fingers_04);
+        intPicList.put(5, R.drawable.count_on_fingers_05);
+        intPicList.put(6, R.drawable.count_on_fingers_06);
+        intPicList.put(7, R.drawable.count_on_fingers_07);
+        intPicList.put(8, R.drawable.count_on_fingers_08);
+        intPicList.put(9, R.drawable.count_on_fingers_09);
+        intPicList.put(10, R.drawable.count_on_fingers_10);
+
+        buttonMap.put(R.id.button1,1);
+        buttonMap.put(R.id.button2,2);
+        buttonMap.put(R.id.button3,3);
+        buttonMap.put(R.id.button4,4);
+        buttonMap.put(R.id.button5,5);
+        buttonMap.put(R.id.button6,6);
+        buttonMap.put(R.id.button7,7);
+        buttonMap.put(R.id.button8,8);
+        buttonMap.put(R.id.button9,9);
+        buttonMap.put(R.id.button10,10);
+
 
         getRandomPic();
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
-        endSound = sp.load(this, R.raw.endmussic, 1);
+
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
     }
@@ -101,98 +113,15 @@ public class CountActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int selectedButtonId = v.getId();
-        int btnNumber = 0;
-        switch (v.getId()) {
+        int btnNumber = buttonMap.get(selectedButtonId);
 
-
-            case R.id.button1: {
-                btnNumber = 1;
-                break;
-            }
-            case R.id.button2: {
-                btnNumber = 2;
-                break;
-            }
-            case R.id.button3: {
-                btnNumber = 3;
-                break;
-            }
-            case R.id.button4: {
-                btnNumber = 4;
-                break;
-            }
-            case R.id.button5: {
-                btnNumber = 5;
-                break;
-            }
-            case R.id.button6: {
-                btnNumber = 6;
-                break;
-            }
-            case R.id.button7: {
-                btnNumber = 7;
-                break;
-            }
-            case R.id.button8: {
-                btnNumber = 8;
-                break;
-            }
-            case R.id.button9: {
-                btnNumber = 9;
-                break;
-            }
-            case R.id.button10: {
-                btnNumber = 10;
-                break;
-            }
-        }
         checkAnswer(btnNumber);
     }
 
-    public void chengePic(int picNum) {
-        switch (picNum) {
-            case 1: {
-                pic.setImageResource(R.drawable.count_on_fingers_01);
-                break;
-            }
-            case 2: {
-                pic.setImageResource(R.drawable.count_on_fingers_02);
-                break;
-            }
-            case 3: {
-                pic.setImageResource(R.drawable.count_on_fingers_03);
-                break;
-            }
-            case 4: {
-                pic.setImageResource(R.drawable.count_on_fingers_04);
-                break;
-            }
-            case 5: {
-                pic.setImageResource(R.drawable.count_on_fingers_05);
-                break;
-            }
-            case 6: {
-                pic.setImageResource(R.drawable.count_on_fingers_06);
-                break;
-            }
-            case 7: {
-                pic.setImageResource(R.drawable.count_on_fingers_07);
-                break;
-            }
-            case 8: {
-                pic.setImageResource(R.drawable.count_on_fingers_08);
-                break;
-            }
-            case 9: {
-                pic.setImageResource(R.drawable.count_on_fingers_09);
-                break;
-            }
-            case 10: {
-                pic.setImageResource(R.drawable.count_on_fingers_10);
+    public void changePic(int picNum) {
+        int number=intPicList.get(picNum);
+        pic.setImageResource(number);
 
-                break;
-            }
-        }
         currentPic = picNum;
     }
 
@@ -219,35 +148,12 @@ public class CountActivity extends Activity implements View.OnClickListener {
             btn10.setClickable(false);
             if(correctAnswers ==10){
                 currentGamePoints =1;
-            };
+            }
 
-           // new Handler().postDelayed(new ShowResults(this,correctAnswersSet,currentGamePoints,isEnd), 4700);
-           // DelayAndFinish();
-            // sp.play(endSound, 1, 1, 0, 0, 1);
+
             if(MainActivity.isTest == true) {
                 new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
                         ,R.raw.zvukpravilno), 1900);
-//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
-//                ,R.raw.zvukpravilno);
-//                putExtras.putExtra();
-
-//                Intent intent = new Intent(this, IntroTextForAllActivity.class);
-//                intent.putExtra("IntroText", R.string.Intro1Text2);
-//                intent.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-//                intent.putExtra("TestNum", 2);
-//                intent.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(intent);
-
-//                Intent in = new Intent(this, ResultActivity.class);
-//                in.putExtra("GamePoints", currentGamePoints);
-//                in.putExtra("CorrectAnswers", correctAnswersSet);
-//                startActivity(in);
-            }else {
-
-//                Intent in = new Intent(this, ResultActivity.class);
-//                in.putExtra("GamePoints", currentGamePoints);
-//                in.putExtra("CorrectAnswers", correctAnswersSet);
-//                startActivity(in);
 
             }
             new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
@@ -259,14 +165,6 @@ public class CountActivity extends Activity implements View.OnClickListener {
 
     }
 
-    private void DelayAndFinish() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        }, 1700);
-    }
 
     public void getRandomPic() {
         Random rnd = new Random();
@@ -274,7 +172,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
         while (!intPicList.containsKey(randomPicPos)) {
             randomPicPos = rnd.nextInt(10) + 1;
         }
-        int randomPic = intPicList.get(randomPicPos);
-        chengePic(randomPic);
+       // int randomPic = intPicList.get(randomPicPos);
+        changePic(randomPicPos);
     }
 }
