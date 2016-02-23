@@ -33,9 +33,11 @@ public class ShowResults implements Runnable{
         Intent result = new Intent(activityObj, ResultActivity.class);
         result.putExtra("GamePoints", points);
         result.putExtra("CorrectAnswers", correctAnswers);
+
         activityObj.startActivity(result);
         if(isActivityEnds==true){
             activityObj.finish();
+
         }
 
     }

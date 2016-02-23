@@ -24,6 +24,7 @@ public class NextTestScene implements Runnable
     }
 
     public void putExtra(){
+
         Intent intent = new Intent(activityObj, IntroTextForAllActivity.class);
         intent.putExtra("IntroText", introText);
         intent.putExtra("ImageToLoad", imageToLoad);

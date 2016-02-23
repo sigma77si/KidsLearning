@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
-   public static int currentGamePoints, correctAnswers = 0;
+   public static int currentGamePoints=0, correctAnswers = 0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -284,7 +284,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 
 
                 }
-            }, 4800);
+            }, 2800);
 
 
         }
@@ -338,39 +338,22 @@ else {
             currentGamePoints =1;
 
 
-        };
+        }
 
             if (sceneNum != 6) {
+
                  isEnd=true;
                 new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
                         ,R.raw.zvukpravilno), 1900);
-//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
-//                        ,R.raw.zvukpravilno);
-//               putExtras.putExtra();
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", (R.string.Intro1Text5));
-//                in.putExtra("TestNum", 5);
-//                in.putExtra("ImageToLoad", R.drawable.pear_main);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-               // putExtraStartResultActivity();
+
 
             } else {
+
                 isEnd=true;
+
                 new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
                         ,R.raw.intro_one), 1900);
-//                NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
-//                        ,R.raw.intro_one);
-//                putExtras.putExtra();
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", R.string.Intro1Text1);
-//                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-//                in.putExtra("TestNum", 1);
-//                in.putExtra("IntroReading", R.raw.intro_one);
-//                startActivity(in);
-//                finish();
-//                putExtraStartResultActivity();
-            }
+             }
         new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
 
     }

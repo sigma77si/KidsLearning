@@ -53,4 +53,5 @@
     <string name="test">Тестове</string>
     <string name="preparation">Подготовка</string>
     <string name="help">Помощ</string>
+    <string name="title_activity_test_results">TestResultsActivity</string>
 </resources>

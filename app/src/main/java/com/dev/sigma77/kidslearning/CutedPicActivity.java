@@ -136,9 +136,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             isEnd=true;
                             new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
                                     ,R.raw.zvukpravilno), 1900);
-//                            NextTestScene putExtras=new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
-//                                    ,R.raw.zvukpravilno);
-//                            putExtras.putExtra();
+//
 
                         }else {
 
@@ -148,7 +146,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             @Override
                             public void run() {
                                 if(scene==1){
-
+                                    correctAnswers=0;
                                     startNewScene();
                                 }
                                 else {
@@ -158,8 +156,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             }
                         }, 1900);}
                       new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
-//                        Intent in = new Intent(this, ResultActivity.class);
-//                        startActivity(in);
+//
                     }
                 }
 
@@ -224,50 +221,100 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         int img = R.drawable.pear2;
-        switch (parent.getId()) {
-            case R.id.spinner2: {
-                if (position == 3) {
-                    correctAnswers++;
+
+        if(scene==2) {
+            switch (parent.getId()) {
+                case R.id.spinner2: {
+                    if (position == 3) {
+                        correctAnswers++;
+                    }
+                    countAnswers++;
+                    img = R.drawable.boy_4;
+                    break;
                 }
-                countAnswers++;
-                img = R.drawable.pear4;
-                break;
-            }
-            case R.id.spinner3: {
-                if (position == 5) {
-                    correctAnswers++;
+                case R.id.spinner3: {
+                    if (position == 5) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.boy_6;
+                    countAnswers++;
+                    break;
                 }
-                img = R.drawable.pear6;
-                countAnswers++;
-                break;
-            }
-            case R.id.spinner4: {
-                if (position == 2) {
-                    correctAnswers++;
+                case R.id.spinner4: {
+                    if (position == 2) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.boy_3;
+                    countAnswers++;
+                    break;
                 }
-                img = R.drawable.pear3;
-                countAnswers++;
-                break;
-            }
-            case R.id.spinner5: {
-                if (position == 4) {
-                    correctAnswers++;
+                case R.id.spinner5: {
+                    if (position == 4) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.boy_5;
+                    countAnswers++;
+                    break;
                 }
-                img = R.drawable.pear5;
-                countAnswers++;
-                break;
-            }
-            case R.id.spinner6: {
-                if (position == 1) {
-                    correctAnswers++;
+                case R.id.spinner6: {
+                    if (position == 1) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.boy_2;
+                    countAnswers++;
+                    break;
                 }
-                img = R.drawable.pear2;
-                countAnswers++;
-                break;
-            }
 
 
+            }
         }
+        if(scene==1) {
+            switch (parent.getId()) {
+                case R.id.spinner2: {
+                    if (position == 3) {
+                        correctAnswers++;
+                    }
+                    countAnswers++;
+                    img = R.drawable.pear4;
+                    break;
+                }
+                case R.id.spinner3: {
+                    if (position == 5) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.pear6;
+                    countAnswers++;
+                    break;
+                }
+                case R.id.spinner4: {
+                    if (position == 2) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.pear3;
+                    countAnswers++;
+                    break;
+                }
+                case R.id.spinner5: {
+                    if (position == 4) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.pear5;
+                    countAnswers++;
+                    break;
+                }
+                case R.id.spinner6: {
+                    if (position == 1) {
+                        correctAnswers++;
+                    }
+                    img = R.drawable.pear2;
+                    countAnswers++;
+                    break;
+                }
+
+
+            }
+        }
+
 
         setPicture(position, img);
 

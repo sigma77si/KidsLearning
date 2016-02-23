@@ -4,7 +4,7 @@
     tools:context="com.dev.sigma77.kidslearning.PracticeActivity"
     android:orientation="vertical"
     android:weightSum="2"
-    android:background="">
+    >
     <include
         layout="@layout/app_bar"
         android:id="@+id/app_bar"

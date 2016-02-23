@@ -21,7 +21,7 @@ android:weightSum="4"
         android:id="@+id/imageView10"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/result"
-        android:layout_weight="2"/>
+        android:layout_weight="3"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,21 +80,24 @@ android:weightSum="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/testResultLayout"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Общ резултат"
             android:id="@+id/textTestResult"
             android:layout_gravity="center_vertical"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="0"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"

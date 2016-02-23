@@ -24,6 +24,9 @@ import com.kidslearning.inappbilling.util.Purchase;
 import com.kidslearning.inappbilling.util.IabHelper;
 import com.kidslearning.inappbilling.util.IabResult;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean isTest = false;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "com.dev.sigma77.kidslearning";
     static final String ITEM_SKU = "android.test_pic.purchased";
      IabHelper mHelper;
+   public static List<String> correctAnswersList = new ArrayList<>();
+    public static List<String> gamePointsList = new ArrayList<>();
 
     private Toolbar toolbar;
 

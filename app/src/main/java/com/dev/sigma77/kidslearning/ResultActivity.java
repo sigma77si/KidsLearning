@@ -15,6 +15,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 public class ResultActivity extends ActionBarActivity implements View.OnClickListener {
     TextView textResults, textCorrect, textTestResult, currentCorrectResult,points;
@@ -23,6 +29,11 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
     private Toolbar toolbar;
    static LinearLayout testResultLayout;
    public static int result;
+    public static boolean isLastTest;
+
+  //  List<String> correctAnswersSet = new ArrayList<>();
+   // List<String> gamePointsSet = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,9 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         };
        int gamePoints = mIntent.getIntExtra("GamePoints", 0);
         int gameCorrectAnswers = mIntent.getIntExtra("CorrectAnswers", 0);
+        MainActivity.correctAnswersList.add(String.valueOf(gameCorrectAnswers));
+        MainActivity.gamePointsList.add(String.valueOf(gamePoints));
+
         if(result!=-1) {
             result = getPreferences(MODE_PRIVATE).getInt("Result", 0);
         }
@@ -72,7 +86,8 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
 
         super.onPause();
 //
-        getPreferences(MODE_PRIVATE).edit().putInt("Result",result).commit();
+        getPreferences(MODE_PRIVATE).edit().putInt("Result", result).commit();
+
     }
 
     private void setResults(int currentPoints,int gameCorrectAnswers) {
@@ -115,6 +130,17 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button1:{
+                if(isLastTest==true){
+
+                    Intent in = new Intent(this, TestResultsActivity.class);
+                   // in.putExtra ("GamesCorrectAnswers", (Serializable) correctAnswersSet);
+                  //  in.putExtra ("GamesPoints", (Serializable) gamePointsSet);
+                   in.putStringArrayListExtra("GamesCorrectAnswers",(ArrayList<String>)MainActivity.correctAnswersList);
+                    in.putStringArrayListExtra("GamesPoints", (ArrayList<String>) MainActivity.gamePointsList);
+                    in.putExtra("AllPoints",result);
+                    startActivity(in);
+
+                }
                 this.finish();
                 break;
 

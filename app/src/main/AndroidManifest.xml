@@ -62,15 +62,13 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name="TestActivity"
+            android:name=".TestActivity"
             android:label="@string/title_activity_test"
             android:screenOrientation="portrait">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-
-
         <activity
             android:name=".TestsActivity"
             android:label="@string/title_activity_tests"
@@ -78,8 +76,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
+        <activity
+            android:name=".TestResultsActivity"
+            android:label="@string/title_activity_test_results"></activity>
     </application>
 
 </manifest>
