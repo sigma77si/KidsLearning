@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CutedPicActivity extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     Button btnCheck;
@@ -66,6 +69,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         layout1 = (LinearLayout) findViewById(R.id.layout1);
         layout2 = (LinearLayout) findViewById(R.id.layout2);
         layoutSpinners = (LinearLayout) findViewById(R.id.layoutSpinners);
+
 
         btnCheck.setOnClickListener(this);
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
@@ -216,11 +220,35 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
 //            }
 //        }
 //    }
+      public void checkAnswer(int scene,Spinner spinerNum,int positoin){
+          Map<Integer, Integer> spinnerMap = new HashMap<>();
+          if(scene==1){
+              spinnerMap.put(R.id.spinner2,2);
+              spinnerMap.put(R.id.spinner3,5);
+              spinnerMap.put(R.id.spinner4,2);
+              spinnerMap.put(R.id.spinner5,4);
+              spinnerMap.put(R.id.spinner6,1);
 
+
+          }
+          else if(scene==2){
+              spinnerMap.put(R.id.spinner2,3);
+              spinnerMap.put(R.id.spinner3,5);
+              spinnerMap.put(R.id.spinner4,2);
+              spinnerMap.put(R.id.spinner5,4);
+              spinnerMap.put(R.id.spinner6,1);
+
+          }
+          if(spinnerMap.get(spinerNum)==positoin){
+              correctAnswers++;
+          }
+
+      }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         int img = R.drawable.pear2;
+        int spinnerNum =parent.getId();
 
         if(scene==2) {
             switch (parent.getId()) {
@@ -316,7 +344,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         }
 
 
-        setPicture(position, img);
+        setPicture(position, spinnerNum);
 
 
     }
@@ -324,38 +352,62 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
 
         if(scene==1){
 
+
         }
     }
 
 
-    private void setPicture(int position, int img) {
-        switch (position) {
-            case 0: {
-                // v2img2.setBackgroundResource(img);
-                break;
-            }
-            case 1: {
-                v2img2.setBackgroundResource(img);
-                break;
-            }
-            case 2: {
-                v2img3.setBackgroundResource(img);
-                break;
-            }
-            case 3: {
-                v2img4.setBackgroundResource(img);
-                break;
-            }
-            case 4: {
-                v2img5.setBackgroundResource(img);
-                break;
-            }
-            case 5: {
-                v2img6.setBackgroundResource(img);
-                break;
-            }
+    public void setPicture(int position, int spinner) {
+if(position<1){
+    position=1;
+}
+        Map<Integer, Integer> imgresource = new HashMap<>();
+      if (scene==1){
 
-        }
+          imgresource.put(R.id.spinner2, R.drawable.pear2);
+          imgresource.put(R.id.spinner3, R.drawable.pear3);
+          imgresource.put(R.id.spinner4, R.drawable.pear4);
+          imgresource.put(R.id.spinner5, R.drawable.pear5);
+          imgresource.put(R.id.spinner6, R.drawable.pear6);
+      }
+        else if(scene==2){
+          imgresource.put(1, R.drawable.boy_2);
+          imgresource.put(2, R.drawable.boy_3);
+          imgresource.put(3, R.drawable.boy_4);
+          imgresource.put(4, R.drawable.boy_5);
+          imgresource.put(5, R.drawable.boy_6);
+
+      }
+        ImageView [] resultPics={v2img1,v2img2,v2img3,v2img4,v2img5};
+        resultPics[position-1].setBackgroundResource(imgresource.get(spinner));
+
+//        switch (position) {
+//            case 0: {
+//                // v2img2.setBackgroundResource(img);
+//                break;
+//            }
+//            case 1: {
+//                v2img2.setBackgroundResource(img);
+//                break;
+//            }
+//            case 2: {
+//                v2img3.setBackgroundResource(img);
+//                break;
+//            }
+//            case 3: {
+//                v2img4.setBackgroundResource(img);
+//                break;
+//            }
+//            case 4: {
+//                v2img5.setBackgroundResource(img);
+//                break;
+//            }
+//            case 5: {
+//                v2img6.setBackgroundResource(img);
+//                break;
+//            }
+//
+//        }
     }
 
     @Override
