@@ -29,7 +29,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     Map<Integer, ImageButton> buttonMap = new HashMap<>();
     Set<Integer> correctAnswersSet = new HashSet<>();
-
+      static int game=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,15 +88,25 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         buttonMap.put(R.id.imageButton15, btn15);
         buttonMap.put(R.id.imageButton16, btn16);
 
-        correctAnswersSet.add(R.id.imageButton15);
-        correctAnswersSet.add(R.id.imageButton9);
-        correctAnswersSet.add(R.id.imageButton4);
+
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
         clickAnswerSound= sp.load(this, R.raw.sound, 1);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        if(game==1){
+            correctAnswersSet.add(R.id.imageButton15);
+            correctAnswersSet.add(R.id.imageButton9);
+            correctAnswersSet.add(R.id.imageButton4);
+        }
+        if(game==2){
+            correctAnswersSet.add(R.id.imageButton2);
+            correctAnswersSet.add(R.id.imageButton8);
+            correctAnswersSet.add(R.id.imageButton14);
+            setGame2();
+        }
+
     }
 
 
@@ -156,12 +166,27 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         }
 
     }
+    public void setGame2(){
+
+        btn8.setImageResource(R.drawable.button2);
+        btn4.setImageResource(R.drawable.button8);
+        btn14.setImageResource(R.drawable.button2);
+    }
 
     private void setAnswerBgrColor() {
         if (numofAnswers >= 3) {
-            btn4.setBackgroundResource(R.drawable.shapes4);
-            btn9.setBackgroundResource(R.drawable.shapes4);
-            btn15.setBackgroundResource(R.drawable.shapes4);
+            if (game==1){
+                btn4.setBackgroundResource(R.drawable.shapes4);
+                btn9.setBackgroundResource(R.drawable.shapes4);
+                btn15.setBackgroundResource(R.drawable.shapes4);
+            }
+            else if(game==2){
+                btn2.setBackgroundResource(R.drawable.shapes4);
+                btn8.setBackgroundResource(R.drawable.shapes4);
+                btn14.setBackgroundResource(R.drawable.shapes4);
+
+            }
+
             new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

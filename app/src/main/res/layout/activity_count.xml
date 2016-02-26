@@ -28,8 +28,17 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:layout_weight="15"
-        android:weightSum="100"
+        android:weightSum="120"
          >
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="0"
+            android:id="@+id/button0"
+            android:layout_weight="20"
+            android:background="@drawable/shapes2"
+            android:textSize="25dp"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -85,12 +94,21 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:layout_weight="15"
-        android:weightSum="100"
+        android:weightSum="120"
         >
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text=""
+            android:id="@+id/button11"
+            android:layout_weight="10"
+            android:visibility="invisible"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="6"
             android:id="@+id/button6"
@@ -100,7 +118,7 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="7"
             android:id="@+id/button7"
@@ -109,7 +127,7 @@
             android:textSize="25dp"/>
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="8"
             android:id="@+id/button8"
@@ -118,7 +136,7 @@
             android:textSize="25dp"/>
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="9"
             android:id="@+id/button9"
@@ -127,13 +145,20 @@
             android:textSize="25dp"/>
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="10"
             android:id="@+id/button10"
             android:layout_weight="20"
             android:background="@drawable/shapes2"
             android:textSize="25dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text=""
+            android:id="@+id/button12"
+            android:layout_weight="10"
+            android:visibility="invisible"/>
     </LinearLayout>
 
 </LinearLayout>

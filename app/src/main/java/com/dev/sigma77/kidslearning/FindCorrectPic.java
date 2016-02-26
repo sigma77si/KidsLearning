@@ -36,7 +36,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     private int sceneNum = 1;
     boolean isEnd=false;
 
-    //  private int btnIndex=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -498,7 +498,7 @@ else {
 
         boolean isCorrect;
         if (!Arrays.asList(correctAnswerBtns).contains(pressedBtn)) {
-            pressedBtn.setText("v");
+            pressedBtn.setText("x");
             pressedBtn.setTextColor(Color.RED);
             sp.play(wrongSound, 1, 1, 0, 0, 1);
             isCorrect = false;

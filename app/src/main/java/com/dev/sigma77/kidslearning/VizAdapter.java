@@ -190,6 +190,54 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
 
                     break;
                 }
+                case 5: {
+                    if(actName=="Practice") {
+                        //isTest = false;
+                        //sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", R.string.Intro1Text6);
+                        in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
+                        in.putExtra("TestNum", 7);
+                        in.putExtra("IntroReading", R.raw.intro_one);
+                        context.startActivity(in);
+                    }
+                    else if(actName=="Test"){
+                        MainActivity.isTest = true;
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+
+
+                        in.putExtra("IntroText", (R.string.Intro1Text3));
+                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("TestNum", 8);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+
+                        context.startActivity(in);
+                    }
+
+                    break;
+                }
+                case 6: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text4));
+                        in.putExtra("TestNum", 9);
+                        in.putExtra("ImageToLoad", R.drawable.buttons_example);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
             }
 
         }

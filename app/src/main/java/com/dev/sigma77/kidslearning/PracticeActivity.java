@@ -45,8 +45,8 @@ public class PracticeActivity extends AppCompatActivity {
 
     public static List<DataInformation> getData() {
         List<DataInformation> data = new ArrayList<>();
-        int[] icons = {R.drawable.count_on_fingers_04_small, R.drawable.mushroom1_small, R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small};
-        String[] titles = {"Преброй пръстите", "Открий силуета", "Намери излишната картинка", "Открий еднаквите", "Сглоби картината"};
+        int[] icons = {R.drawable.count_on_fingers_04_small, R.drawable.mushroom1_small, R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small,R.drawable.count_on_fingers_04_small, R.drawable.button6_small};
+        String[] titles = {"Преброй пръстите", "Открий силуета", "Намери излишната картинка", "Открий еднаквите", "Сглоби картината","Преброй сгънатите пръсти","Открий еднаквите"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             DataInformation current = new DataInformation();
 

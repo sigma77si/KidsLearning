@@ -17,7 +17,7 @@ import java.util.Random;
 
 
 public class CountActivity extends Activity implements View.OnClickListener {
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10;
+    Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10;
     SoundPool sp;
 
     Map<Integer, Integer> intPicList = new HashMap<>();
@@ -25,12 +25,14 @@ public class CountActivity extends Activity implements View.OnClickListener {
     private ImageView pic;
     private int currentPic, correctSound, wrongSound;
     private int correctAnswers, currentGamePoints = 0;
+    static int game=1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count);
+        btn0 = (Button) findViewById(R.id.button0);
         btn1 = (Button) findViewById(R.id.button1);
         btn2 = (Button) findViewById(R.id.button2);
         btn3 = (Button) findViewById(R.id.button3);
@@ -43,6 +45,8 @@ public class CountActivity extends Activity implements View.OnClickListener {
         btn10 = (Button) findViewById(R.id.button10);
         pic = (ImageView) findViewById(R.id.imageView);
 
+
+        btn0.setOnClickListener(this);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
@@ -65,7 +69,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
         intPicList.put(8, R.drawable.count_on_fingers_08);
         intPicList.put(9, R.drawable.count_on_fingers_09);
         intPicList.put(10, R.drawable.count_on_fingers_10);
-
+        buttonMap.put(R.id.button0,0);
         buttonMap.put(R.id.button1,1);
         buttonMap.put(R.id.button2,2);
         buttonMap.put(R.id.button3,3);
@@ -126,8 +130,26 @@ public class CountActivity extends Activity implements View.OnClickListener {
     }
 
     public void checkAnswer(int answerNum) {
+        int answer=answerNum;
+        if(game==2){
 
-        if (currentPic == answerNum) {
+            if (currentPic<6){
+                answer=5-answer;
+            }
+            else  if(currentPic==5 && answerNum==0){
+                answer=5;
+            }
+            else  if(currentPic==10 && answerNum==0){
+                answer=10;
+            }
+            else{
+               answer =10-answer;
+            }
+
+        }
+
+
+        if (currentPic == answer) {
             correctAnswers++;
             sp.play(correctSound, 1, 1, 0, 0, 1);
         } else {

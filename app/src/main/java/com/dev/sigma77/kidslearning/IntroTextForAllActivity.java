@@ -74,8 +74,16 @@ public class IntroTextForAllActivity extends Activity {
                         } else if (testNum == 6) {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindUncorrectPic.class);
                             startActivity(in);
+                        }else if (testNum == 7) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+                            startActivity(in);
+                            CountActivity.game=2;
                         }
-
+                        else if (testNum == 9) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
+                            startActivity(in);
+                            ButtonActivity.game =2;
+                        }
 
                         finish();
 
