@@ -45,8 +45,10 @@ public class TestActivity extends AppCompatActivity {
 
     public static List<DataInformation> getData() {
         List<DataInformation> data = new ArrayList<>();
-        int[] icons = {R.drawable.test_ikon, R.drawable.mushroom1_small, R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small};
-        String[] titles = {"Тест 1", "Тест 2 - Про версия", "Тест 3 - Про версия", "Тест 4 - Про версия", "Вземи Про версия"};
+        int[] icons = {R.drawable.test_ikon, R.drawable.mushroom1_small};
+                //R.drawable.a2_small, R.drawable.button6_small, R.drawable.pear_main_small};
+        String[] titles = {"Тест 1", "Тест 2"};
+                //"Тест 3 - Про версия", "Тест 4 - Про версия", "Вземи Про версия"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             DataInformation current = new DataInformation();
 

@@ -6,17 +6,17 @@ import android.content.Intent;
 /**
  * Created by user on 4.12.2015 г..
  */
-public class ShowResults implements Runnable{
+public class ShowResults implements Runnable {
     Activity activityObj;
     int points;
     int correctAnswers;
     boolean isActivityEnds;
 
 
-    public ShowResults(Activity pActivity,int parCorrectAnswers, int parPoints,boolean parIsActivityEnds){
+    public ShowResults(Activity pActivity, int parCorrectAnswers, int parPoints, boolean parIsActivityEnds) {
 
-        points=parPoints;
-        correctAnswers=parCorrectAnswers;
+        points = parPoints;
+        correctAnswers = parCorrectAnswers;
         activityObj = pActivity;
         isActivityEnds = parIsActivityEnds;
     }
@@ -26,7 +26,7 @@ public class ShowResults implements Runnable{
 //        result.putExtra("CorrectAnswers", corectAnswrs);
 //        activityObj.startActivity(result);
 
- //   }
+    //   }
 
     @Override
     public void run() {
@@ -35,11 +35,9 @@ public class ShowResults implements Runnable{
         result.putExtra("CorrectAnswers", correctAnswers);
 
         activityObj.startActivity(result);
-        if(isActivityEnds==true){
+        if (isActivityEnds == true) {
             activityObj.finish();
-
         }
-
     }
 }
 

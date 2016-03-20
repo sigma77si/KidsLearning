@@ -95,7 +95,6 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         MainActivity.isTest = true;
                         Intent in = new Intent(context, IntroTextForAllActivity.class);
 
-
                         in.putExtra("IntroText", (R.string.Intro1Text3));
                         in.putExtra("ImageToLoad", R.drawable.a_example);
                         in.putExtra("TestNum", 3);

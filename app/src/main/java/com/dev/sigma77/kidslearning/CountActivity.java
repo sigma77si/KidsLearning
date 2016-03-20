@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.dev.sigma77.kidslearning.util.TransitionParams;
+import com.dev.sigma77.kidslearning.util.Transition;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +27,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
     private ImageView pic;
     private int currentPic, correctSound, wrongSound;
     private int correctAnswers, currentGamePoints = 0;
-    static int game=1;
+    static int game = 1;
 
 
     @Override
@@ -69,17 +71,17 @@ public class CountActivity extends Activity implements View.OnClickListener {
         intPicList.put(8, R.drawable.count_on_fingers_08);
         intPicList.put(9, R.drawable.count_on_fingers_09);
         intPicList.put(10, R.drawable.count_on_fingers_10);
-        buttonMap.put(R.id.button0,0);
-        buttonMap.put(R.id.button1,1);
-        buttonMap.put(R.id.button2,2);
-        buttonMap.put(R.id.button3,3);
-        buttonMap.put(R.id.button4,4);
-        buttonMap.put(R.id.button5,5);
-        buttonMap.put(R.id.button6,6);
-        buttonMap.put(R.id.button7,7);
-        buttonMap.put(R.id.button8,8);
-        buttonMap.put(R.id.button9,9);
-        buttonMap.put(R.id.button10,10);
+        buttonMap.put(R.id.button0, 0);
+        buttonMap.put(R.id.button1, 1);
+        buttonMap.put(R.id.button2, 2);
+        buttonMap.put(R.id.button3, 3);
+        buttonMap.put(R.id.button4, 4);
+        buttonMap.put(R.id.button5, 5);
+        buttonMap.put(R.id.button6, 6);
+        buttonMap.put(R.id.button7, 7);
+        buttonMap.put(R.id.button8, 8);
+        buttonMap.put(R.id.button9, 9);
+        buttonMap.put(R.id.button10, 10);
 
 
         getRandomPic();
@@ -123,27 +125,24 @@ public class CountActivity extends Activity implements View.OnClickListener {
     }
 
     public void changePic(int picNum) {
-        int number=intPicList.get(picNum);
+        int number = intPicList.get(picNum);
         pic.setImageResource(number);
 
         currentPic = picNum;
     }
 
     public void checkAnswer(int answerNum) {
-        int answer=answerNum;
-        if(game==2){
+        int answer = answerNum;
+        if (game == 2) {
 
-            if (currentPic<6){
-                answer=5-answer;
-            }
-            else  if(currentPic==5 && answerNum==0){
-                answer=5;
-            }
-            else  if(currentPic==10 && answerNum==0){
-                answer=10;
-            }
-            else{
-               answer =10-answer;
+            if (currentPic < 6) {
+                answer = 5 - answer;
+            } else if (currentPic == 5 && answerNum == 0) {
+                answer = 5;
+            } else if (currentPic == 10 && answerNum == 0) {
+                answer = 10;
+            } else {
+                answer = 10 - answer;
             }
 
         }
@@ -157,7 +156,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
         }
         intPicList.remove(currentPic);
         if (intPicList.size() <= 0) {
-            boolean isEnd=true;
+            boolean isEnd = true;
             btn1.setClickable(false);
             btn2.setClickable(false);
             btn3.setClickable(false);
@@ -168,17 +167,20 @@ public class CountActivity extends Activity implements View.OnClickListener {
             btn8.setClickable(false);
             btn9.setClickable(false);
             btn10.setClickable(false);
-            if(correctAnswers ==10){
-                currentGamePoints =1;
+            if (correctAnswers == 10) {
+                currentGamePoints = 1;
             }
 
-
-            if(MainActivity.isTest == true) {
-                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text2, R.drawable.test2_intro_pic,2
-                        ,R.raw.zvukpravilno), 1900);
-
-            }
-            new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
+            TransitionParams tansitionParams = new TransitionParams();
+            tansitionParams.setIsEnd(isEnd);
+            tansitionParams.setpActivity(this);
+            tansitionParams.setpIntroTextId(R.string.Intro1Text2);
+            tansitionParams.setpIntroPicId(R.drawable.test2_intro_pic);
+            tansitionParams.setpExerciseNumber(2);
+            tansitionParams.setpIntroTalk(R.raw.zvukpravilno);
+            tansitionParams.setpCorrectAnswers(correctAnswers);
+            tansitionParams.setpCurrentGamePoints(currentGamePoints);
+            Transition.toNextActivity(tansitionParams);
 
         } else {
             getRandomPic();
@@ -194,7 +196,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
         while (!intPicList.containsKey(randomPicPos)) {
             randomPicPos = rnd.nextInt(10) + 1;
         }
-       // int randomPic = intPicList.get(randomPicPos);
+        // int randomPic = intPicList.get(randomPicPos);
         changePic(randomPicPos);
     }
 }

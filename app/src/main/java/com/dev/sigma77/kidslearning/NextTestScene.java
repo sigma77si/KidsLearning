@@ -10,14 +10,14 @@ public class NextTestScene implements Runnable
 {
     Activity activityObj;
     int introText;
-    int testNumber;
+    int exerciseNumber;
     int imageToLoad;
     int introReading;
 
-    public NextTestScene(Activity paractivityObj,int parIntroText, int parImageToLoad,int parTestNumber, int parIntroReading){
+    public NextTestScene(Activity paractivityObj,int parIntroText, int parImageToLoad,int parExerciseNumber, int parIntroReading){
 
         introText = parIntroText;
-        testNumber = parTestNumber;
+        exerciseNumber = parExerciseNumber;
         imageToLoad = parImageToLoad;
         introReading = parIntroReading;
         activityObj   = paractivityObj;
@@ -28,7 +28,7 @@ public class NextTestScene implements Runnable
         Intent intent = new Intent(activityObj, IntroTextForAllActivity.class);
         intent.putExtra("IntroText", introText);
         intent.putExtra("ImageToLoad", imageToLoad);
-        intent.putExtra("TestNum", testNumber);
+        intent.putExtra("TestNum", exerciseNumber);
         intent.putExtra("IntroReading",introReading);
         activityObj.startActivity(intent);
 

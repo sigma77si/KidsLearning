@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class ButtonActivity extends Activity implements View.OnClickListener {
 
-
+    static int game=1;
     SoundPool sp;
     Button check;
     boolean isEnd;
@@ -29,7 +29,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     Map<Integer, ImageButton> buttonMap = new HashMap<>();
     Set<Integer> correctAnswersSet = new HashSet<>();
-      static int game=1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

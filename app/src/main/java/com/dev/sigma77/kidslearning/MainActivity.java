@@ -1,12 +1,11 @@
 package com.dev.sigma77.kidslearning;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,8 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.support.design.widget.FloatingActionButton;
-import android.widget.ActionMenuView;
 
 
 import com.kidslearning.inappbilling.util.Inventory;
@@ -30,14 +27,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean isTest = false;
-    Button game1;
-    Button game2;
-    Button game3;
-    Button game4;
-    Button game5;
-    Button game6;
-    Button game7;
-    Button game8;
+
+    Button practice;
+    Button test;
     static Button btnPro;
     SoundPool sp;
     MediaPlayer mp;
@@ -62,28 +54,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent mIntent = getIntent();
         callMain= mIntent.getBooleanExtra("CallMain",false);
         setContentView(R.layout.activity_main);
-//        game1 = (Button) findViewById(R.id.btnGame1);
-//        game2 = (Button) findViewById(R.id.btnGame2);
-//        game3 = (Button) findViewById(R.id.btnGame3);
-//        game4 = (Button) findViewById(R.id.btnGame4);
-//        game5 = (Button) findViewById(R.id.btnGame5);
-       // game6 = (Button) findViewById(R.id.btnGame6);
-        game7 = (Button) findViewById(R.id.btnGame7);
-        game8 = (Button) findViewById(R.id.btnGame8);
+
+        practice = (Button) findViewById(R.id.btnGame7);
+        test = (Button) findViewById(R.id.btnGame8);
         btnPro = (Button) findViewById(R.id.btnPro);
 
         toolbar= (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
 
-//        game1.setOnClickListener(this);
-//        game2.setOnClickListener(this);
-//        game3.setOnClickListener(this);
-//        game4.setOnClickListener(this);
-//        game5.setOnClickListener(this);
-       // game6.setOnClickListener(this);
-        game7.setOnClickListener(this);
-        game8.setOnClickListener(this);
+
+        practice.setOnClickListener(this);
+        test.setOnClickListener(this);
         btnPro.setOnClickListener(this);
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         introSound = sp.load(this, R.raw.intro_one, 1);
@@ -91,14 +73,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clickAnswerSound = sp.load(this, R.raw.sound, 1);
         mp = MediaPlayer.create(MainActivity.this, R.raw.intro_one);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-       // game7.setText("Тест 2 Про");
-       // game8.setText("Tест 3 Про");
-       // game7.setEnabled(false);
-       // game8.setEnabled(false);
+       // practice.setText("Тест 2 Про");
+       // test.setText("Tест 3 Про");
+       // practice.setEnabled(false);
+       // test.setEnabled(false);
         if(callMain==true){
             btnPro.setVisibility(View.VISIBLE);
-            game7.setVisibility(View.INVISIBLE);
-            game8.setVisibility(View.INVISIBLE);
+            practice.setVisibility(View.INVISIBLE);
+            test.setVisibility(View.INVISIBLE);
         }
         else {
         btnPro.setVisibility(View.INVISIBLE);
@@ -140,12 +122,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+//            return true;
+            startActivity(new Intent(this,HelpActivity.class));
+          HelpActivity.text.setText(R.string.help);
         }
-//        if (id == R.id.navigate) {
-//
-//           startActivity(new Intent(this,ResultActivity.class));
-//        }
+        if (id == R.id.navigate) {
+            startActivity(new Intent(this,HelpActivity.class));
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    HelpActivity.text.setText(R.string.about);
+                }
+            }, 4950);
+
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -184,8 +177,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if (purchase.getSku().equals(ITEM_SKU)) {
                 consumeItem();
                btnPro.setEnabled(false);
-               game7.setEnabled(true);
-                game8.setEnabled(true);
+               practice.setEnabled(true);
+                test.setEnabled(true);
 
             }
 
@@ -226,83 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
 
-//            case R.id.btnGame1: {
-//                isTest = false;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", R.string.Intro1Text1);
-//                in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-//                in.putExtra("TestNum", 1);
-//                in.putExtra("IntroReading", R.raw.intro_one);
-//                startActivity(in);
 //
-//
-//                break;
-//            }
-//            case R.id.btnGame2: {
-//                isTest = false;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", R.string.Intro1Text2);
-//                in.putExtra("ImageToLoad", R.drawable.test2_intro_pic);
-//                in.putExtra("TestNum", 2);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-//
-//
-//                break;
-//            }
-//            case R.id.btnGame3: {
-//                isTest = false;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", (R.string.Intro1Text3));
-//                in.putExtra("ImageToLoad", R.drawable.a_example);
-//                in.putExtra("TestNum", 3);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-//            }
-//
-//            break;
-//            case R.id.btnGame4: {
-//                isTest = false;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", (R.string.Intro1Text4));
-//                in.putExtra("TestNum", 4);
-//                in.putExtra("ImageToLoad", R.drawable.buttons_example);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-//
-//
-//                break;
-//            }
-//            case R.id.btnGame5: {
-//                isTest = false;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", (R.string.Intro1Text5));
-//                in.putExtra("TestNum", 5);
-//                in.putExtra("ImageToLoad", R.drawable.pear_main);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-//
-//
-//                break;
-//            }
-//            case R.id.btnGame6: {
-//                isTest = true;
-//                sp.play(bipSound, 1, 1, 0, 0, 1);
-//                Intent in = new Intent(this, IntroTextForAllActivity.class);
-//                in.putExtra("IntroText", (R.string.Intro1Text3));
-//                in.putExtra("ImageToLoad", R.drawable.a_example);
-//                in.putExtra("TestNum", 3);
-//                in.putExtra("IntroReading", R.raw.zvukpravilno);
-//                startActivity(in);
-//
-//
-//                break;
-//            }
             case R.id.btnGame7: {
                 isTest = true;
                 Intent in = new Intent(this, TestActivity.class);
