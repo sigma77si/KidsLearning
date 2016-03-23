@@ -1,6 +1,7 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.dev.sigma77.kidslearning.util.Transition;
+import com.dev.sigma77.kidslearning.util.TransitionParams;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -29,6 +33,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
 
     Map<Integer, ImageButton> buttonMap = new HashMap<>();
     Set<Integer> correctAnswersSet = new HashSet<>();
+    private int testNum;
 
 
     @Override
@@ -106,6 +111,9 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
             correctAnswersSet.add(R.id.imageButton14);
             setGame2();
         }
+
+        Intent mIntent = getIntent();
+        testNum = mIntent.getIntExtra("TestNum", 0);
 
     }
 
@@ -194,14 +202,24 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
                     }
                 }, 4700);
 
-            if(MainActivity.isTest == true){isEnd=true;
-              ResultActivity.isLastTest=true;
+            if(MainActivity.isTest == true){
+                isEnd=true;
+                if(game==1){
+                    ResultActivity.isLastTest=true;
+                }
+
 
             }else {
              //   new Handler().postDelayed(new RunnableShowAnswers(this,MainActivity.class), 4700);
             }
             //btn15.setBackgroundColor(getResources().getColor(R.color.green));
-            new Handler().postDelayed(new ShowResults(this, correctAnswers,currentGamePoints,isEnd), 2000);
+            TransitionParams transitionParams = new TransitionParams();
+            transitionParams.setIsEnd(isEnd);
+            transitionParams.setpActivity(this);
+            transitionParams.setTestNumber(testNum);
+            transitionParams.setpCorrectAnswers(correctAnswers);
+            transitionParams.setpCurrentGamePoints(currentGamePoints);
+            Transition.toNextActivity(transitionParams);
         }
     }
 

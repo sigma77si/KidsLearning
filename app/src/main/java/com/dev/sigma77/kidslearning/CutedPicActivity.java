@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.dev.sigma77.kidslearning.util.Transition;
+import com.dev.sigma77.kidslearning.util.TransitionParams;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,9 +32,9 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     boolean isEnd;
 
 
-    int scene=1;
-    int countAnswers = 1,correctAnswers=0, correctSound, wrongSound, endSound,currentGamePoints=0;
-
+    static int scene = 1;
+    int countAnswers = 1, correctAnswers = 0, correctSound, wrongSound, endSound, currentGamePoints = 0;
+    private int testNum;
     LinearLayout layout1, layout2, layoutSpinners;
     Map<Integer, Integer> imgresource = new HashMap<>();
 
@@ -78,6 +81,8 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
         endSound = sp.load(this, R.raw.endmussic, 1);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        Intent mIntent = getIntent();
+        testNum = mIntent.getIntExtra("TestNum", 0);
 
 
     }
@@ -132,42 +137,48 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                         layout1.setVisibility(View.VISIBLE);
                         layoutSpinners.setVisibility(View.INVISIBLE);
                         btnCheck.setVisibility(View.INVISIBLE);
-                        if (correctAnswers==5) {
-                            currentGamePoints=1;
+                        if (correctAnswers == 5) {
+                            currentGamePoints = 1;
                             sp.play(correctSound, 1, 1, 0, 0, 1);
                         } else {
                             sp.play(wrongSound, 1, 1, 0, 0, 1);
                         }
-                        if(MainActivity.isTest == true){
-                            isEnd=true;
-                            new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text4, R.drawable.buttons_example,4
-                                    ,R.raw.zvukpravilno), 1900);
-//
-
-                        }else {
-
-
-                        new Handler().postDelayed(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                if(scene==1){
-                                    imgresource.remove(R.id.spinner2);
-                                    imgresource.remove(R.id.spinner3);
-                                    imgresource.remove(R.id.spinner4);
-                                    imgresource.remove(R.id.spinner5);
-                                    imgresource.remove(R.id.spinner6);
-                                    correctAnswers=0;
-                                    startNewScene();
-                                }
-                                else {
-
-                                    finish();
-                                }
+                        if (MainActivity.isTest == true) {
+                            isEnd = true;
+                            if(scene==2){
+                                ResultActivity.isLastTest=true;
                             }
-                        }, 1950);}
-                      new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 1500);
-//
+                            TransitionParams transitionParams = new TransitionParams();
+                            transitionParams.setIsEnd(isEnd);
+                            transitionParams.setpActivity(this);
+                            transitionParams.setTestNumber(testNum);
+                            transitionParams.setpCorrectAnswers(correctAnswers);
+                            transitionParams.setpCurrentGamePoints(currentGamePoints);
+                            Transition.toNextActivity(transitionParams);
+                        } else {
+
+
+                            new Handler().postDelayed(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    if (scene == 1) {
+                                        imgresource.remove(R.id.spinner2);
+                                        imgresource.remove(R.id.spinner3);
+                                        imgresource.remove(R.id.spinner4);
+                                        imgresource.remove(R.id.spinner5);
+                                        imgresource.remove(R.id.spinner6);
+                                        correctAnswers = 0;
+                                        startNewScene();
+                                    } else {
+
+                                        finish();
+                                    }
+                                }
+                            }, 1950);
+                            new Handler().postDelayed(new ShowResults(this, correctAnswers, currentGamePoints, isEnd), 1500);
+                        }
+
                     }
                 }
 
@@ -203,68 +214,66 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     }
 
 
-      public void checkAnswer(int scene,int spinerNum,int positoin){
-          Map<Integer, Integer> spinnerMap = new HashMap<>();
-          if(scene==1){
-              spinnerMap.put(R.id.spinner2,3);
-              spinnerMap.put(R.id.spinner3,5);
-              spinnerMap.put(R.id.spinner4,2);
-              spinnerMap.put(R.id.spinner5,4);
-              spinnerMap.put(R.id.spinner6,1);
+    public void checkAnswer(int scene, int spinerNum, int positoin) {
+        Map<Integer, Integer> spinnerMap = new HashMap<>();
+        if (scene == 1) {
+            spinnerMap.put(R.id.spinner2, 3);
+            spinnerMap.put(R.id.spinner3, 5);
+            spinnerMap.put(R.id.spinner4, 2);
+            spinnerMap.put(R.id.spinner5, 4);
+            spinnerMap.put(R.id.spinner6, 1);
 
 
-          }
-          else if(scene==2){
-              spinnerMap.put(R.id.spinner2,3);
-              spinnerMap.put(R.id.spinner3,5);
-              spinnerMap.put(R.id.spinner4,2);
-              spinnerMap.put(R.id.spinner5,4);
-              spinnerMap.put(R.id.spinner6,1);
+        } else if (scene == 2) {
+            spinnerMap.put(R.id.spinner2, 3);
+            spinnerMap.put(R.id.spinner3, 5);
+            spinnerMap.put(R.id.spinner4, 2);
+            spinnerMap.put(R.id.spinner5, 4);
+            spinnerMap.put(R.id.spinner6, 1);
 
-          }
-          if(spinnerMap.get(spinerNum)==positoin){
-              correctAnswers++;
-          }
+        }
+        if (spinnerMap.get(spinerNum) == positoin) {
+            correctAnswers++;
+        }
 
-      }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         int img = R.drawable.pear2;
-        int spinnerNum =parent.getId();
+        int spinnerNum = parent.getId();
         countAnswers++;
-        checkAnswer(scene,spinnerNum,position);
+        checkAnswer(scene, spinnerNum, position);
         setPicture(position, spinnerNum);
 
 
     }
 
 
-
     public void setPicture(int position, int spinner) {
-if(position<1){
-    position=1;
-}
+        if (position < 1) {
+            position = 1;
+        }
 
-      if (scene==1){
+        if (scene == 1) {
 
-          imgresource.put(R.id.spinner2, R.drawable.pear4);
-          imgresource.put(R.id.spinner3, R.drawable.pear6);
-          imgresource.put(R.id.spinner4, R.drawable.pear3);
-          imgresource.put(R.id.spinner5, R.drawable.pear5);
-          imgresource.put(R.id.spinner6, R.drawable.pear2);
-      }
-        else if(scene==2){
+            imgresource.put(R.id.spinner2, R.drawable.pear4);
+            imgresource.put(R.id.spinner3, R.drawable.pear6);
+            imgresource.put(R.id.spinner4, R.drawable.pear3);
+            imgresource.put(R.id.spinner5, R.drawable.pear5);
+            imgresource.put(R.id.spinner6, R.drawable.pear2);
+        } else if (scene == 2) {
 
-          imgresource.put(R.id.spinner2, R.drawable.boy_4);
-          imgresource.put(R.id.spinner3, R.drawable.boy_6);
-          imgresource.put(R.id.spinner4, R.drawable.boy_3);
-          imgresource.put(R.id.spinner5, R.drawable.boy_5);
-          imgresource.put(R.id.spinner6, R.drawable.boy_2);
+            imgresource.put(R.id.spinner2, R.drawable.boy_4);
+            imgresource.put(R.id.spinner3, R.drawable.boy_6);
+            imgresource.put(R.id.spinner4, R.drawable.boy_3);
+            imgresource.put(R.id.spinner5, R.drawable.boy_5);
+            imgresource.put(R.id.spinner6, R.drawable.boy_2);
 
-      }
-        ImageView [] resultPics={v2img2,v2img3,v2img4,v2img5,v2img6};
-        resultPics[position-1].setBackgroundResource(imgresource.get(spinner));
+        }
+        ImageView[] resultPics = {v2img2, v2img3, v2img4, v2img5, v2img6};
+        resultPics[position - 1].setBackgroundResource(imgresource.get(spinner));
 
 
     }

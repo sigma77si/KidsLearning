@@ -12,11 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.dev.sigma77.kidslearning.util.Transition;
+import com.dev.sigma77.kidslearning.util.TransitionParams;
+
 import java.util.Arrays;
 
 
 public class FindCorrectPic extends Activity implements View.OnClickListener {
-   public static int currentGamePoints=0, correctAnswers = 0;
+    public static int currentGamePoints = 0, correctAnswers = 0;
 
     private Button btn1, btn2, btn3, btn4,
             btn5, btn6, btn7, btn8,
@@ -34,7 +37,8 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     private SoundPool sp;
     private int correctSound, wrongSound, endSound;
     private int sceneNum = 1;
-    boolean isEnd=false;
+    boolean isEnd = false;
+    private int testNum;
 
 
     @Override
@@ -42,6 +46,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_correct_pic);
         Intent mIntent = getIntent();
+        testNum = mIntent.getIntExtra("TestNum", 0);
         sceneNum = mIntent.getIntExtra("SceneNum", 0);
 
         btn1 = (Button) findViewById(R.id.btn1);
@@ -98,6 +103,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
         endSound = sp.load(this, R.raw.endmussic, 1);
         setCorrectAnswerBtns(sceneNum);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
 
     }
 
@@ -273,11 +279,10 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
                 @Override
                 public void run() {
 
-                    if(MainActivity.isTest == true){
+                    if (MainActivity.isTest == true) {
                         startNextTestScene();
 
-                    }
-                    else{
+                    } else {
 
                         startNextScene();
                     }
@@ -291,7 +296,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
     }
 
     private void startNextScene() {
-        if(correctAnswers ==5){
+        if (correctAnswers == 5) {
             currentGamePoints = 1;
 
         }
@@ -303,8 +308,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 
             finish();
 
-        }
-else {
+        } else {
             sceneNum++;
             numOfAnswers = 0;
             correctAnswers = 0;
@@ -327,35 +331,27 @@ else {
     }
 
     private void putExtraStartResultActivity() {
-        Intent result = new Intent(this, ResultActivity.class);
-        result.putExtra("GamePoints", currentGamePoints);
-        result.putExtra("CorrectAnswers", correctAnswers);
-        startActivity(result);
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("GamePoints", currentGamePoints);
+       intent.putExtra("CorrectAnswers", correctAnswers);
+        startActivity(intent);
     }
 
     private void startNextTestScene() {
-        if(correctAnswers ==5){
-            currentGamePoints =1;
+        if (correctAnswers == 5) {
+            currentGamePoints = 1;
 
 
         }
 
-            if (sceneNum != 6) {
-
-                 isEnd=true;
-                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text5, R.drawable.pear_main,5
-                        ,R.raw.zvukpravilno), 1900);
-
-
-            } else {
-
-                isEnd=true;
-
-                new Handler().postDelayed(new NextTestScene(this, R.string.Intro1Text1, R.drawable.count_on_fingers_05,1
-                        ,R.raw.intro_one), 1900);
-             }
-        new Handler().postDelayed(new ShowResults(this,correctAnswers,currentGamePoints,isEnd), 2000);
-
+        isEnd=true;
+        TransitionParams transitionParams = new TransitionParams();
+        transitionParams.setIsEnd(isEnd);
+        transitionParams.setpActivity(this);
+        transitionParams.setTestNumber(testNum);
+        transitionParams.setpCorrectAnswers(correctAnswers);
+        transitionParams.setpCurrentGamePoints(currentGamePoints);
+        Transition.toNextActivity(transitionParams);
     }
 
     private void blockBtnLine(int btnPosition) {
@@ -513,5 +509,9 @@ else {
         changeLayoutCollor(isCorrect, btnNum);
 
 
+    }
+
+    public int getSceneNum() {
+        return sceneNum;
     }
 }

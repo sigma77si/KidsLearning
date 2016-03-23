@@ -1,6 +1,7 @@
 package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
     private int currentPic, correctSound, wrongSound;
     private int correctAnswers, currentGamePoints = 0;
     static int game = 1;
+    private int testNum;
 
 
     @Override
@@ -90,6 +92,9 @@ public class CountActivity extends Activity implements View.OnClickListener {
         wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+            Intent mIntent = getIntent();
+            testNum = mIntent.getIntExtra("TestNum", 0);
 
     }
 
@@ -174,10 +179,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
             TransitionParams tansitionParams = new TransitionParams();
             tansitionParams.setIsEnd(isEnd);
             tansitionParams.setpActivity(this);
-            tansitionParams.setpIntroTextId(R.string.Intro1Text2);
-            tansitionParams.setpIntroPicId(R.drawable.test2_intro_pic);
-            tansitionParams.setpExerciseNumber(2);
-            tansitionParams.setpIntroTalk(R.raw.zvukpravilno);
+            tansitionParams.setTestNumber(testNum);
             tansitionParams.setpCorrectAnswers(correctAnswers);
             tansitionParams.setpCurrentGamePoints(currentGamePoints);
             Transition.toNextActivity(tansitionParams);

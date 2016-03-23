@@ -7,7 +7,7 @@ public class TransitionParams {
     private Activity pActivity;
     private int pIntroTextId;
     private int pIntroPicId;
-    private int pExerciseNumber;
+    private int pTestNumber;
     private int pIntroTalk;
     private int pCorrectAnswers;
     private int pCurrentGamePoints;
@@ -17,12 +17,12 @@ public class TransitionParams {
 
     }
 
-    public TransitionParams(boolean isEnd, Activity pActivity, int pIntroTextId, int pIntroPicId, int pExerciseNumber, int pIntroTalk, int pCorrectAnswers, int pCurrentGamePoints) {
+    public TransitionParams(boolean isEnd, Activity pActivity, int pIntroTextId, int pIntroPicId, int pTestNumber, int pIntroTalk, int pCorrectAnswers, int pCurrentGamePoints) {
         this.isEnd = isEnd;
         this.pActivity = pActivity;
         this.pIntroTextId = pIntroTextId;
         this.pIntroPicId = pIntroPicId;
-        this.pExerciseNumber = pExerciseNumber;
+        this.pTestNumber = pTestNumber;
         this.pIntroTalk = pIntroTalk;
         this.pCorrectAnswers = pCorrectAnswers;
         this.pCurrentGamePoints = pCurrentGamePoints;
@@ -44,8 +44,8 @@ public class TransitionParams {
         return pIntroPicId;
     }
 
-    public int getpExerciseNumber() {
-        return pExerciseNumber;
+    public int getTestNumber() {
+        return pTestNumber;
     }
 
     public int getpIntroTalk() {
@@ -76,8 +76,8 @@ public class TransitionParams {
         this.pIntroPicId = pIntroPicId;
     }
 
-    public void setpExerciseNumber(int pExerciseNumber) {
-        this.pExerciseNumber = pExerciseNumber;
+    public void setTestNumber(int pExerciseNumber) {
+        this.pTestNumber = pExerciseNumber;
     }
 
     public void setpIntroTalk(int pIntroTalk) {

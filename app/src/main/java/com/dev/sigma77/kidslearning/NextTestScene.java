@@ -13,14 +13,16 @@ public class NextTestScene implements Runnable
     int exerciseNumber;
     int imageToLoad;
     int introReading;
+    int testNum;
 
-    public NextTestScene(Activity paractivityObj,int parIntroText, int parImageToLoad,int parExerciseNumber, int parIntroReading){
+    public NextTestScene(Activity paractivityObj,int parIntroText, int parImageToLoad,int pTestNum, int parExerciseNumber, int parIntroReading){
 
         introText = parIntroText;
         exerciseNumber = parExerciseNumber;
         imageToLoad = parImageToLoad;
         introReading = parIntroReading;
         activityObj   = paractivityObj;
+        testNum = pTestNum;
     }
 
     public void putExtra(){
@@ -28,7 +30,8 @@ public class NextTestScene implements Runnable
         Intent intent = new Intent(activityObj, IntroTextForAllActivity.class);
         intent.putExtra("IntroText", introText);
         intent.putExtra("ImageToLoad", imageToLoad);
-        intent.putExtra("TestNum", exerciseNumber);
+        intent.putExtra("ExerciseNum", exerciseNumber);
+        intent.putExtra("TestNum", testNum);
         intent.putExtra("IntroReading",introReading);
         activityObj.startActivity(intent);
 

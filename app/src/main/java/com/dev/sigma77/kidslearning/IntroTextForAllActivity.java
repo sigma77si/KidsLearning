@@ -30,7 +30,8 @@ public class IntroTextForAllActivity extends Activity {
         Intent mIntent = getIntent();
         final int textToSet = mIntent.getIntExtra("IntroText", 0);
         final int image = mIntent.getIntExtra("ImageToLoad", 0);
-        final int exerciseNum = mIntent.getIntExtra("TestNum", 0);
+        final int exerciseNum = mIntent.getIntExtra("ExerciseNum", 0);
+        final int testNum = mIntent.getIntExtra("TestNum", 0);
         final int introReading = mIntent.getIntExtra("IntroReading", 0);
 
         mp = MediaPlayer.create(IntroTextForAllActivity.this, introReading );
@@ -52,37 +53,69 @@ public class IntroTextForAllActivity extends Activity {
                     case R.id.button:{
                         if (exerciseNum == 1) {
                             Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                         } else if (exerciseNum == 2) {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
                             in.putExtra("SceneNum", 1);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                             FindCorrectPic.currentGamePoints = 0;
                             FindCorrectPic.correctAnswers = 0;
                         } else if (exerciseNum == 3) {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
                             in.putExtra("SceneNum", 6);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                             FindCorrectPic.currentGamePoints = 0;
                             FindCorrectPic.correctAnswers = 0;
                         } else if (exerciseNum == 4) {
                             Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                         } else if (exerciseNum == 5) {
                             Intent in = new Intent(IntroTextForAllActivity.this, CutedPicActivity.class);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
-                        } else if (exerciseNum == 6) {
-                            Intent in = new Intent(IntroTextForAllActivity.this, FindUncorrectPic.class);
-                            startActivity(in);
-                        }else if (exerciseNum == 7) {
+                        }
+//                         else if (exerciseNum == 6) {
+//                            Intent in = new Intent(IntroTextForAllActivity.this, FindUncorrectPic.class);
+//                            in.putExtra("TestNum", testNum);
+//                            startActivity(in);
+//                         }
+                            else if (exerciseNum == 7) {
                             Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                             CountActivity.game=2;
                         }
                         else if (exerciseNum == 9) {
                             Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
+                            in.putExtra("TestNum", testNum);
                             startActivity(in);
                             ButtonActivity.game =2;
+                        }
+                        else if (exerciseNum == 10) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                            in.putExtra("SceneNum", 2);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                            FindCorrectPic.currentGamePoints = 0;
+                            FindCorrectPic.correctAnswers = 0;
+                        }
+                        else if (exerciseNum == 11) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                            in.putExtra("SceneNum", 7);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                            CutedPicActivity.scene = 2;
+                            FindCorrectPic.currentGamePoints = 0;
+                            FindCorrectPic.correctAnswers = 0;
+                        }
+                        else if (exerciseNum == 12) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, CutedPicActivity.class);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
                         }
 
                         finish();
