@@ -98,8 +98,11 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         in.putExtra("IntroReading", R.raw.zvukpravilno);
                         MainActivity.correctAnswersList.clear();
                         MainActivity.gamePointsList.clear();
+                        MainActivity.isTest=true;
                         ResultActivity.result=-1;
+                        ResultActivity.isLastTest=false;
                         context.startActivity(in);
+
                        }
 
                     break;
@@ -130,7 +133,9 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         in.putExtra("IntroReading", R.raw.zvukpravilno);
                         MainActivity.correctAnswersList.clear();
                         MainActivity.gamePointsList.clear();
+                        MainActivity.isTest=true;
                         ResultActivity.result=-1;
+                        ResultActivity.isLastTest=false;
                         context.startActivity(in);
                         }
 

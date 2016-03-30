@@ -94,7 +94,8 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         result+= currentPoints;
         testResultView.setText(Integer.toString(result));
         currentCorrectResult.setText(Integer.toString(gameCorrectAnswers));
-        points.setText(Integer.toString(currentPoints));
+        String allPoints=Integer.toString(currentPoints);
+                points.setText(allPoints);
 
     }
 
@@ -133,8 +134,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
                 if(isLastTest==true){
 
                     Intent in = new Intent(this, TestResultsActivity.class);
-                   // in.putExtra ("GamesCorrectAnswers", (Serializable) correctAnswersSet);
-                  //  in.putExtra ("GamesPoints", (Serializable) gamePointsSet);
+
                    in.putStringArrayListExtra("GamesCorrectAnswers",(ArrayList<String>)MainActivity.correctAnswersList);
                     in.putStringArrayListExtra("GamesPoints", (ArrayList<String>) MainActivity.gamePointsList);
                     in.putExtra("AllPoints",result);

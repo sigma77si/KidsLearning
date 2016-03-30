@@ -32,7 +32,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     boolean isEnd;
 
 
-    static int scene = 1;
+   public static int scene = 1;
     int countAnswers = 1, correctAnswers = 0, correctSound, wrongSound, endSound, currentGamePoints = 0;
     private int testNum;
     LinearLayout layout1, layout2, layoutSpinners;
@@ -83,6 +83,11 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         Intent mIntent = getIntent();
         testNum = mIntent.getIntExtra("TestNum", 0);
+        if(scene==2){
+            startNewScene();
+
+
+        }
 
 
     }
@@ -147,6 +152,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                             isEnd = true;
                             if(scene==2){
                                 ResultActivity.isLastTest=true;
+                              //  finish();
                             }
                             TransitionParams transitionParams = new TransitionParams();
                             transitionParams.setIsEnd(isEnd);
@@ -169,6 +175,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
                                         imgresource.remove(R.id.spinner5);
                                         imgresource.remove(R.id.spinner6);
                                         correctAnswers = 0;
+                                        scene++;
                                         startNewScene();
                                     } else {
 
@@ -192,6 +199,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
     }
 
     private void startNewScene() {
+
         v2img1.setBackgroundResource(R.drawable.boy_1);
         v2img2.setBackgroundResource(R.drawable.boy_4);
         v2img3.setBackgroundResource(R.drawable.boy_6);
@@ -210,7 +218,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         layoutSpinners.setVisibility(View.VISIBLE);
         btnCheck.setVisibility(View.VISIBLE);
         countAnswers = 1;
-        scene++;
+      //  scene++;
     }
 
 
@@ -250,6 +258,12 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        scene = 1;
+    }
 
     public void setPicture(int position, int spinner) {
         if (position < 1) {

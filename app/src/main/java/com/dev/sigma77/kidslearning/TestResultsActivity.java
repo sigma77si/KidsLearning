@@ -50,12 +50,18 @@ public class TestResultsActivity extends ActionBarActivity implements View.OnCli
         int allGamesPoints=mIntent.getIntExtra("AllPoints", 0);
         String stringAllGamePoints= String.valueOf(allGamesPoints);
         allPoints.setText( stringAllGamePoints);
-        for(int i=0; i<answers.length; i++){
+        for(int i=0; i<gamesCorrectAnswers.size(); i++){
 
             answers[i].setText(gamesCorrectAnswers.get(i));
             points[i].setText(gamesPoints.get(i));
 
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ResultActivity.isLastTest=false;
     }
 
     @Override

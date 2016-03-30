@@ -406,7 +406,7 @@ public class FindCorrectPic extends Activity implements View.OnClickListener {
 //
 
         } else if (sceneNum == 7) {
-            setButtons(btn2, btn8, btn10, btn13, btn17);
+            setButtons(btn2, btn8, btn10, btn15, btn17);
 
         } else if (sceneNum == 8) {
             setButtons(btn4, btn6, btn11, btn14, btn17);
