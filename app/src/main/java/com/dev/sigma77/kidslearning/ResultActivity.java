@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
     TextView textResults, textCorrect, textTestResult, currentCorrectResult,points;
     public static TextView testResultView;
     Button ok;
+    ImageView star;
     private Toolbar toolbar;
    static LinearLayout testResultLayout;
    public static int result;
@@ -47,6 +49,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         testResultLayout= (LinearLayout) findViewById(R.id.testResultLayout);
         points = (TextView) findViewById(R.id.points);
         ok= (Button) findViewById(R.id.button1);
+        star= (ImageView) findViewById(R.id.imgStar);
         ok.setOnClickListener(this);
         toolbar= (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -96,6 +99,11 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         currentCorrectResult.setText(Integer.toString(gameCorrectAnswers));
         String allPoints=Integer.toString(currentPoints);
                 points.setText(allPoints);
+        if(currentPoints==1){
+            star.setImageResource(R.drawable.gold_star);
+
+        }
+
 
     }
 
