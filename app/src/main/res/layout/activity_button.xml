@@ -224,7 +224,7 @@
             android:background="@drawable/shapes2"
             android:padding="15dp"
             android:focusable="false"
-            android:textColor="@color/background_material_dark"/>
+            android:textColor="@color/accentColor"/>
     </LinearLayout>
 
 </LinearLayout>

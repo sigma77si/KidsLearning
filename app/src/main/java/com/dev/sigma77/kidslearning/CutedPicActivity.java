@@ -54,6 +54,7 @@ public class CutedPicActivity extends Activity implements View.OnClickListener, 
         spinner5.setOnItemSelectedListener(this);
         spinner6.setOnItemSelectedListener(this);
 
+
         setArrayAdapters();
 
         btnCheck = (Button) findViewById(R.id.button1);

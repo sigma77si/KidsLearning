@@ -38,7 +38,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_cuted_pic">CutedPicActivity</string>
     <string-array name="num">
-        <item>Избери</item>
+        <item>\?</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
