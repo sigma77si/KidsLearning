@@ -71,4 +71,5 @@
     <string name="help">Помощ</string>
     <string name="title_activity_test_results">TestResultsActivity</string>
     <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_happy_birthday">Честит Рожден Ден</string>
 </resources>

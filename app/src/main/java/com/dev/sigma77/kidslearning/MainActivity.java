@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                            }
                                        }
                                    });
+        Intent in = new Intent(this, HappyBirthday.class);
+
+        startActivity(in);
     }
 
 
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_settings) {
 //            return true;
             //HelpActivity.text.setText(R.string.help);
-            startActivity(new Intent(this,HelpActivity.class));
+            startActivity(new Intent(this, HelpActivity.class));
 
         }
 //        if (id == R.id.navigate) {
@@ -143,11 +146,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
+
   
     @Override
     protected void onPause() {
         super.onPause();
         ResultActivity.result = -1;
+
+        if (mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
+
 //        getPreferences(MODE_PRIVATE).edit().putInt("Result",0).commit();
     }
     @Override

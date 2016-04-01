@@ -54,6 +54,7 @@ public class IntroTextForAllActivity extends Activity {
                         if (exerciseNum == 1) {
                             Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
                             in.putExtra("TestNum", testNum);
+                            CountActivity.game=1;
                             startActivity(in);
                         } else if (exerciseNum == 2) {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);

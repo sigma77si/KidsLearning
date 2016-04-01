@@ -3,6 +3,8 @@ package com.dev.sigma77.kidslearning;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -32,6 +34,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
    static LinearLayout testResultLayout;
    public static int result;
     public static boolean isLastTest;
+    MediaPlayer mp;
 
   //  List<String> correctAnswersSet = new ArrayList<>();
    // List<String> gamePointsSet = new ArrayList<>();
@@ -81,7 +84,17 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
 //                finish();
 //            }
 //        }, 4700);
+        mp = MediaPlayer.create(ResultActivity.this, R.raw.intro_one);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+        if (mp != null) {
+
+            mp.release();
+            mp = null;
+        }
+
     }
+
 
     @Override
     protected void onPause() {
@@ -90,6 +103,11 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         super.onPause();
 //
         getPreferences(MODE_PRIVATE).edit().putInt("Result", result).commit();
+        if (mp != null) {
+
+            mp.release();
+            mp = null;
+        }
 
     }
 
@@ -101,6 +119,8 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
                 points.setText(allPoints);
         if(currentPoints==1){
             star.setImageResource(R.drawable.gold_star);
+            mp = MediaPlayer.create(ResultActivity.this, R.raw.tada_sound);
+            mp.start();
 
         }
 

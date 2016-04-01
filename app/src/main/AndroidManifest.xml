@@ -71,22 +71,17 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".TestsActivity"
-            android:label="@string/title_activity_tests"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".TestResultsActivity"
             android:label="@string/title_activity_test_results"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HelpActivity"
             android:label="@string/title_activity_help"
-            android:screenOrientation="portrait"
-            ></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HappyBirthday"
+            android:label="@string/title_activity_happy_birthday"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

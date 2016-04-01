@@ -84,7 +84,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         Intent in = new Intent(context, IntroTextForAllActivity.class);
                         in.putExtra("IntroText", R.string.Intro1Text1);
                         in.putExtra("ImageToLoad", R.drawable.count_on_fingers_05);
-                        in.putExtra("TestNum", 1);
+                        in.putExtra("ExerciseNum",1);
                         in.putExtra("IntroReading", R.raw.intro_one);
                         context.startActivity(in);
                     }
@@ -101,6 +101,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         MainActivity.isTest=true;
                         ResultActivity.result=-1;
                         ResultActivity.isLastTest=false;
+
                         context.startActivity(in);
 
                        }
