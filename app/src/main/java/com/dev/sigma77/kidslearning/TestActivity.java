@@ -1,5 +1,6 @@
 package com.dev.sigma77.kidslearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -75,7 +76,8 @@ public class TestActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            startActivity(new Intent(this,HelpActivity.class));
+          //  return true;
         }
 
         return super.onOptionsItemSelected(item);

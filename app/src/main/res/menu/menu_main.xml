@@ -6,11 +6,11 @@
         android:title="@string/help"
         android:orderInCategory="100"
         app:showAsAction="never" />
-    <item android:id="@+id/navigate"
-        android:title="@string/next"
-        android:orderInCategory="200"
-        android:icon="@drawable/ic_launcher"
-        app:showAsAction="ifRoom"
+    <!--<item android:id="@+id/navigate"-->
+        <!--android:title="@string/next"-->
+        <!--android:orderInCategory="200"-->
+        <!--android:icon="@drawable/ic_launcher"-->
+        <!--app:showAsAction="ifRoom"-->
         
 
 

@@ -123,22 +123,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
 //            return true;
+            //HelpActivity.text.setText(R.string.help);
             startActivity(new Intent(this,HelpActivity.class));
-          HelpActivity.text.setText(R.string.help);
-        }
-        if (id == R.id.navigate) {
-            startActivity(new Intent(this,HelpActivity.class));
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    HelpActivity.text.setText(R.string.about);
-                }
-            }, 4950);
-
 
         }
+//        if (id == R.id.navigate) {
+//            startActivity(new Intent(this,HelpActivity.class));
+//            new Handler().postDelayed(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//
+//                    HelpActivity.text.setText(R.string.about);
+//                }
+//            }, 4950);
+//
+//
+//        }
 
         return super.onOptionsItemSelected(item);
     }
