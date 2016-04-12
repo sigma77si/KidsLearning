@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -35,7 +36,15 @@ public class HappyBirthday extends ActionBarActivity {
         }
         mp = MediaPlayer.create(HappyBirthday.this, R.raw.happy_birthday_song);
         mp.start();
+        rLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
+
 
     public  void startTimer (){
         new Handler().postDelayed(new Runnable() {
@@ -69,7 +78,9 @@ public class HappyBirthday extends ActionBarActivity {
             mp = null;
             finish();
 
-    }}
+        }
+
+    }
     public void changeColors(){
 
             if (color==1) {

@@ -94,6 +94,19 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         }
 
     }
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        if (mp != null) {
+
+            mp.release();
+            mp = null;
+            finish();
+
+        }
+
+    }
 
 
     @Override
@@ -120,6 +133,12 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         if(currentPoints==1){
             star.setImageResource(R.drawable.gold_star);
             mp = MediaPlayer.create(ResultActivity.this, R.raw.tada_sound);
+            mp.start();
+
+        }
+        else{
+
+            mp = MediaPlayer.create(ResultActivity.this, R.raw.wrong_anwer);
             mp.start();
 
         }

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                            }
                                        }
                                    });
-        Intent in = new Intent(this, HappyBirthday.class);
+        Intent in = new Intent(this, MemoryActivity.class);
 
         startActivity(in);
     }

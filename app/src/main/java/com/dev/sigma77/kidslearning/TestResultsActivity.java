@@ -1,6 +1,8 @@
 package com.dev.sigma77.kidslearning;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -23,6 +25,7 @@ public class TestResultsActivity extends ActionBarActivity implements View.OnCli
              allPoints;
     Button ok;
     ImageView imgStar1, imgStar2, imgStar3, imgStar4, imgStar5;
+    MediaPlayer mp;
 
 
 
@@ -52,6 +55,9 @@ public class TestResultsActivity extends ActionBarActivity implements View.OnCli
         TextView[]answers={correct1,correct2,correct3,correct4,correct5};
         TextView[]points={points1,points2,points3,points4,points5};
 
+        mp = MediaPlayer.create(TestResultsActivity.this, R.raw.intro_one);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
         Intent mIntent = getIntent();
         ArrayList<String> gamesCorrectAnswers = mIntent.getStringArrayListExtra("GamesCorrectAnswers");
         ArrayList<String> gamesPoints = mIntent.getStringArrayListExtra("GamesPoints");
@@ -67,14 +73,53 @@ public class TestResultsActivity extends ActionBarActivity implements View.OnCli
         for(int i=0; i < allGamesPoints;i++){
             stars[i].setImageResource(R.drawable.gold_star);
         }
+
+        if(allGamesPoints==5){
+            mp = MediaPlayer.create(TestResultsActivity.this, R.raw.end_test_win);
+            mp.start();
+
+        }
+        else {
+            mp = MediaPlayer.create(TestResultsActivity.this, R.raw.end_test_loose);
+            mp.start();
+
+        }
     }
+
+
+
+
+    @Override
+    protected void onStop()
+    {
+        ResultActivity.isLastTest=false;
+        super.onStop();
+        if (mp != null) {
+
+            mp.release();
+            mp = null;
+            finish();
+
+        }
+
+    }
+
 
     @Override
     protected void onPause() {
+
+
         super.onPause();
         ResultActivity.isLastTest=false;
-    }
+//
 
+        if (mp != null) {
+
+            mp.release();
+            mp = null;
+        }
+
+    }
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnOk) {
