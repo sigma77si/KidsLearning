@@ -99,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton7"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni7"
+
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
@@ -109,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton8"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni8"
+
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
@@ -119,7 +119,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton9"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni9"
+
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"

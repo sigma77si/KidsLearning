@@ -44,7 +44,6 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         btn2 = (ImageButton) findViewById(R.id.imageButton2);
         btn3 = (ImageButton) findViewById(R.id.imageButton3);
         btn4 = (ImageButton) findViewById(R.id.imageButton4);
-        check = (Button) findViewById(R.id.btnCheck);
         btn5 = (ImageButton) findViewById(R.id.imageButton5);
         btn6 = (ImageButton) findViewById(R.id.imageButton6);
         btn7 = (ImageButton) findViewById(R.id.imageButton7);
@@ -57,6 +56,7 @@ public class ButtonActivity extends Activity implements View.OnClickListener {
         btn14 = (ImageButton) findViewById(R.id.imageButton14);
         btn15 = (ImageButton) findViewById(R.id.imageButton15);
         btn16 = (ImageButton) findViewById(R.id.imageButton16);
+        check = (Button) findViewById(R.id.btnCheck);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
