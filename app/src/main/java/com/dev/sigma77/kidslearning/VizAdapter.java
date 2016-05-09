@@ -252,6 +252,72 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
 
                     break;
                 }
+                case 7: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text13));
+                        in.putExtra("ExerciseNum", 13);
+                        in.putExtra("ImageToLoad", R.drawable.zapomni);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 8: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text14));
+                        in.putExtra("ExerciseNum", 14);
+                        in.putExtra("ImageToLoad", R.drawable.clock1);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 9: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text15));
+                        in.putExtra("ExerciseNum", 15);
+                        in.putExtra("ImageToLoad", R.drawable.similar1);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
             }
 
         }

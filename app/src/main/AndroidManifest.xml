@@ -86,7 +86,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MemoryActivity"
-            android:label="@string/title_activity_memory"></activity>
+            android:label="@string/title_activity_memory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ClockActivity"
+            android:label="@string/title_activity_clock"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SimilarityActivity"
+            android:label="@string/title_activity_similarity"></activity>
     </application>
 
 </manifest>

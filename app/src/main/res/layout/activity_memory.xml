@@ -17,63 +17,71 @@
         android:layout_gravity="center"
         android:weightSum="6">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/countAnswers"
+            android:layout_gravity="center_horizontal|top" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingBottom="2dp">
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton1"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni1"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:padding="2dp"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton2"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:src="@drawable/zapomni2"
                 android:adjustViewBounds="true"
                 android:padding="2dp"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton3"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni3"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton4"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni4"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton5"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni5"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
 
@@ -83,17 +91,19 @@
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingBottom="2dp"
+            >
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton6"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni6"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -103,7 +113,8 @@
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -113,7 +124,8 @@
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -123,17 +135,18 @@
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton10"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni10"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
         <LinearLayout
@@ -142,57 +155,58 @@
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingBottom="2dp">
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton11"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni11"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton12"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni12"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton13"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni13"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton14"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni14"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton15"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni15"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
         <LinearLayout
@@ -201,57 +215,58 @@
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingBottom="2dp">
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton16"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni16"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton17"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni17"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton18"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni18"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton19"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni19"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton20"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni20"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
         <LinearLayout
@@ -260,57 +275,59 @@
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingBottom="2dp">
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton21"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni21"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton22"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni22"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"
+                />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton23"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni23"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton24"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni24"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton25"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni25"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
         <LinearLayout
@@ -325,52 +342,53 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton26"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni26"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton27"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni27"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton28"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni28"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton29"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni29"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageButton30"
                 android:layout_weight="1"
-                android:src="@drawable/zapomni30"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>/>
+                android:background="#FFFFFF"
+                android:clickable="false"/>
 
         </LinearLayout>
     </LinearLayout>
+
 </FrameLayout>

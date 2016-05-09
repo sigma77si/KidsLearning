@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                            }
                                        }
                                    });
-        Intent in = new Intent(this, MemoryActivity.class);
-
-        startActivity(in);
+//        Intent in = new Intent(MainActivity.this, ClockActivity.class);
+//
+//        startActivity(in);
     }
 
 
@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //
 //        }
+
 
         return super.onOptionsItemSelected(item);
     }

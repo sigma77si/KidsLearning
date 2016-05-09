@@ -176,13 +176,13 @@ public class CountActivity extends Activity implements View.OnClickListener {
                 currentGamePoints = 1;
             }
 
-            TransitionParams tansitionParams = new TransitionParams();
-            tansitionParams.setIsEnd(isEnd);
-            tansitionParams.setpActivity(this);
-            tansitionParams.setTestNumber(testNum);
-            tansitionParams.setpCorrectAnswers(correctAnswers);
-            tansitionParams.setpCurrentGamePoints(currentGamePoints);
-            Transition.toNextActivity(tansitionParams);
+            TransitionParams transitionParams = new TransitionParams();
+            transitionParams.setIsEnd(isEnd);
+            transitionParams.setpActivity(this);
+            transitionParams.setTestNumber(testNum);
+            transitionParams.setpCorrectAnswers(correctAnswers);
+            transitionParams.setpCurrentGamePoints(currentGamePoints);
+            Transition.toNextActivity(transitionParams);
 
         } else {
             getRandomPic();

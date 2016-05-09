@@ -118,6 +118,22 @@ public class IntroTextForAllActivity extends Activity {
                             in.putExtra("TestNum", testNum);
                             startActivity(in);
                         }
+                        else if (exerciseNum == 13) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MemoryActivity.class);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 14) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, ClockActivity.class);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 15) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, SimilarityActivity.class);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                        }
+
 
                         finish();
 

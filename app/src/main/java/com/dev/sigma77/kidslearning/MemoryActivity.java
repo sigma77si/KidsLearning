@@ -2,18 +2,18 @@ package com.dev.sigma77.kidslearning;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class MemoryActivity extends Activity implements View.OnClickListener {
     ImageButton btn1,btn2,btn3,btn4, btn5,btn6,btn7,btn8,btn9,btn10,
@@ -24,7 +24,11 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
     Map<Integer, Integer> correctAnswersPics = new HashMap<>();
     ImageButton[] buttonsList =new ImageButton[12];
     ImageButton[] allButtonsList =new ImageButton[30];
-
+    TextView countAnswers;
+    SoundPool sp;
+    int correctSound, wrongSound, endSound,clickAnswerSound;
+    public static int currentGamePoints = 0, correctAnswers = 0;
+    int count=0;
 
 
     @Override
@@ -61,6 +65,8 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
         btn28 = (ImageButton) findViewById(R.id.imageButton28);
         btn29 = (ImageButton) findViewById(R.id.imageButton29);
         btn30 = (ImageButton) findViewById(R.id.imageButton30);
+
+        countAnswers = (TextView) findViewById(R.id.countAnswers);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -165,11 +171,22 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
         allButtonsList[27]=btn28;
         allButtonsList[28]=btn29;
         allButtonsList[29]=btn30;
+        btn1. setEnabled(false);
+        btn2. setEnabled(false);
+        btn3. setEnabled(false);
+        btn4. setEnabled(false);
+        btn5. setEnabled(false);
 
+        sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
+        correctSound = sp.load(this, R.raw.zvukpravilno, 1);
+        wrongSound = sp.load(this, R.raw.zvukgreshka, 1);
+        endSound = sp.load(this, R.raw.endmussic, 1);
+        clickAnswerSound= sp.load(this, R.raw.sound, 1);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         generateCorrectAnswers();
 
-
+countAnswers.setText(Integer.toString(count));
     }
 
     public void generateCorrectAnswers(){
@@ -189,6 +206,7 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
         for(int i=0; i<12; i++){
 
    buttonsList[i].setImageResource(correctAnswersPics.get(i));
+            buttonsList[i].setTag(correctAnswersPics.get(i));
         }
         new Handler().postDelayed(new Runnable() {
 
@@ -198,7 +216,7 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
 //                startActivity(in);
                 setAllImages();
             }
-        }, 4950);
+        }, 30000);
 
     }
     public void setAllImages(){
@@ -209,17 +227,51 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
                 randomPicPos = rnd.nextInt(30) + 1;
             }
             // int randomPic = intPicList.get(randomPicPos);
-            buttontWithSetPics.put(i,intAllPicList.get(randomPicPos));
+            buttontWithSetPics.put(i, intAllPicList.get(randomPicPos));
             allButtonsList[i].setImageResource(intAllPicList.get(randomPicPos));
+            allButtonsList[i].setTag(intAllPicList.get(randomPicPos));
+            //allButtonsList[i].setClickable(true);
+            allButtonsList[i].setEnabled(true);
 
         }
 
 
     }
+    private void putExtraStartResultActivity() {
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("GamePoints", currentGamePoints);
+        intent.putExtra("CorrectAnswers", correctAnswers);
+        startActivity(intent);
+    }
 
 
     @Override
     public void onClick(View v) {
+
+
+
+
+
+        if((correctAnswersPics.containsValue(v.getTag()))){
+
+            v.setBackgroundColor(Color.GREEN);
+            sp.play(correctSound, 1, 1, 0, 0, 1);
+            correctAnswers++;
+
+        }
+        else {
+            v.setBackgroundColor(Color.RED);
+            sp.play(wrongSound, 1, 1, 0, 0, 1);
+        }
+       count++;
+        if(count>=12) {
+
+            if (correctAnswers == 12) {
+                currentGamePoints = 1;
+            }
+            putExtraStartResultActivity();
+            finish();
+        }
 
     }
 }
