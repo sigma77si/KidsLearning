@@ -94,7 +94,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SimilarityActivity"
-            android:label="@string/title_activity_similarity"></activity>
+            android:label="@string/title_activity_similarity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SeeDigitActivity"
+            android:label="@string/title_activity_see_digit"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

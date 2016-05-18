@@ -1,5 +1,6 @@
 package com.dev.sigma77.kidslearning;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -8,12 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.dev.sigma77.kidslearning.util.Transition;
+import com.dev.sigma77.kidslearning.util.TransitionParams;
+
 import java.util.Arrays;
 
 public class SimilarityActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn13,btn14,btn15,btn16;
     int numAnswers,sceneNum=1,correctSound,wrongSound,endSound;
-    ImageButton[] correctAnswers =new ImageButton[4];
+    ImageButton[] correctAnswersBtns =new ImageButton[4];
     ImageButton[] allButtons=new ImageButton[16];
     int[]scene1Pics={R.drawable.similar1,R.drawable.similar2,R.drawable.similar3,R.drawable.similar4,
                      R.drawable.similar21,R.drawable.similar22,R.drawable.similar23,R.drawable.similar24,
@@ -25,7 +29,10 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
             R.drawable.similar81,R.drawable.similar82,R.drawable.similar83,R.drawable.similar84};
    ImageButton pressedBtn = null;
     SoundPool sp;
-   int  correctAnswersCount=0;
+   int  correctAnswers=0;
+    int currentGamePoints = 0;
+    int btnIndex;
+    private int testNum;
 
 
     @Override
@@ -88,6 +95,8 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
         btn16.setOnClickListener(this);
         loadScenePic(sceneNum);
         setCorrectAnswers(sceneNum);
+        Intent mIntent = getIntent();
+        testNum = mIntent.getIntExtra("TestNum", 0);
     }
 
     public void  loadScenePic (int sceneNum){
@@ -95,7 +104,9 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
             case 1:{
                 for(int i=0;i<16;i++){
                     allButtons[i].setImageResource(scene1Pics[i]);
+                    if(i!=0|| i!=4||i!=8 ||i!=12){
                     allButtons[i].setBackgroundColor(Color.WHITE);
+                    }
 
                 }
 
@@ -120,7 +131,11 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
             case 2:{
                 for(int i=0;i<16;i++){
                     allButtons[i].setImageResource(scene2Pics[i]);
-                    allButtons[i].setBackgroundColor(Color.WHITE);
+
+                    if(i!=0|| i!=4||i!=8 ||i!=12){
+                        allButtons[i].setBackgroundColor(Color.WHITE);
+                    allButtons[i].setClickable(true);
+                    }
 
                 }
 //                btn1.setImageResource(R.drawable.similar51);
@@ -148,17 +163,17 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
     public void setCorrectAnswers(int sceneNum){
         switch (sceneNum){
             case 1:{
-                correctAnswers[0]=btn4;
-                correctAnswers[1]=btn7;
-                correctAnswers[2]=btn12;
-                correctAnswers[3]=btn15;
+                correctAnswersBtns[0]=btn4;
+                correctAnswersBtns[1]=btn7;
+                correctAnswersBtns[2]=btn12;
+                correctAnswersBtns[3]=btn15;
             }
             break;
             case 2:{
-                correctAnswers[0]=btn4;
-                correctAnswers[1]=btn6;
-                correctAnswers[2]=btn10;
-                correctAnswers[3]=btn14;
+                correctAnswersBtns[0]=btn4;
+                correctAnswersBtns[1]=btn6;
+                correctAnswersBtns[2]=btn10;
+                correctAnswersBtns[3]=btn14;
             }
             break;
 
@@ -170,7 +185,7 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         int answer=v.getId();
-        int btnIndex = 1;
+
 
         switch (v.getId()) {
 
@@ -258,12 +273,53 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
             }
         }
         checkAnswer(pressedBtn);
+        disableRowBtns();
         numAnswers++;
 
     }
+    public void disableRowBtns(){
+        switch(btnIndex){
+            case 2:
+            case 3:
+            case 4:{
+                btn2.setClickable(false);
+                btn3.setClickable(false);
+                btn4.setClickable(false);
+
+                break;
+            }
+            case 6:
+            case 7:
+            case 8:{
+                btn6.setClickable(false);
+                btn7.setClickable(false);
+                btn8.setClickable(false);
+
+                break;
+            }
+            case 10:
+            case 11:
+            case 12:{
+                btn10.setClickable(false);
+                btn11.setClickable(false);
+                btn12.setClickable(false);
+
+                break;
+            }
+            case 14:
+            case 15:
+            case 16:{
+                btn14.setClickable(false);
+                btn15.setClickable(false);
+                btn16.setClickable(false);
+
+                break;
+            }
+        }
+    }
 
     private void checkAnswer(ImageButton pressedBtn) {
-        if (!Arrays.asList(correctAnswers).contains(pressedBtn)) {
+        if (!Arrays.asList(correctAnswersBtns).contains(pressedBtn)) {
             pressedBtn.setBackgroundColor(Color.RED);
 
             sp.play(wrongSound, 1, 1, 0, 0, 1);
@@ -273,18 +329,29 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
 
             sp.play(correctSound, 1, 1, 0, 0, 1);
 
-            correctAnswersCount++;
+            correctAnswers++;
 
         }
         if(numAnswers>=4){
-            if(!MainActivity.isTest){
+            boolean isEnd = true;
+            if(!MainActivity.isTest||sceneNum<2){
                 sceneNum++;
                 loadScenePic(sceneNum);
                 setCorrectAnswers(sceneNum);
                 numAnswers=0;
             }
             else {
-                finish();
+                if(correctAnswers==4){
+                    currentGamePoints = 1;
+                }
+                TransitionParams transitionParams = new TransitionParams();
+                transitionParams.setIsEnd(isEnd);
+                transitionParams.setpActivity(this);
+                transitionParams.setTestNumber(testNum);
+                transitionParams.setpCorrectAnswers(correctAnswers);
+                transitionParams.setpCurrentGamePoints(currentGamePoints);
+                Transition.toNextActivity(transitionParams);
+                //finish();
             }
 
 

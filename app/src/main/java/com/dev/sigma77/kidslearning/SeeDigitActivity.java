@@ -5,39 +5,37 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.dev.sigma77.kidslearning.util.TransitionParams;
 import com.dev.sigma77.kidslearning.util.Transition;
+import com.dev.sigma77.kidslearning.util.TransitionParams;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-
-public class CountActivity extends Activity implements View.OnClickListener {
+public class SeeDigitActivity extends Activity implements View.OnClickListener {
+    CountActivity digitActivity=new CountActivity();
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10;
     SoundPool sp;
 
-    static Map<Integer, Integer> intPicList = new HashMap<>();
+    Map<Integer, Integer> intPicList = new HashMap<>();
     Map<Integer, Integer> buttonMap = new HashMap<>();
-    private static ImageView pic;
-    private static int currentPic;
-    private int correctSound;
-    private int wrongSound;
+    private ImageView pic;
+    private int currentPic, correctSound, wrongSound;
     private int correctAnswers, currentGamePoints = 0;
     static int game = 1;
     private int testNum;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count);
+
         btn0 = (Button) findViewById(R.id.button0);
         btn1 = (Button) findViewById(R.id.button1);
         btn2 = (Button) findViewById(R.id.button2);
@@ -65,16 +63,16 @@ public class CountActivity extends Activity implements View.OnClickListener {
         btn10.setOnClickListener(this);
 
 
-        intPicList.put(1, R.drawable.count_on_fingers_01);
-        intPicList.put(2, R.drawable.count_on_fingers_02);
-        intPicList.put(3, R.drawable.count_on_fingers_03);
-        intPicList.put(4, R.drawable.count_on_fingers_04);
-        intPicList.put(5, R.drawable.count_on_fingers_05);
-        intPicList.put(6, R.drawable.count_on_fingers_06);
-        intPicList.put(7, R.drawable.count_on_fingers_07);
-        intPicList.put(8, R.drawable.count_on_fingers_08);
-        intPicList.put(9, R.drawable.count_on_fingers_09);
-        intPicList.put(10, R.drawable.count_on_fingers_10);
+        intPicList.put(1, R.drawable.digit1);
+        intPicList.put(2, R.drawable.digit2);
+        intPicList.put(3, R.drawable.digit3);
+        intPicList.put(4, R.drawable.digit4);
+        intPicList.put(5, R.drawable.digit5);
+        intPicList.put(6, R.drawable.digit6);
+        intPicList.put(7, R.drawable.digit7);
+        intPicList.put(8, R.drawable.digit8);
+        intPicList.put(9, R.drawable.digit9);
+        intPicList.put(10, R.drawable.digit10);
         buttonMap.put(R.id.button0, 0);
         buttonMap.put(R.id.button1, 1);
         buttonMap.put(R.id.button2, 2);
@@ -95,32 +93,8 @@ public class CountActivity extends Activity implements View.OnClickListener {
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
-            Intent mIntent = getIntent();
-            testNum = mIntent.getIntExtra("TestNum", 0);
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_count, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        Intent mIntent = getIntent();
+        testNum = mIntent.getIntExtra("TestNum", 0);
     }
 
     @Override
@@ -129,32 +103,11 @@ public class CountActivity extends Activity implements View.OnClickListener {
         int btnNumber = buttonMap.get(selectedButtonId);
 
         checkAnswer(btnNumber);
-    }
 
-    public  void changePic(int picNum) {
-        int number = intPicList.get(picNum);
-        pic.setImageResource(number);
-
-        currentPic = picNum;
     }
 
     public void checkAnswer(int answerNum) {
         int answer = answerNum;
-        if (game == 2) {
-
-            if (currentPic < 6) {
-                answer = 5 - answer;
-            } else if (currentPic == 5 && answerNum == 0) {
-                answer = 5;
-            } else if (currentPic == 10 && answerNum == 0) {
-                answer = 10;
-            } else {
-                answer = 10 - answer;
-            }
-
-        }
-
-
         if (currentPic == answer) {
             correctAnswers++;
             sp.play(correctSound, 1, 1, 0, 0, 1);
@@ -192,9 +145,7 @@ public class CountActivity extends Activity implements View.OnClickListener {
 
 
     }
-
-
-    public   void getRandomPic() {
+    public void getRandomPic() {
         Random rnd = new Random();
         int randomPicPos = rnd.nextInt(10) + 1;
         while (!intPicList.containsKey(randomPicPos)) {
@@ -202,5 +153,11 @@ public class CountActivity extends Activity implements View.OnClickListener {
         }
         // int randomPic = intPicList.get(randomPicPos);
         changePic(randomPicPos);
+    }
+    public  void changePic(int picNum) {
+        int number = intPicList.get(picNum);
+        pic.setImageResource(number);
+
+        currentPic = picNum;
     }
 }

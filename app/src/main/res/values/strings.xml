@@ -26,6 +26,7 @@
     Натиснете на картинките които сте запомнили.</string>
     <string name="Intro1Text14">Колко е часът който показва часовника? Натиснете на правилния отговор. </string>
     <string name="Intro1Text15">Двете картинки от модела в ляво иматвръзка помежду си. Избери едно от таблата в дясно, чийто две картинки имат същата връзка. </string>
+    <string name="Intro1Text16">Открийте цифрата която се крие между преплетените линий и натиснете на съответния бутон</string>
 
 
 
@@ -80,5 +81,6 @@
     <string name="title_activity_memory">Запомни картинките</string>
     <string name="title_activity_clock">Часовник</string>
     <string name="title_activity_similarity">Подобни</string>
+    <string name="title_activity_see_digit">Коя е цифрата</string>
 
 </resources>

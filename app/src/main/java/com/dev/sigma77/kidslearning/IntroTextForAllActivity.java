@@ -133,6 +133,11 @@ public class IntroTextForAllActivity extends Activity {
                             in.putExtra("TestNum", testNum);
                             startActivity(in);
                         }
+                        else if (exerciseNum == 16) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, SeeDigitActivity.class);
+                            in.putExtra("TestNum", testNum);
+                            startActivity(in);
+                        }
 
 
                         finish();

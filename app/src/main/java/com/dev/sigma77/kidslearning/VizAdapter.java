@@ -318,6 +318,28 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
 
                     break;
                 }
+                case 10: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text16));
+                        in.putExtra("ExerciseNum", 16);
+                        in.putExtra("ImageToLoad", R.drawable.digit_example);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
             }
 
         }
