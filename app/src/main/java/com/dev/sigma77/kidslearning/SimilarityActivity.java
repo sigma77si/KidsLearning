@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -104,7 +105,7 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
             case 1:{
                 for(int i=0;i<16;i++){
                     allButtons[i].setImageResource(scene1Pics[i]);
-                    if(i!=0|| i!=4||i!=8 ||i!=12){
+                    if(!(i ==0 || i ==4 || i ==8 || i ==12)){
                     allButtons[i].setBackgroundColor(Color.WHITE);
                     }
 
@@ -132,7 +133,7 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
                 for(int i=0;i<16;i++){
                     allButtons[i].setImageResource(scene2Pics[i]);
 
-                    if(i!=0|| i!=4||i!=8 ||i!=12){
+                    if(!(i ==0 || i ==4 || i ==8 || i ==12)){
                         allButtons[i].setBackgroundColor(Color.WHITE);
                     allButtons[i].setClickable(true);
                     }
@@ -173,7 +174,7 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
                 correctAnswersBtns[0]=btn4;
                 correctAnswersBtns[1]=btn6;
                 correctAnswersBtns[2]=btn10;
-                correctAnswersBtns[3]=btn14;
+                correctAnswersBtns[3]=btn15;
             }
             break;
 
@@ -272,9 +273,11 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
                 break;
             }
         }
-        checkAnswer(pressedBtn);
-        disableRowBtns();
         numAnswers++;
+        disableRowBtns();
+        checkAnswer(pressedBtn);
+
+
 
     }
     public void disableRowBtns(){
@@ -334,14 +337,24 @@ public class SimilarityActivity extends AppCompatActivity implements View.OnClic
         }
         if(numAnswers>=4){
             boolean isEnd = true;
-            if(!MainActivity.isTest||sceneNum<2){
-                sceneNum++;
-                loadScenePic(sceneNum);
-                setCorrectAnswers(sceneNum);
-                numAnswers=0;
+            if(!(MainActivity.isTest||sceneNum>=2)){
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        sceneNum++;
+                        loadScenePic(sceneNum);
+                        setCorrectAnswers(sceneNum);
+                        numAnswers=0;
+
+
+                    }
+                }, 2800);
+
             }
             else {
-                if(correctAnswers==4){
+                if(correctAnswers==8){
                     currentGamePoints = 1;
                 }
                 TransitionParams transitionParams = new TransitionParams();

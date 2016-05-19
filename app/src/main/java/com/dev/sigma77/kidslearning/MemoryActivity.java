@@ -20,7 +20,7 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
             btn11,btn12,btn13,btn14, btn15,btn16,btn17,btn18,btn19,btn20,
             btn21,btn22,btn23,btn24, btn25,btn26,btn27,btn28,btn29,btn30;
     Map<Integer, Integer> intAllPicList = new HashMap<>();
-    Map<Integer, Integer> buttontWithSetPics = new HashMap<>();
+    Map<Integer, Integer> buttonsWithSetPics = new HashMap<>();
     Map<Integer, Integer> correctAnswersPics = new HashMap<>();
     ImageButton[] buttonsList =new ImageButton[12];
     ImageButton[] allButtonsList =new ImageButton[30];
@@ -176,6 +176,10 @@ public class MemoryActivity extends Activity implements View.OnClickListener {
         btn3. setEnabled(false);
         btn4. setEnabled(false);
         btn5. setEnabled(false);
+        for(int i=0;i<30;i++){
+            allButtonsList[i].setEnabled(false);
+        }
+
 
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         correctSound = sp.load(this, R.raw.zvukpravilno, 1);
@@ -207,6 +211,7 @@ countAnswers.setText(Integer.toString(count));
 
    buttonsList[i].setImageResource(correctAnswersPics.get(i));
             buttonsList[i].setTag(correctAnswersPics.get(i));
+
         }
         new Handler().postDelayed(new Runnable() {
 
@@ -223,11 +228,11 @@ countAnswers.setText(Integer.toString(count));
         for(int i=0;i<30;i++){
             Random rnd = new Random();
             int randomPicPos = rnd.nextInt(30) + 1;
-            while (buttontWithSetPics.containsValue(intAllPicList.get(randomPicPos))) {
+            while (buttonsWithSetPics.containsValue(intAllPicList.get(randomPicPos))) {
                 randomPicPos = rnd.nextInt(30) + 1;
             }
             // int randomPic = intPicList.get(randomPicPos);
-            buttontWithSetPics.put(i, intAllPicList.get(randomPicPos));
+            buttonsWithSetPics.put(i, intAllPicList.get(randomPicPos));
             allButtonsList[i].setImageResource(intAllPicList.get(randomPicPos));
             allButtonsList[i].setTag(intAllPicList.get(randomPicPos));
             //allButtonsList[i].setClickable(true);
@@ -264,6 +269,8 @@ countAnswers.setText(Integer.toString(count));
             sp.play(wrongSound, 1, 1, 0, 0, 1);
         }
        count++;
+        int answersLeft=12-count;
+        countAnswers.setText(Integer.toString(answersLeft));
         if(count>=12) {
 
             if (correctAnswers == 12) {

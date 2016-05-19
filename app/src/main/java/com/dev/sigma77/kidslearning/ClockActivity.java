@@ -153,7 +153,7 @@ public class ClockActivity extends Activity implements View.OnClickListener{
         if(count<12){
             Random rnd = new Random();
             randomScene = rnd.nextInt(12) ;
-            while (passedScens.contains(randomScene)) {
+            while (passedScens.contains(randomScene)&&passedScens.size()<12) {
                 randomScene = rnd.nextInt(12) ;
             }
             setContent();
