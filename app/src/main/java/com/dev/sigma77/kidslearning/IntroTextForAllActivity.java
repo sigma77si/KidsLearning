@@ -28,7 +28,7 @@ public class IntroTextForAllActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_for_all_activitys);
         Intent mIntent = getIntent();
-        final int textToSet = mIntent.getIntExtra("IntroText", 0);
+        final int textToSet = mIntent.getIntExtra("IntroText",0);
         final int image = mIntent.getIntExtra("ImageToLoad", 0);
         final int exerciseNum = mIntent.getIntExtra("ExerciseNum", 0);
         final int testNum = mIntent.getIntExtra("TestNum", 0);
@@ -131,11 +131,31 @@ public class IntroTextForAllActivity extends Activity {
                         else if (exerciseNum == 15) {
                             Intent in = new Intent(IntroTextForAllActivity.this, SimilarityActivity.class);
                             in.putExtra("TestNum", testNum);
+
                             startActivity(in);
                         }
                         else if (exerciseNum == 16) {
-                            Intent in = new Intent(IntroTextForAllActivity.this, SeeDigitActivity.class);
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
+                            in.putExtra("GameName","Digit");
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 17) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                            in.putExtra("TestNum", testNum);
+                            in.putExtra("GameName","Fingers");
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 18) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                            in.putExtra("TestNum", testNum);
+                            in.putExtra("GameName","Squares");
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 19) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                            in.putExtra("TestNum", testNum);
+                            in.putExtra("GameName","NextDigit");
                             startActivity(in);
                         }
 

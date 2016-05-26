@@ -99,7 +99,12 @@
         <activity
             android:name=".SeeDigitActivity"
             android:label="@string/title_activity_see_digit"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MethodsFor10AnswersActivitys"
+            android:label="@string/title_activity_see_digit"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
