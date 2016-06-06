@@ -345,9 +345,9 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         // isTest = false;
                         //  sp.play(bipSound, 1, 1, 0, 0, 1);
                         Intent in = new Intent(context, IntroTextForAllActivity.class);
-                        in.putExtra("IntroText", (R.string.hello_world));
-                        in.putExtra("ExerciseNum", 16);
-                        in.putExtra("ImageToLoad", R.drawable.a_example);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum", 18);
+                        in.putExtra("ImageToLoad", R.drawable.squares_exampel);
                         in.putExtra("IntroReading", R.raw.zvukpravilno);
                         context.startActivity(in);
                     }
@@ -390,7 +390,7 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         //  sp.play(bipSound, 1, 1, 0, 0, 1);
                         Intent in = new Intent(context, IntroTextForAllActivity.class);
                         in.putExtra("IntroText", (R.string.Intro1Text18));
-                        in.putExtra("ExerciseNum", 18);
+                        in.putExtra("ExerciseNum",20);
                         in.putExtra("ImageToLoad", R.drawable.squares_exampel);
                         in.putExtra("IntroReading", R.raw.zvukpravilno);
                         context.startActivity(in);

@@ -27,12 +27,12 @@ public class MethodsFor10AnswersActivitys extends Activity implements View.OnCli
 
     static Map<Integer, Integer> intPicList = new HashMap<>();
     Map<Integer, Integer> buttonMap = new HashMap<>();
-    private static ImageView pic;
+    private static ImageView pic,picMain;
     private static int currentPic;
     private int correctSound;
     private int wrongSound;
     private int correctAnswers, currentGamePoints = 0;
-    static int game = 1;
+    static int game = 1,numQuestons=10;
     private int testNum;
     String gameName;
 
@@ -43,15 +43,19 @@ public class MethodsFor10AnswersActivitys extends Activity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_count);
-
-        initiateButtons();
-
-
-        setOnClickListeners();
         Intent mIntent = getIntent();
         testNum = mIntent.getIntExtra("TestNum", 0);
         gameName=mIntent.getStringExtra("GameName");
+        if(gameName.equals("Cubes")) {
+            setContentView(R.layout.activity_see_digit);
+        }
+        else{
+            setContentView(R.layout.activity_count);
+        }
+
+        initiateButtons();
+        setOnClickListeners();
+
 
 if(gameName.equals("Digit")) {
     populatePicList(R.drawable.digit1, R.drawable.digit2, R.drawable.digit3, R.drawable.digit4, R.drawable.digit5,
@@ -68,6 +72,13 @@ else  if(gameName.equals("Squares")) {
 else  if(gameName.equals("NextDigit")) {
     populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
             R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
+}
+else  if(gameName.equals("ConnectedImages")) {
+    populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
+            R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
+    picMain = (ImageView) findViewById(R.id.imageView1);
+    picMain.setImageResource(R.drawable.a6);
+    numQuestons=9;
 }
 
 
@@ -126,7 +137,7 @@ else  if(gameName.equals("NextDigit")) {
         btn10.setOnClickListener(this);
     }
 
-    private void initiateButtons() {
+    public void initiateButtons() {
         btn0 = (Button) findViewById(R.id.button0);
         btn1 = (Button) findViewById(R.id.button1);
         btn2 = (Button) findViewById(R.id.button2);
@@ -198,7 +209,7 @@ else  if(gameName.equals("NextDigit")) {
             btn8.setClickable(false);
             btn9.setClickable(false);
             btn10.setClickable(false);
-            if (correctAnswers == 10) {
+            if (correctAnswers == numQuestons) {
                 currentGamePoints = 1;
             }
 
@@ -218,9 +229,9 @@ else  if(gameName.equals("NextDigit")) {
     }
     public   void getRandomPic() {
         Random rnd = new Random();
-        int randomPicPos = rnd.nextInt(10) + 1;
+        int randomPicPos = rnd.nextInt(numQuestons) + 1;
         while (!intPicList.containsKey(randomPicPos)) {
-            randomPicPos = rnd.nextInt(10) + 1;
+            randomPicPos = rnd.nextInt(numQuestons) + 1;
         }
         // int randomPic = intPicList.get(randomPicPos);
         changePic(randomPicPos);

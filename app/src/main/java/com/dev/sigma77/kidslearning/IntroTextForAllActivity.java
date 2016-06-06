@@ -52,9 +52,13 @@ public class IntroTextForAllActivity extends Activity {
                 switch (v.getId()){
                     case R.id.button:{
                         if (exerciseNum == 1) {
-                            Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+//                            Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+//                            in.putExtra("TestNum", testNum);
+//                            CountActivity.game=1;
+//                            startActivity(in);
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
-                            CountActivity.game=1;
+                            in.putExtra("GameName","Fingers");
                             startActivity(in);
                         } else if (exerciseNum == 2) {
                             Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
@@ -156,6 +160,12 @@ public class IntroTextForAllActivity extends Activity {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
                             in.putExtra("GameName","NextDigit");
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 20) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                            in.putExtra("TestNum", testNum);
+                            in.putExtra("GameName","ConnectedImages");
                             startActivity(in);
                         }
 
