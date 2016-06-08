@@ -62,7 +62,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         Intent mIntent = getIntent();
         if(MainActivity.isTest==false){
             ResultActivity.testResultLayout.setVisibility(View.INVISIBLE);
-        };
+        }
        int gamePoints = mIntent.getIntExtra("GamePoints", 0);
         int gameCorrectAnswers = mIntent.getIntExtra("CorrectAnswers", 0);
         MainActivity.correctAnswersList.add(String.valueOf(gameCorrectAnswers));

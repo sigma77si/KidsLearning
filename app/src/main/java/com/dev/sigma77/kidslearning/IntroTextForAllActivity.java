@@ -38,7 +38,7 @@ public class IntroTextForAllActivity extends Activity {
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         btnNext = (Button) findViewById(R.id.button);
-        btnSound =(ImageButton) findViewById(R.id.imgSound);
+     btnSound =(ImageButton) findViewById(R.id.imgSound);
 
         text = (TextView) findViewById(R.id.textView);
         text.setMovementMethod(new ScrollingMovementMethod());
@@ -51,6 +51,223 @@ public class IntroTextForAllActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.button:{
+
+                        switch (exerciseNum){
+                            case 1:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("GameName","Fingers");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 2:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                                in.putExtra("SceneNum", 1);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                FindCorrectPic.currentGamePoints = 0;
+                                FindCorrectPic.correctAnswers = 0;
+
+                                break;
+                            }
+                            case 3:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                                in.putExtra("SceneNum", 6);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                FindCorrectPic.currentGamePoints = 0;
+                                FindCorrectPic.correctAnswers = 0;
+
+                                break;
+                            }
+                            case 4:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 5:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, CutedPicActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 6:{
+//                                Intent in = new Intent(IntroTextForAllActivity.this, FindUncorrectPic.class);
+//                            in.putExtra("TestNum", testNum);
+//                            startActivity(in);
+
+                                break;
+                            }
+
+                            case 7:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                CountActivity.game=2;
+
+                                break;
+                            }
+                            case 8:{
+
+                                break;
+                            }
+                            case 9:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, ButtonActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                ButtonActivity.game =2;
+
+                                break;
+                            }
+                            case 10:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                                in.putExtra("SceneNum", 2);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                FindCorrectPic.currentGamePoints = 0;
+                                FindCorrectPic.correctAnswers = 0;
+
+                                break;
+                            }
+                            case 11:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, FindCorrectPic.class);
+                                in.putExtra("SceneNum", 7);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+                                CutedPicActivity.scene = 2;
+                                FindCorrectPic.currentGamePoints = 0;
+                                FindCorrectPic.correctAnswers = 0;
+
+                                break;
+                            }
+                            case 12:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, CutedPicActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 13:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MemoryActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 14:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, ClockActivity.class);
+                                in.putExtra("TestNum", testNum);
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 15:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, SimilarityActivity.class);
+                                in.putExtra("TestNum", testNum);
+
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 16:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("GameName","Digit");
+                                in.putExtra("Layout", "Count");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 17:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("GameName","Fingers");
+                                in.putExtra("Layout", "Count");
+                                startActivity(in);
+
+                                break;
+                            }case 18:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("GameName","Squares");
+                                in.putExtra("Layout", "Count");
+                                startActivity(in);
+
+                                break;
+                            }case 19:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("GameName","NextDigit");
+                                in.putExtra("Layout", "Count");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 20:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityAnimals");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 21:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityThings");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 22:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityLetters");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 23:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityLines");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 24:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityHalfFigure");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 25:{
+                                Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                                in.putExtra("TestNum", testNum);
+                                in.putExtra("Layout", "See digit");
+                                in.putExtra("GameName","SimilarityArrows");
+                                startActivity(in);
+
+                                break;
+                            }
+                            case 26:{
+
+                                break;
+                            }
+
+
+                        }
                         if (exerciseNum == 1) {
 //                            Intent in = new Intent(IntroTextForAllActivity.this, CountActivity.class);
 //                            in.putExtra("TestNum", testNum);
@@ -142,30 +359,42 @@ public class IntroTextForAllActivity extends Activity {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
                             in.putExtra("GameName","Digit");
+                            in.putExtra("Layout", "Count");
                             startActivity(in);
                         }
                         else if (exerciseNum == 17) {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
                             in.putExtra("GameName","Fingers");
+                            in.putExtra("Layout", "Count");
                             startActivity(in);
                         }
                         else if (exerciseNum == 18) {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
                             in.putExtra("GameName","Squares");
+                            in.putExtra("Layout", "Count");
                             startActivity(in);
                         }
                         else if (exerciseNum == 19) {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
                             in.putExtra("GameName","NextDigit");
+                            in.putExtra("Layout", "Count");
                             startActivity(in);
                         }
                         else if (exerciseNum == 20) {
                             Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
                             in.putExtra("TestNum", testNum);
-                            in.putExtra("GameName","ConnectedImages");
+                            in.putExtra("Layout", "See digit");
+                            in.putExtra("GameName","SimilarityAnimals");
+                            startActivity(in);
+                        }
+                        else if (exerciseNum == 21) {
+                            Intent in = new Intent(IntroTextForAllActivity.this, MethodsFor10AnswersActivitys.class);
+                            in.putExtra("TestNum", testNum);
+                            in.putExtra("Layout", "See digit");
+                            in.putExtra("GameName","SimilarityThings");
                             startActivity(in);
                         }
 

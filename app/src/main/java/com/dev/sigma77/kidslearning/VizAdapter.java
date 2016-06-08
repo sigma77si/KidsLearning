@@ -391,7 +391,117 @@ public class VizAdapter extends RecyclerView.Adapter<VizAdapter.MyViewHolder> {
                         Intent in = new Intent(context, IntroTextForAllActivity.class);
                         in.putExtra("IntroText", (R.string.Intro1Text18));
                         in.putExtra("ExerciseNum",20);
-                        in.putExtra("ImageToLoad", R.drawable.squares_exampel);
+                        in.putExtra("ImageToLoad", R.drawable.similarity_amals_intro);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 14: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum",21);
+                        in.putExtra("ImageToLoad", R.drawable.similarity_things_intro);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 15: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum",22);
+                        in.putExtra("ImageToLoad", R.drawable.letters_intro);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 16: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum",23);
+                        in.putExtra("ImageToLoad", R.drawable.letters_intro);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 17: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum",24);
+                        in.putExtra("ImageToLoad", R.drawable.half_figure_intro);
+                        in.putExtra("IntroReading", R.raw.zvukpravilno);
+                        context.startActivity(in);
+                    }
+
+                    else if(actName=="Test"){
+
+
+                        Toast.makeText(context,"Вземи Про версия",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                    break;
+                }
+                case 18: {
+                    if(actName=="Practice") {
+                        // isTest = false;
+                        //  sp.play(bipSound, 1, 1, 0, 0, 1);
+                        Intent in = new Intent(context, IntroTextForAllActivity.class);
+                        in.putExtra("IntroText", (R.string.Intro1Text18));
+                        in.putExtra("ExerciseNum",25);
+                        in.putExtra("ImageToLoad", R.drawable.arrows_intro);
                         in.putExtra("IntroReading", R.raw.zvukpravilno);
                         context.startActivity(in);
                     }

@@ -35,7 +35,7 @@ public class MethodsFor10AnswersActivitys extends Activity implements View.OnCli
     static int game = 1,numQuestons=10;
     private int testNum;
     String gameName;
-
+    String layoutName;
 
 
 
@@ -45,11 +45,13 @@ public class MethodsFor10AnswersActivitys extends Activity implements View.OnCli
         super.onCreate(savedInstanceState);
         Intent mIntent = getIntent();
         testNum = mIntent.getIntExtra("TestNum", 0);
+    //    numQuestons = mIntent.getIntExtra("NumQustions", 0);
         gameName=mIntent.getStringExtra("GameName");
-        if(gameName.equals("Cubes")) {
+        layoutName=mIntent.getStringExtra("Layout");
+        if(layoutName.equals("See digit")) {
             setContentView(R.layout.activity_see_digit);
         }
-        else{
+        else if(layoutName.equals("Count")){
             setContentView(R.layout.activity_count);
         }
 
@@ -57,32 +59,133 @@ public class MethodsFor10AnswersActivitys extends Activity implements View.OnCli
         setOnClickListeners();
 
 
-if(gameName.equals("Digit")) {
-    populatePicList(R.drawable.digit1, R.drawable.digit2, R.drawable.digit3, R.drawable.digit4, R.drawable.digit5,
-            R.drawable.digit6, R.drawable.digit7, R.drawable.digit8, R.drawable.digit9, R.drawable.digit10);
-}
-      else  if(gameName.equals("Fingers")) {
-            populatePicList(R.drawable.count_on_fingers_01, R.drawable.count_on_fingers_02, R.drawable.count_on_fingers_03, R.drawable.count_on_fingers_04, R.drawable.count_on_fingers_05,
-                    R.drawable.count_on_fingers_06, R.drawable.count_on_fingers_07, R.drawable.count_on_fingers_08, R.drawable.count_on_fingers_09, R.drawable.count_on_fingers_10);
+        switch (gameName){
+            case "Digit":{
+                newPopulateButtonMap(0,R.drawable.digit1, R.drawable.digit2, R.drawable.digit3, R.drawable.digit4, R.drawable.digit5,
+                        R.drawable.digit6, R.drawable.digit7, R.drawable.digit8, R.drawable.digit9, R.drawable.digit10);
+                populatePicList(R.drawable.digit1, R.drawable.digit2, R.drawable.digit3, R.drawable.digit4, R.drawable.digit5,
+                        R.drawable.digit6, R.drawable.digit7, R.drawable.digit8, R.drawable.digit9, R.drawable.digit10);
+
+                break;
+            }
+            case "Fingers":{
+                newPopulateButtonMap(0,R.drawable.count_on_fingers_01, R.drawable.count_on_fingers_02, R.drawable.count_on_fingers_03, R.drawable.count_on_fingers_04, R.drawable.count_on_fingers_05,
+                        R.drawable.count_on_fingers_06, R.drawable.count_on_fingers_07, R.drawable.count_on_fingers_08, R.drawable.count_on_fingers_09, R.drawable.count_on_fingers_10);
+                populatePicList(R.drawable.count_on_fingers_01, R.drawable.count_on_fingers_02, R.drawable.count_on_fingers_03, R.drawable.count_on_fingers_04, R.drawable.count_on_fingers_05,
+                        R.drawable.count_on_fingers_06, R.drawable.count_on_fingers_07, R.drawable.count_on_fingers_08, R.drawable.count_on_fingers_09, R.drawable.count_on_fingers_10);
+
+                break;
+            }
+            case "Squares":{
+                newPopulateButtonMap(0,R.drawable.squares1, R.drawable.squares2, R.drawable.squares3, R.drawable.squares4, R.drawable.squares5,
+                        R.drawable.squares6, R.drawable.squares7, R.drawable.squares8, R.drawable.squares9, R.drawable.squares10);
+                populatePicList(R.drawable.squares1, R.drawable.squares2, R.drawable.squares3, R.drawable.squares4, R.drawable.squares5,
+                        R.drawable.squares6, R.drawable.squares7, R.drawable.squares8, R.drawable.squares9, R.drawable.squares10);
+
+                break;
+            }
+            case "NextDigit":{
+                newPopulateButtonMap(0,R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
+                        R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
+                populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
+                        R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
+
+                break;
+            }
+            case "SimilarityAnimals":{
+                numQuestons=5;
+                newPopulateButtonMap(0,R.drawable.similarity_animal_1,0, R.drawable.similarity_animal_3, 0, R.drawable.similarity_animal_5,
+                        R.drawable.similarity_animal_6,0, R.drawable.similarity_animal_8, 0, 0);
+                populatePicList(R.drawable.similarity_animal_1,R.drawable.similarity_animal_5,R.drawable.similarity_animal_8,R.drawable.similarity_animal_3,R.drawable.similarity_animal_6,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.similarity_amals_main);
+
+                break;
+            }
+            case "SimilarityThings":{
+                numQuestons=5;
+                newPopulateButtonMap(0,R.drawable.similarity_things_1,R.drawable.similarity_things_2, R.drawable.similarity_things_3, R.drawable.similarity_things_4, 0,
+                        R.drawable.similarity_things_6,0, 0, 0, 0);
+                populatePicList(R.drawable.similarity_things_1,R.drawable.similarity_things_2, R.drawable.similarity_things_3, R.drawable.similarity_things_4, R.drawable.similarity_things_6,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.similarity_things_main);
+
+                break;
+            }
+            case "SimilarityLetters":{
+                numQuestons=5;
+                newPopulateButtonMap(0,R.drawable.letters_1,R.drawable.letters_2,0, R.drawable.letters_4,0, R.drawable.letters_6,0,0, R.drawable.letters_9,0
+                       );
+                populatePicList(R.drawable.letters_1,R.drawable.letters_2, R.drawable.letters_4, R.drawable.letters_6, R.drawable.letters_9,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.letters_main);
+
+                break;
+            }
+            case "SimilarityLines":{
+                numQuestons=5;
+                newPopulateButtonMap(0,R.drawable.lines_1,R.drawable.lines_2,0, R.drawable.lines_4,0,00,0, R.drawable.lines_8, R.drawable.lines_9,0
+                );
+                populatePicList(R.drawable.lines_1,R.drawable.lines_2, R.drawable.lines_4, R.drawable.lines_8, R.drawable.lines_9,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.lines_main);
+
+                break;
+            }
+            case "SimilarityHalfFigure":{
+                numQuestons=5;
+                newPopulateButtonMap(0,R.drawable.half_figure_1,R.drawable.half_figure_2, R.drawable.half_figure_3, R.drawable.half_figure_4,0,0,0, R.drawable.half_figure_8,0,0
+                );
+                populatePicList(R.drawable.half_figure_1,R.drawable.half_figure_2, R.drawable.half_figure_3, R.drawable.half_figure_4, R.drawable.half_figure_8,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.half_figure_main);
+
+                break;
+            }
+            case "SimilarityArrows":{
+                numQuestons=5;
+                newPopulateButtonMap(0,0,R.drawable.arrow_2,R.drawable.arrow_3, R.drawable.arrow_4, R.drawable.arrow_5,0, R.drawable.arrow_7,0,0,0
+                );
+                populatePicList(R.drawable.arrow_2,R.drawable.arrow_3, R.drawable.arrow_4, R.drawable.arrow_5, R.drawable.arrow_7,0,0,0,0,0);
+                picMain = (ImageView) findViewById(R.id.imageView1);
+                picMain.setImageResource(R.drawable.arrows_main);
+
+                break;
+            }
         }
-else  if(gameName.equals("Squares")) {
-    populatePicList(R.drawable.squares1, R.drawable.squares2, R.drawable.squares3, R.drawable.squares4, R.drawable.squares5,
-            R.drawable.squares6, R.drawable.squares7, R.drawable.squares8, R.drawable.squares9, R.drawable.squares10);
-}
-else  if(gameName.equals("NextDigit")) {
-    populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
-            R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
-}
-else  if(gameName.equals("ConnectedImages")) {
-    populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
-            R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
-    picMain = (ImageView) findViewById(R.id.imageView1);
-    picMain.setImageResource(R.drawable.a6);
-    numQuestons=9;
-}
 
 
-        populateButtonMap();
+//if(gameName.equals("Digit")) {
+//    populatePicList(R.drawable.digit1, R.drawable.digit2, R.drawable.digit3, R.drawable.digit4, R.drawable.digit5,
+//            R.drawable.digit6, R.drawable.digit7, R.drawable.digit8, R.drawable.digit9, R.drawable.digit10);
+//}
+////      else  if(gameName.equals("Fingers")) {
+////    newPopulateButtonMap(0,R.drawable.count_on_fingers_01, R.drawable.count_on_fingers_02, R.drawable.count_on_fingers_03, R.drawable.count_on_fingers_04, R.drawable.count_on_fingers_05,
+////            R.drawable.count_on_fingers_06, R.drawable.count_on_fingers_07, R.drawable.count_on_fingers_08, R.drawable.count_on_fingers_09, R.drawable.count_on_fingers_10);
+////    populatePicList(R.drawable.count_on_fingers_01, R.drawable.count_on_fingers_02, R.drawable.count_on_fingers_03, R.drawable.count_on_fingers_04, R.drawable.count_on_fingers_05,
+////                    R.drawable.count_on_fingers_06, R.drawable.count_on_fingers_07, R.drawable.count_on_fingers_08, R.drawable.count_on_fingers_09, R.drawable.count_on_fingers_10);
+////        }
+//else  if(gameName.equals("Squares")) {
+//    populatePicList(R.drawable.squares1, R.drawable.squares2, R.drawable.squares3, R.drawable.squares4, R.drawable.squares5,
+//            R.drawable.squares6, R.drawable.squares7, R.drawable.squares8, R.drawable.squares9, R.drawable.squares10);
+//}
+//else  if(gameName.equals("NextDigit")) {
+//    populatePicList(R.drawable.next_digit1, R.drawable.next_digit2, R.drawable.next_digit3, R.drawable.next_digit4, R.drawable.next_digit5,
+//            R.drawable.next_digit6, R.drawable.next_digit7, R.drawable.next_digit8, R.drawable.next_digit9, R.drawable.next_digit10);
+//}
+//else  if(gameName.equals("Similarity")) {
+//    numQuestons=5;
+//    newPopulateButtonMap(0,R.drawable.similarity_animal_1,0, R.drawable.similarity_animal_3, 0, R.drawable.similarity_animal_5,
+//               R.drawable.similarity_animal_6,0, R.drawable.similarity_animal_8, 0, 0);
+//    populatePicList(R.drawable.similarity_animal_1,R.drawable.similarity_animal_5,R.drawable.similarity_animal_8,R.drawable.similarity_animal_3,R.drawable.similarity_animal_6,0,0,0,0,0);
+//    picMain = (ImageView) findViewById(R.id.imageView1);
+//    picMain.setImageResource(R.drawable.similarity_amals_main);
+//
+//}
+
+//        newPopulateButtonMap(0,R.drawable.similarity_animal_1,0, R.drawable.similarity_animal_3, 0, R.drawable.similarity_animal_5,
+//                R.drawable.similarity_animal_6,0, R.drawable.similarity_animal_8, 0, 0);
+       // populateButtonMap();
 
 
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
@@ -106,21 +209,46 @@ else  if(gameName.equals("ConnectedImages")) {
         buttonMap.put(R.id.button7, 7);
         buttonMap.put(R.id.button8, 8);
         buttonMap.put(R.id.button9, 9);
-        buttonMap.put(R.id.button10, 10);
+        buttonMap.put(R.id.button10, 10);}
+    public void newPopulateButtonMap(int pic0,int pic1,int pic2,int pic3,int pic4,int pic5,int pic6,int pic7,int pic8,int pic9,int pic10) {
+
+        buttonMap.put(R.id.button0, pic0);
+        buttonMap.put(R.id.button1, pic1);
+        buttonMap.put(R.id.button2, pic2);
+        buttonMap.put(R.id.button3, pic3);
+        buttonMap.put(R.id.button4, pic4);
+        buttonMap.put(R.id.button5, pic5);
+        buttonMap.put(R.id.button6, pic6);
+        buttonMap.put(R.id.button7, pic7);
+        buttonMap.put(R.id.button8, pic8);
+        buttonMap.put(R.id.button9, pic9);
+        buttonMap.put(R.id.button10, pic10);
     }
+
 
     public void populatePicList(int pic1,int pic2,int pic3,int pic4,int pic5,int pic6,int pic7,int pic8,int pic9,int pic10
                                 ) {
-        intPicList.put(1, pic1);
-        intPicList.put(2, pic2);
-        intPicList.put(3, pic3);
-        intPicList.put(4, pic4);
-        intPicList.put(5, pic5);
-        intPicList.put(6, pic6);
-        intPicList.put(7, pic7);
-        intPicList.put(8, pic8);
-        intPicList.put(9, pic9);
-        intPicList.put(10, pic10);
+        if(numQuestons==10) {
+            intPicList.put(1, pic1);
+            intPicList.put(2, pic2);
+            intPicList.put(3, pic3);
+            intPicList.put(4, pic4);
+            intPicList.put(5, pic5);
+            intPicList.put(6, pic6);
+            intPicList.put(7, pic7);
+            intPicList.put(8, pic8);
+            intPicList.put(9, pic9);
+            intPicList.put(10, pic10);
+        }
+        else if(numQuestons==5) {
+
+            intPicList.put(1, pic1);
+            intPicList.put(2, pic2);
+            intPicList.put(3, pic3);
+            intPicList.put(4, pic4);
+            intPicList.put(5, pic5);
+
+        }
     }
 
     public void setOnClickListeners() {
@@ -164,9 +292,51 @@ else  if(gameName.equals("ConnectedImages")) {
         int selectedButtonId = v.getId();
         int btnNumber = buttonMap.get(selectedButtonId);
 
-        checkAnswer(btnNumber);
-
+       // checkAnswer(btnNumber);
+         check(btnNumber);
     }
+    public void check(int btn){
+        int number = intPicList.get(currentPic);
+
+        if(btn==number){
+
+                correctAnswers++;
+                sp.play(correctSound, 1, 1, 0, 0, 1);
+            } else {
+                sp.play(wrongSound, 1, 1, 0, 0, 1);
+            }
+            intPicList.remove(currentPic);
+            if (intPicList.size() <= 0) {
+                boolean isEnd = true;
+                btn1.setClickable(false);
+                btn2.setClickable(false);
+                btn3.setClickable(false);
+                btn4.setClickable(false);
+                btn5.setClickable(false);
+                btn6.setClickable(false);
+                btn7.setClickable(false);
+                btn8.setClickable(false);
+                btn9.setClickable(false);
+                btn10.setClickable(false);
+                if (correctAnswers == numQuestons) {
+                    currentGamePoints = 1;
+                }
+
+                TransitionParams transitionParams = new TransitionParams();
+                transitionParams.setIsEnd(isEnd);
+                transitionParams.setpActivity(this);
+                transitionParams.setTestNumber(testNum);
+                transitionParams.setpCorrectAnswers(correctAnswers);
+                transitionParams.setpCurrentGamePoints(currentGamePoints);
+                Transition.toNextActivity(transitionParams);
+
+            } else {
+                getRandomPic();
+            }
+
+
+        }
+
     public  void changePic(int picNum) {
         int number = intPicList.get(picNum);
         pic.setImageResource(number);
